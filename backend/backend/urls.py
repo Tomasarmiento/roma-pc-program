@@ -24,6 +24,7 @@ from backend.views import saludo
 urlpatterns = [
     path('', include('apps.front.urls')),
     path('admin/', admin.site.urls),
+    path('control/', include('apps.control.urls')),
     # path('control/', include('apps.control.urls')),
     path('saludo/', saludo),
     # path('index/', views.index, name="index"),

@@ -1,0 +1,13 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block content %}
+<head>
+    <script src="{% static 'js/hash1.js' %}"></script>
+</head>
+<h1>first hash</h1>
+<div class="container-fluid col-md-3 card p-1 border shadow rounded">
+    <button type="button" class="btn btn-primary mb-3" id="apagar">Apagar led</button>
+    <button type="button" class="btn btn-primary mb-3" id="prender">Prender led</button>
+    <td><div class="led led-grey" id="ledPrueba"></div></td>
+</div>
+{% endblock %}

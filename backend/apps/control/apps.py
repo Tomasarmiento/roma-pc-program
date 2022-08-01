@@ -1,4 +1,5 @@
 from django.apps import AppConfig
+# import django
 from apps.control.utils import functions
 
 class ControlConfig(AppConfig):
@@ -6,4 +7,5 @@ class ControlConfig(AppConfig):
     name = 'apps.control'
 
     def ready(self) -> None:
+        # django.setup()
         functions.FrontWs().start()

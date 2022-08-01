@@ -1,5 +1,5 @@
 from apps.ws.utils.functions import send_front_message
-from apps.ws.consumers import front_message
+from apps.ws.utils.variables import frontState
 import threading
 import random, time
 
@@ -28,6 +28,8 @@ class FrontWs(threading.Thread):
 
                 'avance_pos': float(random.randint(1,10)),
                 'avance_vel': float(random.randint(1,10)),
+
+                'led_state': frontState.led_on
             }
             send_front_message(data)
             time.sleep(1)

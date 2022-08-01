@@ -1,0 +1,137 @@
+{% load static %}
+{% block content %}
+{% include 'neumatic_index.html'%}
+<head>
+    <script src="{% static 'js/okuma_2_neumatic.js' %}"></script>
+</head>
+<div class="row m-auto d-flex justify-content-around mx-auto py-3 mx-5 px-0" id="okuma1_container">
+<div id="contenedorNeumaticaOkumaDos" class="col-md-3 col-12 mb-5 card rounded p-2 mx-auto shadow-sm text-black letras-neumatica " >
+    <div class="contanier-fluid ">
+        <div class="card-header text-center">
+            <div class="col-12" style="color: black;">
+                <h4>Okuma_2</h4>
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col-md-4 text-center inblock-center " >Neumático inflador</p>
+            </div>
+            <div class="col text-center di-position-left-btn" >
+                <button class="btn btn-primary buton-width" id="infladorXOn" menu="okuma2" cmd= {{ rem_do_set }}> Adelante </button>
+                <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="infladorXOff" menu="okuma2" cmd= {{ rem_do_set }}> Atrás </button>
+            </div>
+            <div class="col text-center" >
+                <article class="led led-grey" style="margin-top: 6px;" id="infladorAdelanteOk"></article>
+                <article class="led led-grey" style="margin-top: 24px;" id="infladorAtrasOk"></article>
+            </div>
+            <!-- <div class="col text-center di-position" >
+                <label class="di-position-top-btn"><FONT SIZE=4>4 on-3 off</FONT></label>
+                <label class="di-position-bot-btn"><FONT SIZE=4>4 off-3 on</FONT></label>
+            </div> -->
+        </div>
+        <hr size="100px" style="width: 100%;" color="grey">
+        <div class="row mt-3">
+            <div class="col-md-4 text-center inblock-center">
+                <p style="display: inline;margin-top: 15px;">Sistema de Booster</p>
+            </div>
+            <div class="col text-center di-position-left-btn" >
+                <button class="btn btn-primary buton-width" id="boosterXOn" menu="okuma2" cmd= {{ rem_do_set }}> On </button>
+                <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="boosterXOff" menu="okuma2" cmd= {{ rem_do_set }}> Off </button>
+            </div>
+            <div class="col text-center" >
+                <article class="led led-grey" style="margin-top: 6px;" id="boosterOnOk"></article>
+                <article class="led led-grey" style="margin-top: 24px;" id="boosterOffOk"></article>
+            </div>
+            <!-- <div class="col text-center di-position" >
+                <label class="di-position-top-btn"><FONT SIZE=4>15 on</FONT></label>
+                <label class="di-position-bot-btn"><FONT SIZE=4>15 off</FONT></label>
+            </div> -->
+        </div>  
+        <hr size="100px" style="width: 100%;" color="grey">
+        <div class="row mt-3">
+            <div class="col-md-4 text-center inblock-center">
+                <p style="display: inline">Sistema de Soplador</p>
+            </div>
+            <div class="col text-center di-position-left-btn" >
+                <button class="btn btn-primary buton-width" id="sopladorXOn" menu="okuma2" cmd= {{ rem_do_set }}> On </button>
+                <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="sopladorXOff" menu="okuma2" cmd= {{ rem_do_set }}> Off </button>
+            </div>
+            <div class="col text-center" >
+                <article class="led led-grey" style="margin-top: 6px;" id="sopladorOnOk"></article>
+                <article class="led led-grey" style="margin-top: 24px;" id="sopladorOffOk"></article>
+            </div>
+            <!-- <div class="col text-center di-position" >
+                <label class="di-position-top-btn"><FONT SIZE=4>13 on</FONT></label>
+                <label class="di-position-bot-btn"><FONT SIZE=4>13 off</FONT></label>
+            </div> -->
+        </div>
+        <hr size="100px" style="width: 98%;" color="grey">
+        <div class="row mt-3">
+            <div class="col-md-4 text-center inblock-center">
+                <p style="display: inline;">Sistema de desclampeo OP30</p>
+            </div>
+            <div class="col text-center di-position-left-btn"  >
+                <button class="btn btn-primary buton-width" id="desclampeo30XOn" menu="okuma2" cmd= {{ rem_do_set }}> On </button>
+                <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="desclampeo30XOff" menu="okuma2" cmd= {{ rem_do_set }}> Off </button>
+            </div>
+            <div class="col text-center" >
+                <article class="led led-grey" style="margin-top: 6px;" id="desclampeo30OnOk"></article>
+                <article class="led led-grey" style="margin-top: 24px;" id="desclampeo30OffOk"></article>
+            </div>
+            <!-- <div class="col text-center di-position" >
+                <label class="di-position-top-btn"><FONT SIZE=4>6 off-5 on</FONT></label>
+                <label class="di-position-bot-btn"><FONT SIZE=4>6 on-5 off</FONT></label>
+            </div> -->
+        </div>
+        <hr size="100px" style="width: 98%;" color="grey">
+        <div class="row mt-3">
+            <div class="col-md-4 text-center inblock-center">
+                <p style="display: inline;">Sistema de desclampeo OP40</p>
+            </div>
+            <div class="col text-center di-position-left-btn"  >
+                <button class="btn btn-primary buton-width" id="desclampeo40XOn" menu="okuma2" cmd= {{ rem_do_set }}> On </button>
+                <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="desclampeo40XOff" menu="okuma2" cmd= {{ rem_do_set }}> Off </button>
+            </div>
+            <div class="col text-center" >
+                <article class="led led-grey" style="margin-top: 6px;" id="desclampeo40OnOk"></article>
+                <article class="led led-grey" style="margin-top: 24px;" id="desclampeo40OffOk"></article>
+            </div>
+            <!-- <div class="col text-center di-position" >
+                <label class="di-position-top-btn"><FONT SIZE=4>6 off-5 on</FONT></label>
+                <label class="di-position-bot-btn"><FONT SIZE=4>6 on-5 off</FONT></label>
+            </div> -->
+        </div>
+        </div>  
+    </div>
+    <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-interval="false"  style="width: 60%;height: 60%;">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item active">
+            <img class="d-block w-100" src="{% static '../static/img/test3.jpg' %}" alt="First slide">
+            </div>
+            <div class="carousel-item">
+            <img class="d-block w-100" src="{% static '../static/img/test2.jpg' %}" alt="Second slide">
+            </div>
+            <div class="carousel-item">
+            <img class="d-block w-100" src="{% static '../static/img/test1.jpg' %}" alt="Third slide">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+</div>
+<section class="second_section">
+    {% include 'sensores_index_template.html'%}
+</section>
+<!-- <h1>okuma_1_neumatic</h1> -->
+
+{% endblock %}

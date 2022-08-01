@@ -24,7 +24,6 @@ def send_front_message(data):
             'type': 'front.message',
             'data': data
         }
-        print("datossssssssssssssss",data)
         async_to_sync(ch_layer.send)(
             ch_name,
             payload

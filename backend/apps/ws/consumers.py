@@ -9,8 +9,6 @@ from apps.ws.models import ChannelInfo
 from apps.ws.utils import variables as ws_vars
 
 
-
-
 class FrontConsumer(AsyncWebsocketConsumer):
     async def connect(self):
         await self.set_channel_info()
