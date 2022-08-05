@@ -15,7 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     xhr.send();
   });
-
+  
   btn_off_led.addEventListener('click', (e) => {
     let url = "http://localhost:8000/control/test-led/off/";
 

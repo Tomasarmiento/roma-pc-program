@@ -7,4 +7,5 @@ urlpatterns = [
     path('test-led/off/', views.switch_led_state_off, name='led-off'),
     path('sensores/okuma/', views.sensores_okuma_identify, name='okuma'),
     path('sensores/mesa/', views.sensores_mesa_identify, name='mesa'),
+    path('automatico/okuma/', views.disable_okuma, name='okuma'),
 ]

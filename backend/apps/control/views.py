@@ -1,3 +1,4 @@
+import json
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -10,13 +11,28 @@ from django.shortcuts import redirect
 
 from apps.ws.utils.functions import send_front_message
 from apps.ws.utils.variables import frontState
+from apps.parameters.utils.functions import toggle_disable_machine
+from apps.parameters.models import Parameter
 
 from apps.control.utils.variables import OKUMA,MESA
+
+@csrf_exempt
+def disable_okuma(request):
+    post_req = request.POST
+    model_machine = post_req['model_machine']
+    model_machine2 = str(model_machine)
+    # print("el request es:",request.POST)
+    toggle_disable_machine(model_machine2,False)
+    return JsonResponse({})
 
 
 @csrf_exempt
 def switch_led_state_off(request):
-    frontState.led_on = False
+    # frontState.led_on = False
+    # params = Parameter.objects.all()
+    # contable = params.filter(machine_model=1).get(name='okuma_1')
+    # print(contable.value)
+    toggle_disable_machine('okuma_1',True)
     return JsonResponse({})
 
 @csrf_exempt
