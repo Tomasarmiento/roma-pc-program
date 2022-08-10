@@ -12,7 +12,7 @@ def init_params():        # params: query with all parameters in database
             param_vars.PARAMS[key] = value
         else:
             param_vars.PARAMS[key] = saved_params[key]
-    print("parametros",param_vars.PARAMS)
+    
 
 def toggle_disable_machine(machine_name):
     from apps.parameters.models import Parameter
@@ -26,8 +26,9 @@ def toggle_disable_machine(machine_name):
 
 def update_model_machine_params():
     from apps.parameters.models import Parameter
-    param_vars.PARAMS['okuma_1'] = Parameter.objects.get(name='okuma_1')
-    param_vars.PARAMS['okuma_2'] = Parameter.objects.get(name='okuma_2')
-    param_vars.PARAMS['okuma_3'] = Parameter.objects.get(name='okuma_3')
-    param_vars.PARAMS['okuma_4'] = Parameter.objects.get(name='okuma_4')
+    param_vars.PARAMS['okuma_1'] = Parameter.objects.get(name='okuma_1').value
+    param_vars.PARAMS['okuma_2'] = Parameter.objects.get(name='okuma_2').value
+    param_vars.PARAMS['okuma_3'] = Parameter.objects.get(name='okuma_3').value
+    param_vars.PARAMS['okuma_4'] = Parameter.objects.get(name='okuma_4').value
+    print("parametros",param_vars.PARAMS)
     

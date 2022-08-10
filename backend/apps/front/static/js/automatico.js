@@ -55,19 +55,19 @@ socket.onmessage = function (event) {
     const cuadrado_okuma4 = document.getElementById("cuadrado_okuma4")
 
     datosWs.okuma_1 == 1
-    ? (cuadrado_okuma1.className = "cuadrado_okuma1")
-    : (cuadrado_okuma1.style.backgroundColor = "red");
-
+    ? (cuadrado_okuma1.className = "cuadrado_okuma1 cuadrado_green")
+    : (cuadrado_okuma1.className = "cuadrado_okuma1 cuadrado_red")
+    
     datosWs.okuma_2 == 1
-    ? (cuadrado_okuma2.className = "cuadrado_okuma1")
-    : (cuadrado_okuma2.style.backgroundColor = "red");
+    ? (cuadrado_okuma2.className = "cuadrado_okuma2 cuadrado_green")
+    : (cuadrado_okuma2.className = "cuadrado_okuma2 cuadrado_red")
 
     datosWs.okuma_3 == 1
-    ? (cuadrado_okuma3.className = "cuadrado_okuma1")
-    : (cuadrado_okuma3.style.backgroundColor = "red");
+    ? (cuadrado_okuma3.className = "cuadrado_okuma3 cuadrado_green")
+    : (cuadrado_okuma3.className = "cuadrado_okuma3 cuadrado_red")
 
     datosWs.okuma_4 == 1
-    ? (cuadrado_okuma4.className = "cuadrado_okuma1")
-    : (cuadrado_okuma4.style.backgroundColor = "red");
+    ? (cuadrado_okuma4.className = "cuadrado_okuma4 cuadrado_green")
+    : (cuadrado_okuma4.className = "cuadrado_okuma4 cuadrado_red")
 
 }; 

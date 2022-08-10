@@ -785,17 +785,23 @@ body {
   .cuadrado_okuma1 {
     width: 150px; 
     height: 235px; 
-    background: rgb(0, 209, 0);
     opacity: .6;
     position:absolute;
     left: 270px;
     top: 19px;
   }
 
+  .cuadrado_red {
+    background: rgb(209, 0, 0);
+  }
+
+  .cuadrado_green {
+    background: rgb(0, 209, 0);
+  }
+
   .cuadrado_okuma2 {
     width: 150px; 
     height: 235px; 
-    background: rgb(0, 209, 0);
     opacity: .6;
     position:absolute;
     left: 550px;
@@ -805,7 +811,6 @@ body {
   .cuadrado_okuma3 {
     width: 150px; 
     height: 235px; 
-    background: rgb(0, 209, 0);
     opacity: .6;
     position:absolute;
     left: 295px;
@@ -815,7 +820,6 @@ body {
   .cuadrado_okuma4 {
     width: 150px; 
     height: 235px; 
-    background: rgb(0, 209, 0);
     opacity: .6;
     position:absolute;
     left: 585px;
@@ -825,7 +829,6 @@ body {
   .cuadrado_mesa1 {
     width: 55px; 
     height: 100px; 
-    background: rgb(0, 209, 0);
     opacity: .6;
     position:absolute;
     left: 85px;
@@ -835,7 +838,6 @@ body {
   .cuadrado_mesa2 {
     width: 55px; 
     height: 100px; 
-    background: rgb(0, 209, 0);
     opacity: .6;
     position:absolute;
     left: 147px;
