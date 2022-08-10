@@ -22,7 +22,7 @@ def disable_okuma(request):
     model_machine = post_req['model_machine']
     model_machine2 = str(model_machine)
     # print("el request es:",request.POST)
-    toggle_disable_machine(model_machine2,False)
+    toggle_disable_machine(model_machine2)
     return JsonResponse({})
 
 

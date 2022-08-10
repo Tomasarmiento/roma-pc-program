@@ -24,7 +24,7 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");
 socket.onmessage = function (event) {
     // console.log('aca');
     const datosWs = JSON.parse(event.data);
-    console.log(datosWs.led_state);
+    console.log(datosWs);
     // if (datosWs){
     //   const ledPrueba = document.querySelector("#ledPrueba");
     //   datosWs.led_state == true
