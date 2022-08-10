@@ -41,3 +41,33 @@ window.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+
+
+socket.onmessage = function (event) {
+    // console.log('aca');
+    const datosWs = JSON.parse(event.data);
+    console.log(datosWs);
+    //BLOQUES DE HABILITACION PARA OKUMAS
+    const cuadrado_okuma1 = document.getElementById("cuadrado_okuma1")
+    const cuadrado_okuma2 = document.getElementById("cuadrado_okuma2")
+    const cuadrado_okuma3 = document.getElementById("cuadrado_okuma3")
+    const cuadrado_okuma4 = document.getElementById("cuadrado_okuma4")
+
+    datosWs.okuma_1 == 1
+    ? (cuadrado_okuma1.className = "cuadrado_okuma1")
+    : (cuadrado_okuma1.style.backgroundColor = "red");
+
+    datosWs.okuma_2 == 1
+    ? (cuadrado_okuma2.className = "cuadrado_okuma1")
+    : (cuadrado_okuma2.style.backgroundColor = "red");
+
+    datosWs.okuma_3 == 1
+    ? (cuadrado_okuma3.className = "cuadrado_okuma1")
+    : (cuadrado_okuma3.style.backgroundColor = "red");
+
+    datosWs.okuma_4 == 1
+    ? (cuadrado_okuma4.className = "cuadrado_okuma1")
+    : (cuadrado_okuma4.style.backgroundColor = "red");
+
+}; 

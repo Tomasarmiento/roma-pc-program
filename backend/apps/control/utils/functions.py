@@ -4,7 +4,6 @@ from apps.parameters.utils import variables as param_vars
 import threading
 import random, time
 import json
-from django.core.serializers.json import DjangoJSONEncoder
 
 # def get_front_states():
 #     data = {'hola':10}
@@ -24,11 +23,11 @@ class FrontWs(threading.Thread):
         time.sleep(3)
         while 1:
             data = {
-                'okuma_1' : param_vars.PARAMS['okuma_1'],
-                'okuma_2' : param_vars.PARAMS['okuma_2'],
-                'okuma_3' : param_vars.PARAMS['okuma_3'],
-                'okuma_4' : param_vars.PARAMS['okuma_4'],
+                'okuma_1' : int(param_vars.PARAMS['okuma_1']),
+                'okuma_2' : int(param_vars.PARAMS['okuma_2']),
+                'okuma_3' : int(param_vars.PARAMS['okuma_3']),
+                'okuma_4' : int(param_vars.PARAMS['okuma_4']),
                 'led_state': frontState.led_on,
             }
-            send_front_message(json.dumps((data), cls=DjangoJSONEncoder))
+            send_front_message(data)
             time.sleep(3)
