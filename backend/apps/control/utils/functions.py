@@ -23,6 +23,8 @@ class FrontWs(threading.Thread):
         time.sleep(3)
         while 1:
             data = {
+                'mesa_armado_1' : int(param_vars.PARAMS['mesa_armado_1']),
+                'mesa_armado_2' : int(param_vars.PARAMS['mesa_armado_2']),
                 'okuma_1' : int(param_vars.PARAMS['okuma_1']),
                 'okuma_2' : int(param_vars.PARAMS['okuma_2']),
                 'okuma_3' : int(param_vars.PARAMS['okuma_3']),

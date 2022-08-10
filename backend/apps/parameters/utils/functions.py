@@ -26,6 +26,8 @@ def toggle_disable_machine(machine_name):
 
 def update_model_machine_params():
     from apps.parameters.models import Parameter
+    param_vars.PARAMS['mesa_armado_1'] = Parameter.objects.get(name='mesa_armado_1').value
+    param_vars.PARAMS['mesa_armado_2'] = Parameter.objects.get(name='mesa_armado_2').value
     param_vars.PARAMS['okuma_1'] = Parameter.objects.get(name='okuma_1').value
     param_vars.PARAMS['okuma_2'] = Parameter.objects.get(name='okuma_2').value
     param_vars.PARAMS['okuma_3'] = Parameter.objects.get(name='okuma_3').value

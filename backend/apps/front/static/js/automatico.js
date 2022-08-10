@@ -8,7 +8,13 @@ window.addEventListener("DOMContentLoaded", () => {
     const btn_desactivate_mesa_1 = document.getElementById('desactivate_me1')
     const btn_desactivate_mesa_2 = document.getElementById('desactivate_me2')
 
+    btn_desactivate_mesa_1.addEventListener('click', (e) => {
+        disable_okuma('mesa_armado_1')
+    });
 
+    btn_desactivate_mesa_2.addEventListener('click', (e) => {
+        disable_okuma('mesa_armado_2')
+    });
 
     btn_desactivate_okuma_1.addEventListener('click', (e) => {
         disable_okuma('okuma_1')
@@ -49,10 +55,20 @@ socket.onmessage = function (event) {
     const datosWs = JSON.parse(event.data);
     console.log(datosWs);
     //BLOQUES DE HABILITACION PARA OKUMAS
+    const cuadrado_mesa1 = document.getElementById("cuadrado_mesa1")
+    const cuadrado_mesa2 = document.getElementById("cuadrado_mesa2")
     const cuadrado_okuma1 = document.getElementById("cuadrado_okuma1")
     const cuadrado_okuma2 = document.getElementById("cuadrado_okuma2")
     const cuadrado_okuma3 = document.getElementById("cuadrado_okuma3")
     const cuadrado_okuma4 = document.getElementById("cuadrado_okuma4")
+
+    datosWs.mesa_armado_1 == 1
+    ? (cuadrado_mesa1.className = "cuadrado_mesa1 cuadrado_green")
+    : (cuadrado_mesa1.className = "cuadrado_mesa1 cuadrado_red")
+
+    datosWs.mesa_armado_2 == 1
+    ? (cuadrado_mesa2.className = "cuadrado_mesa2 cuadrado_green")
+    : (cuadrado_mesa2.className = "cuadrado_mesa2 cuadrado_red")
 
     datosWs.okuma_1 == 1
     ? (cuadrado_okuma1.className = "cuadrado_okuma1 cuadrado_green")
