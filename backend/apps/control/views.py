@@ -23,6 +23,13 @@ def disable_okuma(request):
     model_machine2 = str(model_machine)
     # print("el request es:",request.POST)
     toggle_disable_machine(model_machine2)
+    # data = {
+    #         'mesa_armado_1' : 1,
+    #         'mesa_armado_2' : 0,
+    #         }
+    # send_front_message(data)
+    print("enter to button")
+    
     return JsonResponse({})
 
 

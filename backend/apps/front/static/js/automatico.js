@@ -48,8 +48,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
 });
 
-
-
 socket.onmessage = function (event) {
     // console.log('aca');
     const datosWs = JSON.parse(event.data);

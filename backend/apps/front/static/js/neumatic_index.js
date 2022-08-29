@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
     (window.location.hash);
-    console.log(window.location);
+    // console.log(window.location);
     const okuma_value = document.getElementById('okumaSelect')
     const mesa_value = document.getElementById('mesaSelect')
     const gripper_value = document.getElementById('gripperSelect')
