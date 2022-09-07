@@ -1,5 +1,8 @@
 {% load static %}
 {% block content %}
+<head>
+    <script src="{% static 'js/sensores_index_js.js' %}"></script>
+</head>
 <div class="row m-auto d-flex justify-content-around mx-auto py-3 mx-5 px-0" id="sensores">
     <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5">
         <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaPlato">
@@ -16,52 +19,52 @@
             <tbody>
                 <tr>
                     <td>Pallet presente en posicion 1</td>
-                    <td><div class="led led-grey" id="paller_present_pos_1"></div></td>
+                    <td><div class="led led-grey" id="signal_0"></div></td> <!--id="paller_present_pos_1"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Pallet presente en posicion 2</td>
-                    <td><div class="led led-grey" id="paller_present_pos_2"></div></td>
+                    <td><div class="led led-grey" id="signal_1"></div></td><!--id="paller_present_pos_2"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Pallet presente en posicion 3</td>
-                    <td><div class="led led-grey" id="paller_present_pos_3"></div></td>
+                    <td><div class="led led-grey" id="signal_2"></div></td><!--id="paller_present_pos_3"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Pallet presente en posicion 4</td>
-                    <td><div class="led led-grey" id="paller_present_pos_4"></div></td>
+                    <td><div class="led led-grey" id="signal_3"></div></td><!--id="paller_present_pos_4"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Neumatico persiana arriba</td>
-                    <td><div class="led led-grey" id="persiana_up"></div></td>
+                    <td><div class="led led-grey" id="signal_4"></div></td><!--id="persiana_up"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Neumatico persiana abajo</td>
-                    <td><div class="led led-grey" id="persiana_down"></div></td>
+                    <td><div class="led led-grey" id="signal_5"></div></td><!--id="persiana_down"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Fin de carrera drawer 1 accionado</td>
-                    <td><div class="led led-grey" id="end_race_drawer_1"></div></td>
+                    <td><div class="led led-grey" id="signal_6"></div></td><!--id="limit_drawer_1"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Fin de carrera drawer 2 accionado</td>
-                    <td><div class="led led-grey" id="end_race_drawer_2"></div></td>
+                    <td><div class="led led-grey" id="signal_7"></div></td><!--id="limit_drawer_2"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Fin de carrera drawer 3 accionado</td>
-                    <td><div class="led led-grey" id="end_race_drawer_3"></div></td>
+                    <td><div class="led led-grey" id="signal_8"></div></td><!--id="limit_drawer_3"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Fin de carrera drawer 4 accionado</td>
-                    <td><div class="led led-grey" id="end_race_drawer_4"></div></td>
+                    <td><div class="led led-grey" id="signal_9"></div></td><!--id="limit_drawer_4"> -->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>

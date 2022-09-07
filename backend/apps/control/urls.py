@@ -8,4 +8,6 @@ urlpatterns = [
     path('sensores/okuma/', views.sensores_okuma_identify, name='okuma'),
     path('sensores/mesa/', views.sensores_mesa_identify, name='mesa'),
     path('automatico/okuma/', views.disable_okuma, name='okuma'),
+    # path('ws/front/', views.switch_led_state_off, name='led-off'),
+    path('https://192.168.3.150/api/jsonrpc', views.token_register, name='okuma'),
 ]

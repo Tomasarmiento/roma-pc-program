@@ -102,6 +102,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
+    //button scroll//
     //Get the button
     var mybutton = document.getElementById("boton_neumatic");
 
@@ -124,6 +126,7 @@ window.addEventListener("DOMContentLoaded", () => {
     mybutton.addEventListener("click", () =>{
         topFunction()
     });
+    //button scroll//
 
     
     // changeMachineBtn.addEventListener('click', (e) => {
