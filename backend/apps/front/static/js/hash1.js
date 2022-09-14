@@ -6,7 +6,7 @@ window.addEventListener("DOMContentLoaded", () => {
     let btn_test_msg = document.getElementById('msg_test');
        
     btn_on_led.addEventListener('click', (e) => {
-    let url = "http://localhost:8000/control/test-led/on/";
+    let url = "http://localhost:8000/control/test-led/on/"; //"http://192.168.3.127:8000/control/test-led/on/"
 
     let xhr = new XMLHttpRequest();
 
@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
 
   btn_test_msg.addEventListener('click', (e) => {
-    let url = "http://localhost:8000/control/test-led/off/";
+    let url = "http://localhost:8000/control/test-led/off/";//"http://192.168.3.127:8000/control/test-led/off/"
 
     let xhr = new XMLHttpRequest();
 

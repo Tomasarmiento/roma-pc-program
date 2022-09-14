@@ -6,6 +6,8 @@ MACHINE_MODEL_OPTIONS = (1, 2, 3, 4)
 
 PARAMS = {}
 
+count = 0
+
 DEFAULT_PARAMS = {'okuma_1' : 1,
                   'okuma_2' : 1,
                   'okuma_3' : 1,

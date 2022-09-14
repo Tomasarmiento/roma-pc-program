@@ -7,15 +7,15 @@ def init_params():        # params: query with all parameters in database
     params = Parameter.objects.all()
     saved_params = dict([(param.name, param.value) for param in params])
     saved_keys = saved_params.keys()
-    print(saved_keys)
+    # print(saved_keys)
     for key, value in param_vars.DEFAULT_PARAMS.items():
-        print(f"el nombre es es: {key}, y el valor es: {value}")      
+        # print(f"el nombre es es: {key}, y el valor es: {value}")      
         if key not in saved_keys:
             param_vars.PARAMS[key] = value
         else:
             param_vars.PARAMS[key] = saved_params[key]
             # print("if")
-    print(param_vars.PARAMS)
+    # print(param_vars.PARAMS)
     
 
 def toggle_disable_machine(machine_name):

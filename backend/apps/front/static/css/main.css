@@ -1115,6 +1115,11 @@ body {
   height: 38px;
 }
 
+.space_betwin{
+  display: flex;
+  justify-content: space-around;
+}
+
 
 
 

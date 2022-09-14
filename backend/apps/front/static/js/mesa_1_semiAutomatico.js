@@ -18,7 +18,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
    btn_move_table1.addEventListener("click", () =>{
         if(model_value.value != "Mesa de armado");{
-            console.log('hola');
             //selector de modelo, habilida selectores dependiendo el modelo
             if (model_value.value == "Mesa_1" || model_value.value == "Mesa_2") {
                 disableTxt("gripperSelect",false)
