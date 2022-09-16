@@ -1,6 +1,5 @@
 window.addEventListener("DOMContentLoaded", () => {
     (window.location.hash);
-    console.log(window.location);
     const okuma_value = document.getElementById('okumaSelect')
     const mesa_value = document.getElementById('mesaSelect')
     const gripper_value = document.getElementById('gripperSelect')
@@ -9,7 +8,7 @@ window.addEventListener("DOMContentLoaded", () => {
     const pos_value = document.querySelector('#posSelect')
 
     
-    disableTxt("gripperSelect",true)
+    // disableTxt("gripperSelect",true)
     disableTxt("posSelect",true)
     disableTxt("take_putSelect",true)
     disableTxt("pos_casitaSelect",true)

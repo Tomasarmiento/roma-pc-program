@@ -696,9 +696,10 @@ body {
   .sub_routine_container_class{
     display: flex;
     flex-direction: row;
-    visibility: hidden;
+    /* visibility: hidden; */
     
   }
+  
   .routine_container_class{
     display: flex;
     flex-direction: row;
@@ -1118,6 +1119,10 @@ body {
 .space_betwin{
   display: flex;
   justify-content: space-around;
+}
+
+.letering-semiauto-color{
+  color: rgb(7, 181, 239);
 }
 
 

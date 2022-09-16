@@ -2,6 +2,7 @@
 {% block content %}
 <head>
     <script src="{% static 'js/sensores_index_js.js' %}"></script>
+    <script  src="{% static 'js/disabled_text_function.js' %}"></script>
 </head>
 <div class="row m-auto d-flex mx-auto py-3 mx-5 px-0 space_betwin" id="sensores">
     <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5 " id="tablaDrawer1">
@@ -293,12 +294,12 @@
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Pallet presente gripper 1</td>
+                        <td>Pallet 1</td>
                         <td><div class="led led-grey" id="pallet_present_gripp_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Pallet presente gipper 2</td>
+                        <td>Pallet 2</td>
                         <td><div class="led led-grey" id="pallet_present_gripp_2"></div></td>
                         <td class="text-center">x</td>
                     </tr>
@@ -393,66 +394,254 @@
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
+                        <td>Home</td>
+                        <td><div class="led led-grey" id="R_I_HF"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
                         <td>Trabajando</td>
                         <td><div class="led led-grey" id="working"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
                         <td>Idle</td>
-                        <td><div class="led led-grey" id="idle"></div></td>
+                        <td><div class="led led-grey" id="R_I_ID"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
                         <td>En alarma</td>
-                        <td><div class="led led-grey" id="alarm"></div></td>
+                        <td><div class="led led-grey" id="R_I_AL"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                 </tbody>        
             </table>
         </div>    
         <div class="container-fluid col-md-3">
-            <div class="container-fluid card p-1 border shadow rounded mb-3" >
-            <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoresCNC">
-                <thead>
-                    <tr>
-                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salidas de los CNC</th>
-                    </tr>
-                    <tr>
-                        <th>Sensor</th>
-                        <th class="text-center">Estado</th>
-                        <th class="text-center">N°DI</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Robot puede entrar</td>
-                        <td><div class="led led-grey" id="robot_enter"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Alarma</td>
-                        <td><div class="led led-grey" id="alarm"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr> 
-                        <td>Idle</td>
-                        <td><div class="led led-grey" id="idle"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Maquina Operando</td>
-                        <td><div class="led led-grey" id="machine_working"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Puerta Abierta</td>
-                        <td><div class="led led-grey" id="door_open"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        <div class="container-fluid card p-1 border shadow rounded mb-3">
+            <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC1">
+                <table class="table table-sm table-striped table-borderless" style="color: black;" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salida del CNC 1</th>
+                        </tr>
+                        <tr>
+                            <th>Sensor</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Robot puede entrar</td>
+                            <td><div class="led led-grey" id="CH1_I_RA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Alarma</td>
+                            <td><div class="led led-grey" id="CH1_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr> 
+                            <td>Idle</td>
+                            <td><div class="led led-grey" id="CH1_I_ID"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Maquina Operando</td>
+                            <td><div class="led led-grey" id="CH1_I_MB"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Presion de aire</td>
+                            <td><div class="led led-grey" id="CH1_I_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 1-2</td>
+                            <td><div class="led led-grey" id="CH1_I_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Adelante</td>
+                            <td><div class="led led-grey" id="CH1_I_NPA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Atras</td>
+                            <td><div class="led led-grey" id="CH1_I_NPR"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC2">
+                <table class="table table-sm table-striped table-borderless" style="color: black;" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salida del CNC 2</th>
+                        </tr>
+                        <tr>
+                            <th>Sensor</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Robot puede entrar</td>
+                            <td><div class="led led-grey" id="CH2_I_RA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Alarma</td>
+                            <td><div class="led led-grey" id="CH2_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr> 
+                            <td>Idle</td>
+                            <td><div class="led led-grey" id="CH2_I_ID"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Maquina Operando</td>
+                            <td><div class="led led-grey" id="CH2_I_MB"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Presion de aire</td>
+                            <td><div class="led led-grey" id="CH2_I_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 1-2</td>
+                            <td><div class="led led-grey" id="CH2_I_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Adelante</td>
+                            <td><div class="led led-grey" id="CH2_I_NPA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Atras</td>
+                            <td><div class="led led-grey" id="CH2_I_NPR"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC3">
+                <table class="table table-sm table-striped table-borderless" style="color: black;" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salida del CNC 3</th>
+                        </tr>
+                        <tr>
+                            <th>Sensor</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Robot puede entrar</td>
+                            <td><div class="led led-grey" id="CH3_I_RA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Alarma</td>
+                            <td><div class="led led-grey" id="CH3_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr> 
+                            <td>Idle</td>
+                            <td><div class="led led-grey" id="CH3_I_ID"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Maquina Operando</td>
+                            <td><div class="led led-grey" id="CH3_I_MB"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Presion de aire</td>
+                            <td><div class="led led-grey" id="CH3_I_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 1-2</td>
+                            <td><div class="led led-grey" id="CH3_I_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Adelante</td>
+                            <td><div class="led led-grey" id="CH3_I_NPA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Atras</td>
+                            <td><div class="led led-grey" id="CH3_I_NPR"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC4">
+                <table class="table table-sm table-striped table-borderless" style="color: black;" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salida del CNC 4</th>
+                        </tr>
+                        <tr>
+                            <th>Sensor</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Robot puede entrar</td>
+                            <td><div class="led led-grey" id="CH4_I_RA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Alarma</td>
+                            <td><div class="led led-grey" id="CH4_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr> 
+                            <td>Idle</td>
+                            <td><div class="led led-grey" id="CH4_I_ID"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Maquina Operando</td>
+                            <td><div class="led led-grey" id="CH4_I_MB"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Presion de aire</td>
+                            <td><div class="led led-grey" id="CH4_I_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 1-2</td>
+                            <td><div class="led led-grey" id="CH4_I_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Adelante</td>
+                            <td><div class="led led-grey" id="CH4_I_NPA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Atras</td>
+                            <td><div class="led led-grey" id="CH4_I_NPR"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        <!-- <div class="container-fluid card p-1 border shadow rounded mb-3">
                 <table class="table table-sm table-striped table-borderless" style="color: black" id="tablaSensoresZP">
                     <thead>
                         <tr>
@@ -474,7 +663,7 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
             <div class="container-fluid card p-1 border shadow rounded mb-3">
                 <table class="table table-sm table-striped table-borderless" style="color: black" id="tablaSensoresGrRobot">
                     <thead>
