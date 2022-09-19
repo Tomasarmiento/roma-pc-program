@@ -7,12 +7,25 @@ window.addEventListener("DOMContentLoaded", () => {
     const mover_robot_text = document.querySelector('#mover_robot')
     const pos_value = document.querySelector('#posSelect')
 
+    const btn_semiauto = document.getElementById('btn_semiauto_routine')
+
     
     // disableTxt("gripperSelect",true)
     disableTxt("posSelect",true)
     disableTxt("take_putSelect",true)
     disableTxt("pos_casitaSelect",true)
     disableTxt("sub_routine_container",true)
+
+
+
+    btn_semiauto.addEventListener('click', (e) => {
+        console.log('click routine');
+    });
+
+
+
+
+    
 
     // okuma_value.addEventListener('change', function() {
     //     //reedireccionamiento
