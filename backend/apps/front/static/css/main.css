@@ -696,6 +696,7 @@ body {
   .sub_routine_container_class{
     display: flex;
     flex-direction: row;
+    font-size: smaller;
     /* visibility: hidden; */
     
   }

@@ -2,6 +2,7 @@ from django.apps import AppConfig
 # import django
 from apps.control.utils import functions
 from apps.ws.utils.functions import send_front_message
+from apps.control.utils.variables import LIST_OF_DIRECTIONS,PLC_DEFAULT_VARIABLES
 import time
 
 import threading
@@ -18,7 +19,8 @@ class ControlConfig(AppConfig):
 
     def ready(self) -> None:
         print('start')
-        # functions.obtain_token_plc()
+        functions.obtain_token_plc()
+
 
     # def ready(self) -> None:
     #     start_thread = True

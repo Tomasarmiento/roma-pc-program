@@ -42,14 +42,16 @@ PLC_DEFAULT_VARIABLES = {
     'R_I_AL': False,
     'R_I_HF': False,
     'R_I_ID': False,
-    'R_I_PRG_0': False,
-    'R_I_PRG_1': False,
-    'R_I_PRG_2': False,
-    'R_I_PRG_3': False,
-    'R_I_PRG_4': False,
-    'R_I_PRG_5': False,
-    'R_I_PRG_6': False,
-    'R_I_PRG_7': False,
+    'R_I_RUT_1': False,
+    'R_I_RUT_2': False,
+    'R_I_RUT_3': False,
+    'R_I_RUT_4': False,
+    'R_I_RUT_5': False,
+    'R_I_RUT_6': False,
+    'R_I_RUT_7': False,
+    'R_I_RUT_8': False,
+    'R_I_RUT_9': False,#id es 300 y aca 53
+    'R_I_RUT_10': False,#id es 300 y aca 53
     'R_I_G1_PS': False,
     'R_I_G2_PS': False,
     'R_I_FLS': False,
@@ -150,20 +152,19 @@ PLC_DEFAULT_VARIABLES = {
 PLC_VARIABLES = {
 }
 
-DEFAULT_SENSOR_STATES = [False,False,False,False,False,False,False,False,False,False]
 # -------------------------------------------------------------------------------------------- #
 # ------------------------------ PLC DIRECCIONAMIENTOS --------------------------------------- #
 # -------------------------------------------------------------------------------------------- #
 
 LIST_OF_DIRECTIONS = [
-"CH1_I_RA","CH1_I_AL","CH1_I_ID","CH1_I_MB","CH1_I_PS",
-"CH1_I_HO","CH1_I_NPA","CH1_I_NPR","CH2_I_RA","CH2_I_AL","CH2_I_ID","CH2_I_MB","CH2_I_PS",
-"CH2_I_HO","CH2_I_NPA","CH2_I_NPR","CH3_I_RA","CH3_I_AL","CH3_I_ID","CH3_I_MB","CH3_I_PS",
-"CH3_I_HO","CH3_I_NPA","CH3_I_NPR","CH4_I_RA","CH4_I_AL","CH4_I_ID","CH4_I_MB","CH4_I_PS",
-"CH4_I_HO","CH4_I_NPA","CH4_I_NPR",
+"CH1_I_RA","CH1_I_AL","CH1_I_ID","CH1_I_MB","CH1_I_PS","CH1_I_HO","CH1_I_NPA","CH1_I_NPR",
+"CH2_I_RA","CH2_I_AL","CH2_I_ID","CH2_I_MB","CH2_I_PS","CH2_I_HO","CH2_I_NPA","CH2_I_NPR",
+"CH3_I_RA","CH3_I_AL","CH3_I_ID","CH3_I_MB","CH3_I_PS","CH3_I_HO","CH3_I_NPA","CH3_I_NPR",
+"CH4_I_RA","CH4_I_AL","CH4_I_ID","CH4_I_MB","CH4_I_PS","CH4_I_HO","CH4_I_NPA","CH4_I_NPR",
 
-"R_I_AL","R_I_HF","R_I_ID","R_I_PRG_0","R_I_PRG_1","R_I_PRG_2","R_I_PRG_3","R_I_PRG_4",
-"R_I_PRG_5","R_I_PRG_6","R_I_PRG_7","R_I_G1_PS","R_I_G2_PS","R_I_FLS","R_I_RLS",
+"R_I_AL","R_I_HF","R_I_ID",
+"R_I_RUT_1","R_I_RUT_2","R_I_RUT_3","R_I_RUT_4","R_I_RUT_5","R_I_RUT_6","R_I_RUT_7","R_I_RUT_8","R_I_RUT_9","R_I_RUT_10",
+"R_I_G1_PS","R_I_G2_PS","R_I_FLS","R_I_RLS",
 
 "MA1_I_DR_U_PS_1","MA1_I_DR_U_PS_2","MA1_I_DR_D_PS_1","MA1_I_DR_D_PS_2","MA1_I_GS_UP",
 "MA1_I_GS_DN","MA1_I_DR_U_ES_1","MA1_I_DR_U_ES_2","MA1_I_DR_D_ES_1","MA1_I_DR_D_ES_2",
@@ -171,10 +172,10 @@ LIST_OF_DIRECTIONS = [
 "MA1_I_DR_U_BP_2_SR","MA1_I_DR_D_BP_1_SA","MA1_I_DR_D_BP_1_SR","MA1_I_DR_D_BP_2_SA","MA1_I_DR_D_BP_2_SR","MA1_I_OB","MA1_I_EMS",
 
 
-"MA2_I_DR_U_PS_1","MA2_I_DR_U_PS_2","MA2_I_DR_D_PS_1","MA2_I_DR_D_PS_2","MA2_I_GS_UP","MA2_I_GS_DN",
-"MA2_I_DR_U_ES_1","MA2_I_DR_U_ES_2","MA2_I_DR_D_ES_1","MA2_I_DR_D_ES_2","MA2_I_DR_U_NS",
-"MA2_I_DR_D_NS","MA2_I_DR_U_BP_1_SA","MA2_I_DR_U_BP_1_SR","MA2_I_DR_U_BP_2_SA","MA2_I_DR_U_BP_2_SR",
-"MA2_I_DR_D_BP_1_SA","MA2_I_DR_D_BP_1_SR","MA2_I_DR_D_BP_2_SA","MA2_I_DR_D_BP_2_SR","MA2_I_OB","MA2_I_EMS",
+"MA2_I_DR_U_PS_1","MA2_I_DR_U_PS_2","MA2_I_DR_D_PS_1","MA2_I_DR_D_PS_2","MA2_I_GS_UP",
+"MA2_I_GS_DN","MA2_I_DR_U_ES_1","MA2_I_DR_U_ES_2","MA2_I_DR_D_ES_1","MA2_I_DR_D_ES_2",
+"MA2_I_DR_U_NS","MA2_I_DR_D_NS","MA2_I_DR_U_BP_1_SA","MA2_I_DR_U_BP_1_SR","MA2_I_DR_U_BP_2_SA",
+"MA2_I_DR_U_BP_2_SR","MA2_I_DR_D_BP_1_SA","MA2_I_DR_D_BP_1_SR","MA2_I_DR_D_BP_2_SA","MA2_I_DR_D_BP_2_SR","MA2_I_OB","MA2_I_EMS",
 
 
 "GRL_I_EMS","System_Active",

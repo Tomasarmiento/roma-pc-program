@@ -41,17 +41,19 @@ window.addEventListener("DOMContentLoaded", () => {
     model_value.addEventListener("change", () =>{
         //selector de modelo, habilida selectores dependiendo el modelo
         if (model_value.value == "Mesa_1" || model_value.value == "Mesa_2") {
-            console.log('hola');
             // disableTxt("gripperSelect",false)
             disableTxt("posSelect",false)
             disableTxt("take_putSelect",false)
+            current_pos_casita_value = ""
+            current_take_put_value = ""
             // document.getElementById('sub_routine_container').style = "visibility: visible;"
         }
         else{
-            console.log('chau');
             // disableTxt("gripperSelect",false)
             disableTxt("pos_casitaSelect",false)
             disableTxt("take_putSelect",false)
+            current_pos_casita_value = ""
+            current_take_put_value = ""
             // document.getElementById('sub_routine_container').style = "visibility: visible;"
         }
 });

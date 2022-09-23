@@ -24,71 +24,25 @@ def values_sensors(sensor_value,sensor):#,name
             param_vars.PLC_VARIABLES[key] = sensor_value
     print(param_vars.PLC_VARIABLES)
 
-def sensores_plc():
-    import ssl
-    ssl._create_default_https_context = ssl._create_unverified_context
-    # lista con valores de los sensores
-    DERIVED_SENSOR_STATES = []
 
-    conn = http.client.HTTPSConnection("192.168.3.150")
-    payload = json.dumps({
-        "id": 0,
-        "jsonrpc": "2.0",
-        "method": "PlcProgram.Read", #Write #Read
-        "params": {
-            "var": "\"mar\".markarray[0]",#array database
-            # "var": "\"OUT_13\"", #entrada salida modificar
-            # "value": False  #entrada salida modificar
-        }
-    })
 
-    headers = {
-        'X-Auth-Token': control_vars.PLC_TOKEN['token'],
-        'Content-Type': 'application/json',
-    }
 
-    for n in range(0,len(control_vars.PLC_DEFAULT_VARIABLES)):
-        # print(len(control_vars.PLC_DEFAULT_VARIABLES))
-        #cambia valor del json para obtener todos los valores de los sensores
-        strValue = payload
-        strToReplace   = '0'
-        replacementStr = str(n)
-        strValue = replacementStr.join(strValue.rsplit(strToReplace, 1))
-
-        #se manda el mensaje
-        conn.request("POST", "/api/jsonrpc", strValue, headers)
-        res = conn.getresponse()
-        data = res.read()
-        data_json = data.decode("utf-8")
-        data_parsed = json.loads(data_json)
-        sensor_value = data_parsed["result"]
-        # print(f"El valor que trae del plc es{sensor_value}")
-        #append de los valores a la lista
-        DERIVED_SENSOR_STATES.append(sensor_value)
-    print(DERIVED_SENSOR_STATES)
-    count_true = 0
-    count_false = 0
-    for n in (DERIVED_SENSOR_STATES):
-        if n == True:
-            count_true +=1
-        else:
-            count_false +=1
-    print(count_false,count_true)
-    return DERIVED_SENSOR_STATES
-
+#pasaje a variable local valores de la lista con los sensores
 def derived_sensores_states(list_state_sensores):
-    # print("lista de sensores del plc",list_state_sensores)
-    dicts = control_vars.PLC_DEFAULT_VARIABLES.values() 
     for n in range(0,len(list_state_sensores)):
         for w in range(0,len(control_vars.PLC_DEFAULT_VARIABLES)):
-            # print(control_vars.PLC_DEFAULT_VARIABLES[f'signal_{n}'])
             if n == w:
-                control_vars.PLC_DEFAULT_VARIABLES[f'signal_{n}'] = list_state_sensores[n]
-                # list(dicts)[w] = list_state_sensores[n]
-        # dicts = list_state_sensores[n]
-    # print("lista de sensores local",control_vars.PLC_DEFAULT_VARIABLES,)
+                control_vars.PLC_DEFAULT_VARIABLES[control_vars.LIST_OF_DIRECTIONS[w]] = list_state_sensores[n]
     return control_vars.PLC_DEFAULT_VARIABLES
 
+# def derived_sensores_states(list_state_sensores):
+#     dictA = dict(zip(control_vars.LIST_OF_DIRECTIONS,list_state_sensores))
+#     print(dictA)
+#     print(len(control_vars.PLC_DEFAULT_VARIABLES))
+#     return dictA
+
+
+#peticion de todos los valores pero no en loop(click)
 def switch_led_state_off():
     import ssl
     ssl._create_default_https_context = ssl._create_unverified_context
@@ -129,14 +83,16 @@ def switch_led_state_off():
     # {"jsonrpc":"2.0","id":"33","method":"PlcProgram.Read","params":{"var":"\"R_I_AL\""}},
     # {"jsonrpc":"2.0","id":"34","method":"PlcProgram.Read","params":{"var":"\"R_I_HF\""}},
     # {"jsonrpc":"2.0","id":"35","method":"PlcProgram.Read","params":{"var":"\"R_I_ID\""}},
-    # {"jsonrpc":"2.0","id":"36","method":"PlcProgram.Read","params":{"var":"\"R_I_PRG_0\""}},
-    # {"jsonrpc":"2.0","id":"37","method":"PlcProgram.Read","params":{"var":"\"R_I_PRG_1\""}},
-    # {"jsonrpc":"2.0","id":"38","method":"PlcProgram.Read","params":{"var":"\"R_I_PRG_2\""}},
-    # {"jsonrpc":"2.0","id":"39","method":"PlcProgram.Read","params":{"var":"\"R_I_PRG_3\""}},
-    # {"jsonrpc":"2.0","id":"40","method":"PlcProgram.Read","params":{"var":"\"R_I_PRG_4\""}},
-    # {"jsonrpc":"2.0","id":"41","method":"PlcProgram.Read","params":{"var":"\"R_I_PRG_5\""}},
-    # {"jsonrpc":"2.0","id":"42","method":"PlcProgram.Read","params":{"var":"\"R_I_PRG_6\""}},
-    # {"jsonrpc":"2.0","id":"43","method":"PlcProgram.Read","params":{"var":"\"R_I_PRG_7\""}},
+    # {"jsonrpc":"2.0","id":"37","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_1\""}},
+    # {"jsonrpc":"2.0","id":"38","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_2\""}},
+    # {"jsonrpc":"2.0","id":"39","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_3\""}},
+    # {"jsonrpc":"2.0","id":"40","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_4\""}},
+    # {"jsonrpc":"2.0","id":"41","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_5\""}},
+    # {"jsonrpc":"2.0","id":"42","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_6\""}},
+    # {"jsonrpc":"2.0","id":"43","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_7\""}},
+    # {"jsonrpc":"2.0","id":"36","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_8\""}},
+    # {"jsonrpc":"2.0","id":"361","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_9\""}},
+    # {"jsonrpc":"2.0","id":"362","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_10\""}},
     # {"jsonrpc":"2.0","id":"44","method":"PlcProgram.Read","params":{"var":"\"R_I_G1_PS\""}},
     # {"jsonrpc":"2.0","id":"45","method":"PlcProgram.Read","params":{"var":"\"R_I_G2_PS\""}},
     # {"jsonrpc":"2.0","id":"46","method":"PlcProgram.Read","params":{"var":"\"R_I_FLS\""}},
@@ -246,6 +202,9 @@ def switch_led_state_off():
     # print(f"El valor que trae del plc es {sensor_value}")
     print("la data:", data_parsed)
 
+
+
+#peticion del token
 def obtain_token_plc():
     import ssl
     ssl._create_default_https_context = ssl._create_unverified_context
@@ -277,7 +236,9 @@ def obtain_token_plc():
     data_parsed = json.loads(data_json)
     PLC_TOKEN['token'] = data_parsed["result"]["token"]
     print("el token es",PLC_TOKEN['token'])
-    # print(data_parsed["result"]["token"])
+
+
+#peticion de todos los valores en loop
 def sensores_states_plc():
     import ssl
     ssl._create_default_https_context = ssl._create_unverified_context
@@ -316,73 +277,19 @@ def sensores_states_plc():
     data_json = data.decode("utf-8")
     data_parsed = json.loads(data_json)
     count = 0
-    for n in range(0, len(PLC_DEFAULT_VARIABLES)):
+    for n in range(0, len(control_vars.PLC_DEFAULT_VARIABLES)):#
         bool_state_sensor = data_parsed[n]["result"]
-        # print(bool_state_sensor)
         count += 1
         #append de los valores a la lista
         DERIVED_SENSOR_STATES.append(bool_state_sensor)
-    # print(DERIVED_SENSOR_STATES)
-    # print(count)
+    # print("cantidad valores traidos plc",count)
+    LIST_OF_DIRECTIONS
     # print(f"El valor que trae del plc es{bool_state_sensor}")
     return DERIVED_SENSOR_STATES
 
-# def get_front_states():
-#     data = {'hola':10}
-#     return data
-
-# data = get_front_states()
-# send_front_message(data)
-# print("hola")
 
 
-
-
-
-# class FrontWs(threading.Thread):
-
-#     def __init__(self, **kwargs):
-#         super(FrontWs, self).__init__(**kwargs)
-    
-#     def run(self):
-#         time.sleep(0.5)
-#         while 1:
-#             obtain_token_plc()
-#             derived_sensores_states(sensores_plc())
-#             data = {
-#                 'mesa_armado_1' : int(param_vars.PARAMS['mesa_armado_1']),
-#                 'mesa_armado_2' : int(param_vars.PARAMS['mesa_armado_2']),
-#                 'okuma_1' : int(param_vars.PARAMS['okuma_1']),
-#                 'okuma_2' : int(param_vars.PARAMS['okuma_2']),
-#                 'okuma_3' : int(param_vars.PARAMS['okuma_3']),
-#                 'okuma_4' : int(param_vars.PARAMS['okuma_4']),
-#                 # 'mensajes_log': ws_vars.frontState.log_messages,
-#                 'signal_0': int(control_vars.PLC_DEFAULT_VARIABLES['signal_0']),
-#                 'signal_1': int(control_vars.PLC_DEFAULT_VARIABLES['signal_1']),
-#                 'signal_2': int(control_vars.PLC_DEFAULT_VARIABLES['signal_2']),
-#                 'signal_3': int(control_vars.PLC_DEFAULT_VARIABLES['signal_3']),
-#                 'signal_4': int(control_vars.PLC_DEFAULT_VARIABLES['signal_4']),
-#                 'signal_5': int(control_vars.PLC_DEFAULT_VARIABLES['signal_5']),
-#                 'signal_6': int(control_vars.PLC_DEFAULT_VARIABLES['signal_6']),
-#                 'signal_7': int(control_vars.PLC_DEFAULT_VARIABLES['signal_7']),
-#                 'signal_8': int(control_vars.PLC_DEFAULT_VARIABLES['signal_8']),
-#                 'signal_9': int(control_vars.PLC_DEFAULT_VARIABLES['signal_9']),
-#             }
-#             send_front_message(data)
-#             time.sleep(0.5)
-
-
-# class FrontWs(threading.Thread):
-
-#     def __init__(self, **kwargs):
-#         super(FrontWs, self).__init__(**kwargs)
-    
-#     def run(self):
-#         while True:
-#             time.sleep(3)
-#             obtain_token_plc()
-
-
+#thread para pedir token al principio
 def threadA(dqu,):
     while True:
         # print(dqu)
@@ -390,11 +297,3 @@ def threadA(dqu,):
         obtain_token_plc()
         time.sleep(120)
 
-
-
-
-
-# class FrontWs():
-#     start_service()
-#     # send_front_message(data)
-#     time.sleep(3)

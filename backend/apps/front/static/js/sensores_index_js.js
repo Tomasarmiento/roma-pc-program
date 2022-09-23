@@ -2,6 +2,7 @@ window.addEventListener("DOMContentLoaded", () => {
     (window.location.hash);
     //sensores states//
     const list_of_tables = ['tablaDrawer1','tablaDrawer2','tablaSensoresCNC1', 'tablaSensoresCNC2','tablaSensoresCNC3','tablaSensoresCNC4']
+    const list_inverted_signal = ['MA1_I_DR_U_PS_1','MA1_I_DR_U_PS_2','MA1_I_DR_D_PS_1','MA1_I_DR_D_PS_2']
 
 
 
@@ -45,7 +46,7 @@ window.addEventListener("DOMContentLoaded", () => {
             }
         }
         else{
-            console.log("No existe un led con ese nombre");
+            // console.log("No existe un led con ese nombre");
         }
 
 
@@ -56,12 +57,28 @@ window.addEventListener("DOMContentLoaded", () => {
         dict = datosWs.plc_sensors
         arr_of_dict = Object.keys(dict)
         for (sensor_key of arr_of_dict) {
-            // console.log(sensor_key);
+            console.log(arr_of_dict);
             if (datosWs.plc_sensors[sensor_key] == true){
-                see_state_sensor(sensor_key,true)
+                if (list_inverted_signal.includes(sensor_key)) {
+                    see_state_sensor(sensor_key,false)
+                }
+                else{
+                    see_state_sensor(sensor_key,true)
+                }
+                
             }
             else{
-                see_state_sensor(sensor_key,false)
+                if (list_inverted_signal.includes(sensor_key)) {
+                    see_state_sensor(sensor_key,true)
+                }
+                else{
+                    see_state_sensor(sensor_key,false)
+                }
+                
+                
+                // else{
+                //     see_state_sensor(sensor_key,false)
+                // }
             }
         }
     };  

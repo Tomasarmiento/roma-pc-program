@@ -1,4 +1,4 @@
-const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:8000/ws/front/"
+const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://192.168.3.127:8000/ws/front/"
   socket.addEventListener("open", function (event) {
       socket.send(
         JSON.stringify({
