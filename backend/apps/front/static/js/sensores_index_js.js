@@ -7,7 +7,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     //DEPENDIENDO EL HASH LLAMA A LA FUNCION PARA DESABILITAR LA LISTA DE SENSORES DE LOS DEMAS
-    if (window.location.pathname == /mesa_1_neumatic/) {
+    if (window.location.pathname == '/mesa_1_neumatic/') {
         disableDiv('tablaDrawer1',list_of_tables)
     }
     else if(window.location.pathname == /mesa_2_neumatic/) {

@@ -82,16 +82,6 @@ def switch_led_state_off(request):
     # {"jsonrpc":"2.0","id":"33","method":"PlcProgram.Read","params":{"var":"\"R_I_AL\""}},
     # {"jsonrpc":"2.0","id":"34","method":"PlcProgram.Read","params":{"var":"\"R_I_HF\""}},
     # {"jsonrpc":"2.0","id":"35","method":"PlcProgram.Read","params":{"var":"\"R_I_ID\""}},
-    # {"jsonrpc":"2.0","id":"37","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_1\""}},
-    # {"jsonrpc":"2.0","id":"38","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_2\""}},
-    # {"jsonrpc":"2.0","id":"39","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_3\""}},
-    # {"jsonrpc":"2.0","id":"40","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_4\""}},
-    # {"jsonrpc":"2.0","id":"41","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_5\""}},
-    # {"jsonrpc":"2.0","id":"42","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_6\""}},
-    # {"jsonrpc":"2.0","id":"43","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_7\""}},
-    # {"jsonrpc":"2.0","id":"36","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_8\""}},
-    # {"jsonrpc":"2.0","id":"361","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_9\""}},
-    # {"jsonrpc":"2.0","id":"362","method":"PlcProgram.Read","params":{"var":"\"R_I_RUT_10\""}},
     # {"jsonrpc":"2.0","id":"44","method":"PlcProgram.Read","params":{"var":"\"R_I_G1_PS\""}},
     # {"jsonrpc":"2.0","id":"45","method":"PlcProgram.Read","params":{"var":"\"R_I_G2_PS\""}},
     # {"jsonrpc":"2.0","id":"46","method":"PlcProgram.Read","params":{"var":"\"R_I_FLS\""}},
@@ -108,8 +98,8 @@ def switch_led_state_off(request):
     # {"jsonrpc":"2.0","id":"57","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_D_ES_2\""}},
     # {"jsonrpc":"2.0","id":"58","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_U_NS\""}},
     # {"jsonrpc":"2.0","id":"59","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_D_NS\""}},
-    {"jsonrpc":"2.0","id":"60","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_U_BP_1_SA\""}},
-    {"jsonrpc":"2.0","id":"61","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_U_BP_1_SR\""}},
+    # {"jsonrpc":"2.0","id":"60","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_U_BP_1_SA\""}},
+    # {"jsonrpc":"2.0","id":"61","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_U_BP_1_SR\""}},
     # {"jsonrpc":"2.0","id":"62","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_U_BP_2_SA\""}},
     # {"jsonrpc":"2.0","id":"63","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_U_BP_2_SR\""}},
     # {"jsonrpc":"2.0","id":"64","method":"PlcProgram.Read","params":{"var":"\"MA1_I_DR_D_BP_1_SA\""}},
@@ -173,15 +163,18 @@ def switch_led_state_off(request):
     # {"jsonrpc":"2.0","id":"122","method":"PlcProgram.Read","params":{"var":"\"R_I_MA1F\""}},
     # {"jsonrpc":"2.0","id":"123","method":"PlcProgram.Read","params":{"var":"\"R_I_MA2F\""}},
     # {"jsonrpc":"2.0","id":"124","method":"PlcProgram.Read","params":{"var":"\"okuma_available\""}},
-    # {"jsonrpc":"2.0","id":"125","method":"PlcProgram.Read","params":{"var":"\"M_PRG_0\""}},
-    # {"jsonrpc":"2.0","id":"126","method":"PlcProgram.Read","params":{"var":"\"M_PRG_1\""}},
-    # {"jsonrpc":"2.0","id":"127","method":"PlcProgram.Read","params":{"var":"\"M_PRG_2\""}},
-    # {"jsonrpc":"2.0","id":"128","method":"PlcProgram.Read","params":{"var":"\"M_PRG_3\""}},
-    # {"jsonrpc":"2.0","id":"129","method":"PlcProgram.Read","params":{"var":"\"M_PRG_4\""}},
-    # {"jsonrpc":"2.0","id":"130","method":"PlcProgram.Read","params":{"var":"\"M_PRG_5\""}},
-    # {"jsonrpc":"2.0","id":"131","method":"PlcProgram.Read","params":{"var":"\"M_PRG_6\""}},
-    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"M_PRG_7\""}},
     # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"gen\""}},
+    {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Read","params":{"var":"\"neumatic_advanced\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_AUT_SEM\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_30_40\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_CAS\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_BIT0_CH\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_BIT1_CH\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_PAL\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_DRW\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_MA\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_GET_PUT\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_MA_CH\""}},
     ])
 
 
@@ -234,3 +227,25 @@ def sensores_mesa_identify(request):
         print(MESA['mesa_current_selected'])
         return JsonResponse({})
 
+
+
+@method_decorator(csrf_exempt, name='dispatch')
+class ManualPneumatic(View):
+
+    def post(self, request):
+        post_req = request.POST
+        
+        req_data = []
+        
+        for item in post_req.items():   # Item is in (key, value) format
+            req_data.append(item)
+
+        print("req_Data", req_data)
+        # command = int(req_data[0][1])
+        # menu = req_data[1][1]
+        # name = req_data[2][1]
+        # btn = req_data[3][1]
+        # print('NOMBRE:', name)
+        # print('BOTON:', btn)
+         
+        return JsonResponse({})

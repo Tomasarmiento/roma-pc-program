@@ -42,16 +42,16 @@ PLC_DEFAULT_VARIABLES = {
     'R_I_AL': False,
     'R_I_HF': False,
     'R_I_ID': False,
-    'R_I_RUT_1': False,
-    'R_I_RUT_2': False,
-    'R_I_RUT_3': False,
-    'R_I_RUT_4': False,
-    'R_I_RUT_5': False,
-    'R_I_RUT_6': False,
-    'R_I_RUT_7': False,
-    'R_I_RUT_8': False,
-    'R_I_RUT_9': False,#id es 300 y aca 53
-    'R_I_RUT_10': False,#id es 300 y aca 53
+    'R_I_AUT_SEM': False,
+    'R_I_30_40': False,
+    'R_I_CAS': False,
+    'R_I_BIT0_CH': False,
+    'R_I_BIT1_CH': False,
+    'R_I_PAL': False,
+    'R_I_DRW': False,
+    'R_I_MA': False,
+    'R_I_GET_PUT': False,#id es 300 y aca 53
+    'R_I_MA_CH': False,#id es 300 y aca 53
     'R_I_G1_PS': False,
     'R_I_G2_PS': False,
     'R_I_FLS': False,
@@ -120,7 +120,7 @@ PLC_DEFAULT_VARIABLES = {
     'unblock_pallet': False,
     'unblocked_pallet_sensor': False,
     'neumatic_forward': False,
-    'neumatic_advance': False,
+    'neumatic_advanced': False,
     'INF30': False,
     'Blower': False,
     'Booster': False,
@@ -138,14 +138,6 @@ PLC_DEFAULT_VARIABLES = {
     'R_I_MA1F': False,
     'R_I_MA2F': False,
     'okuma_available': False,
-    'M_PRG_0': False,
-    'M_PRG_1': False,
-    'M_PRG_2': False,
-    'M_PRG_3': False,
-    'M_PRG_4': False,
-    'M_PRG_5': False,
-    'M_PRG_6': False,
-    'M_PRG_7': False,
     'gen': False,
 }
 
@@ -163,7 +155,7 @@ LIST_OF_DIRECTIONS = [
 "CH4_I_RA","CH4_I_AL","CH4_I_ID","CH4_I_MB","CH4_I_PS","CH4_I_HO","CH4_I_NPA","CH4_I_NPR",
 
 "R_I_AL","R_I_HF","R_I_ID",
-"R_I_RUT_1","R_I_RUT_2","R_I_RUT_3","R_I_RUT_4","R_I_RUT_5","R_I_RUT_6","R_I_RUT_7","R_I_RUT_8","R_I_RUT_9","R_I_RUT_10",
+"R_I_AUT_SEM","R_I_30_40","R_I_CAS","R_I_BIT0_CH","R_I_BIT1_CH","R_I_PAL","R_I_DRW","R_I_MA","R_I_GET_PUT","R_I_MA_CH",
 "R_I_G1_PS","R_I_G2_PS","R_I_FLS","R_I_RLS",
 
 "MA1_I_DR_U_PS_1","MA1_I_DR_U_PS_2","MA1_I_DR_D_PS_1","MA1_I_DR_D_PS_2","MA1_I_GS_UP",
@@ -181,10 +173,9 @@ LIST_OF_DIRECTIONS = [
 "GRL_I_EMS","System_Active",
 "Start_system_button","Stop_system_button","Emergency","Robot_GO","Robot_IDLE","Trig_MA1DRU1",
 "MA1_DR_U_1_OP40","Trig_MA1DRU2","MA1_DR_U_2_OP40","Gen_Program","unblock_pallet","unblocked_pallet_sensor",
-"neumatic_forward","neumatic_advance","INF30","Blower","Booster","INF40","pallet_sensor",
+"neumatic_forward","neumatic_advanced","INF30","Blower","Booster","INF40","pallet_sensor",
 "MA1_DR_D_1_OP20","MA1_DR_D_2_OP20","MA1_DR_U_1_OP20","MA1_DR_U_2_OP20","OP20_available",
-"Trig_MA1DRD1","MA1_DR_D_2_OP40","Trig_MA1DRD2","MA1_DR_D_1_OP40","R_I_MA1F","R_I_MA2F","okuma_available",
-"M_PRG_0","M_PRG_1","M_PRG_2","M_PRG_3","M_PRG_4","M_PRG_5","M_PRG_6","M_PRG_7","gen",
+"Trig_MA1DRD1","MA1_DR_D_2_OP40","Trig_MA1DRD2","MA1_DR_D_1_OP40","R_I_MA1F","R_I_MA2F","okuma_available","gen",
 ]
 
 

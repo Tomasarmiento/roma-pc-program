@@ -183,7 +183,19 @@ def switch_led_state_off():
     # {"jsonrpc":"2.0","id":"131","method":"PlcProgram.Read","params":{"var":"\"M_PRG_6\""}},
     # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"M_PRG_7\""}},
     # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"gen\""}},
-    {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"mar\".palabra"}}
+    # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"mar\".palabra"}}
+    # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"mar\".palabra"}}
+    {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_AUT_SEM\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_30_40\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_CAS\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_BIT0_CH\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_BIT1_CH\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_PAL\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_DRW\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_MA\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_GET_PUT\""}},
+    # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_MA_CH\""}},
+
     ])
 
 
@@ -282,8 +294,7 @@ def sensores_states_plc():
         count += 1
         #append de los valores a la lista
         DERIVED_SENSOR_STATES.append(bool_state_sensor)
-    # print("cantidad valores traidos plc",count)
-    LIST_OF_DIRECTIONS
+        # print("cantidad valores traidos plc",count)
     # print(f"El valor que trae del plc es{bool_state_sensor}")
     return DERIVED_SENSOR_STATES
 
@@ -296,4 +307,5 @@ def threadA(dqu,):
         # print("entra al while")
         obtain_token_plc()
         time.sleep(120)
+
 
