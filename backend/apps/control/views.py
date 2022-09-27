@@ -1,5 +1,6 @@
 import json
 import http.client
+from pickle import TRUE
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponseRedirect
 from django.urls import reverse
@@ -164,7 +165,7 @@ def switch_led_state_off(request):
     # {"jsonrpc":"2.0","id":"123","method":"PlcProgram.Read","params":{"var":"\"R_I_MA2F\""}},
     # {"jsonrpc":"2.0","id":"124","method":"PlcProgram.Read","params":{"var":"\"okuma_available\""}},
     # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"gen\""}},
-    {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Read","params":{"var":"\"neumatic_advanced\""}},
+    {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"tags\".Man_MA1_DRD_FD", "value": True}},
     # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_AUT_SEM\""}},
     # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_30_40\""}},
     # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_CAS\""}},
@@ -240,12 +241,116 @@ class ManualPneumatic(View):
         for item in post_req.items():   # Item is in (key, value) format
             req_data.append(item)
 
-        print("req_Data", req_data)
+        # print("req_Data", req_data)
         # command = int(req_data[0][1])
-        # menu = req_data[1][1]
-        # name = req_data[2][1]
-        # btn = req_data[3][1]
-        # print('NOMBRE:', name)
-        # print('BOTON:', btn)
-         
-        return JsonResponse({})
+        menu = req_data[0][1]
+        name = req_data[1][1]
+        btn = req_data[2][1]
+        print('MENU:', menu)
+        print('NOMBRE:', name)
+        print('BOTON:', btn)
+
+        if menu == 'mesa1':
+            if name == 'drawerU':
+                name_routine = '.Man_MA1_DRU_FD'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,True)
+
+            elif name == 'drawerD':
+                name_routine = '.Man_MA1_DRD_FD'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,True)
+
+            elif name == 'clampeo1U':
+                name_routine = 'Man_MA1_OP_U1'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+
+            elif name == 'clampeo2U':
+                name_routine = 'Man_MA1_OP_U2'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+
+            elif name == 'clampeo1D':
+                name_routine = 'Man_MA1_OP_D1'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+
+            elif name == 'clampeo2D':
+                name_routine = 'Man_MA1_OP_D1'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+            return JsonResponse({})
+
+    def send_message(self,name_routine, bool_value, data_base_plc_direction):
+        import ssl
+        ssl._create_default_https_context = ssl._create_unverified_context
+        # vars para armar mensaje
+        msg_data_directions_container = []
+        if data_base_plc_direction == True:
+            first = '\"tags\"'
+            last = ""
+        else:
+            first = '\"'
+            last = '\"'
+
+        try:
+            conn = http.client.HTTPSConnection("192.168.3.150")
+        except:
+            print("Conexion con plc no establecida")    
+        
+        #arma el mensaje
+        msg_data_directions = {"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}}
+        msg_data_directions_container.append(msg_data_directions)
+
+        #mensaje armado
+        payload = json.dumps(msg_data_directions_container)
+
+        headers = {
+            'X-Auth-Token': PLC_TOKEN['token'],
+            'Content-Type': 'application/json',
+        }
+
+        #se manda el mensaje
+        conn.request("POST", "/api/jsonrpc", payload, headers)
+
+        #respuesata mensaje
+        # res = conn.getresponse()
+        # data = res.read()
+        # data_json = data.decode("utf-8")
+        # data_parsed = json.loads(data_json)
+        # bool_state_sensor = data_parsed["result"]
+        # print(f"el valor cambio a{bool_state_sensor}")
+
+
+        

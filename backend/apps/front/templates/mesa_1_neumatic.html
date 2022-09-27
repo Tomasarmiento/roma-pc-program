@@ -32,11 +32,11 @@
             <hr size="100px" style="width: 100%;" color="grey">
             <div class="row mt-3">
                 <div class="col-md-4 text-center inblock-center">
-                    <p style="display: inline;margin-top: 15px;">Neumático mueve drawer</p>
+                    <p style="display: inline;margin-top: 15px;">Neumático mueve drawer de arriba</p>
                 </div>
-                <div class="col text-center di-position-left-btn" >
-                    <button class="btn btn-primary buton-width" id="drawerXOn" menu="mesa1" cmd= {{ rem_do_set }}> Adelante </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="drawerXOff" menu="mesa1" cmd= {{ rem_do_set }}> Atras </button>
+                <div class="col text-center di-position-left-btn">
+                    <button class="btn btn-primary buton-width" id="drawerUXOn" menu="mesa1" cmd= {{ rem_do_set }}> Adelante </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="drawerUXOff" menu="mesa1" cmd= {{ rem_do_set }}> Atras </button>
                 </div>
                 <div class="col text-center" >
                     <article class="led led-grey" style="margin-top: 6px;" id="drawerOnOk"></article>
@@ -46,15 +46,33 @@
                     <label class="di-position-top-btn"><FONT SIZE=4>15 on</FONT></label>
                     <label class="di-position-bot-btn"><FONT SIZE=4>15 off</FONT></label>
                 </div> -->
-            </div>  
+            </div>
+            <hr size="100px" style="width: 100%;" color="grey">
+            <div class="row mt-3">
+                <div class="col-md-4 text-center inblock-center">
+                    <p style="display: inline;margin-top: 15px;">Neumático mueve drawer de abajo</p>
+                </div>
+                <div class="col text-center di-position-left-btn" >
+                    <button class="btn btn-primary buton-width" id="drawerDXOn" menu="mesa1" cmd= {{ rem_do_set }}> Adelante </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="drawerDXOff" menu="mesa1" cmd= {{ rem_do_set }}> Atras </button>
+                </div>
+                <div class="col text-center" >
+                    <article class="led led-grey" style="margin-top: 6px;" id="drawerOnOk"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="drawerOffOk"></article>
+                </div>
+                <!-- <div class="col text-center di-position" >
+                    <label class="di-position-top-btn"><FONT SIZE=4>15 on</FONT></label>
+                    <label class="di-position-bot-btn"><FONT SIZE=4>15 off</FONT></label>
+                </div> -->
+            </div>
             <hr size="100px" style="width: 100%;" color="grey">
             <div class="row mt-3">
                 <div class="col-md-4 text-center inblock-center">
                     <p style="display: inline">Neumático drawer up 1</p>
                 </div>
                 <div class="col text-center di-position-left-btn" >
-                    <button class="btn btn-primary buton-width" id="pallet1XOn" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="pallet1XOff" menu="mesa1" cmd= {{ rem_do_set }}> Desbloqueo </button>
+                    <button class="btn btn-primary buton-width" id="clampeo1UXOn" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="clampeo1UXOff" menu="mesa1" cmd= {{ rem_do_set }}> Desbloqueo </button>
                 </div>
                 <div class="col text-center" >
                     <article class="led led-grey" style="margin-top: 6px;" id="pallet1OnOk"></article>
@@ -71,8 +89,8 @@
                     <p style="display: inline;">Neumático drawer up 2</p>
                 </div>
                 <div class="col text-center di-position-left-btn">
-                    <button class="btn btn-primary buton-width" id="pallet2XOn" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="pallet2XOff" menu="mesa1" cmd= {{ rem_do_set }}> Desbloqueo </button>
+                    <button class="btn btn-primary buton-width" id="clampeo2UXOn" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="clampeo2UXOff" menu="mesa1" cmd= {{ rem_do_set }}> Desbloqueo </button>
                 </div>
                 <div class="col text-center" >
                     <article class="led led-grey" style="margin-top: 6px;" id="pallet2OnOk"></article>
@@ -89,8 +107,8 @@
                     <p style="display: inline;">Neumático drawer down 1</p>
                 </div>
                 <div class="col text-center di-position-left-btn"  >
-                    <button class="btn btn-primary buton-width" id="pallet3XOn" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="pallet3XOff" menu="mesa1" cmd= {{ rem_do_set }}> Desbloqueo </button>
+                    <button class="btn btn-primary buton-width" id="clampeo1DXOn" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="clampeo1DXOff" menu="mesa1" cmd= {{ rem_do_set }}> Desbloqueo </button>
                 </div>
                 <div class="col text-center" >
                     <article class="led led-grey" style="margin-top: 6px;" id="pallet3OnOk"></article>
@@ -107,8 +125,8 @@
                     <p style="display: inline;">Neumático drawer down 2</p>
                 </div>
                 <div class="col text-center di-position-left-btn">
-                    <button class="btn btn-primary buton-width" id="pallet4XOn" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="pallet4XOff" menu="mesa1" cmd= {{ rem_do_set }}> Desbloqueo </button>
+                    <button class="btn btn-primary buton-width" id="clampeo2DXOn" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="clampeo2DXOff" menu="mesa1" cmd= {{ rem_do_set }}> Desbloqueo </button>
                 </div>
                 <div class="col text-center" >
                     <article class="led led-grey" style="margin-top: 6px;" id="pallet4OnOk"></article>
@@ -149,6 +167,9 @@
             <span class="sr-only">Next</span>
         </a>
     </div>
+
+
+    
 </div>
 <section class="second_section">
     {% include 'sensores_index_template.html'%}

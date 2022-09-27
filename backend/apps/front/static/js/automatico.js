@@ -51,7 +51,7 @@ window.addEventListener("DOMContentLoaded", () => {
 socket.onmessage = function (event) {
     // console.log('aca');
     const datosWs = JSON.parse(event.data);
-    console.log(datosWs);
+    // console.log(datosWs);
     //BLOQUES DE HABILITACION PARA OKUMAS
     const cuadrado_mesa1 = document.getElementById("cuadrado_mesa1")
     const cuadrado_mesa2 = document.getElementById("cuadrado_mesa2")

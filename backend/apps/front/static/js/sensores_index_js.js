@@ -5,7 +5,6 @@ window.addEventListener("DOMContentLoaded", () => {
     const list_inverted_signal = ['MA1_I_DR_U_PS_1','MA1_I_DR_U_PS_2','MA1_I_DR_D_PS_1','MA1_I_DR_D_PS_2']
 
 
-
     //DEPENDIENDO EL HASH LLAMA A LA FUNCION PARA DESABILITAR LA LISTA DE SENSORES DE LOS DEMAS
     if (window.location.pathname == '/mesa_1_neumatic/') {
         disableDiv('tablaDrawer1',list_of_tables)
@@ -57,28 +56,22 @@ window.addEventListener("DOMContentLoaded", () => {
         dict = datosWs.plc_sensors
         arr_of_dict = Object.keys(dict)
         for (sensor_key of arr_of_dict) {
-            console.log(arr_of_dict);
+            // console.log(arr_of_dict);
             if (datosWs.plc_sensors[sensor_key] == true){
                 if (list_inverted_signal.includes(sensor_key)) {
                     see_state_sensor(sensor_key,false)
                 }
-                else{
+                else {
                     see_state_sensor(sensor_key,true)
                 }
-                
             }
-            else{
+            else {
                 if (list_inverted_signal.includes(sensor_key)) {
                     see_state_sensor(sensor_key,true)
                 }
                 else{
                     see_state_sensor(sensor_key,false)
                 }
-                
-                
-                // else{
-                //     see_state_sensor(sensor_key,false)
-                // }
             }
         }
     };  
