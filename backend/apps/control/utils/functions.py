@@ -296,6 +296,7 @@ def sensores_states_plc():
         DERIVED_SENSOR_STATES.append(bool_state_sensor)
         # print("cantidad valores traidos plc",count)
     # print(f"El valor que trae del plc es{bool_state_sensor}")
+    # print(DERIVED_SENSOR_STATES)
     return DERIVED_SENSOR_STATES
 
 

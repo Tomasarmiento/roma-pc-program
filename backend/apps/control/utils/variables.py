@@ -42,7 +42,7 @@ PLC_DEFAULT_VARIABLES = {
     'R_I_AL': False,
     'R_I_HF': False,
     'R_I_ID': False,
-    'R_I_AUT_SEM': False,
+    'R_I_AUT_SEM': False,####
     'R_I_30_40': False,
     'R_I_CAS': False,
     'R_I_BIT0_CH': False,
@@ -50,8 +50,8 @@ PLC_DEFAULT_VARIABLES = {
     'R_I_PAL': False,
     'R_I_DRW': False,
     'R_I_MA': False,
-    'R_I_GET_PUT': False,#id es 300 y aca 53
-    'R_I_MA_CH': False,#id es 300 y aca 53
+    'R_I_GET_PUT': False,
+    'R_I_MA_CH': False,########
     'R_I_G1_PS': False,
     'R_I_G2_PS': False,
     'R_I_FLS': False,

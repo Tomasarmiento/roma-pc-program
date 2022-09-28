@@ -26,10 +26,6 @@ class FrontConsumer(AsyncWebsocketConsumer):
         await self.set_channel_info()
         await self.accept()
         ws_vars.front_channel_name = self.channel_name
-        list = [False,False,False,False,False,True,True,True,True,True]
-        fake_list = [False, False, False, False, True, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, 
-        False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False, False]
-        print("FRONT WS CONNECTED")
         while 1:
             #funcion para pedir valores de sensores
             derived_sensores_states(sensores_states_plc())
@@ -46,11 +42,15 @@ class FrontConsumer(AsyncWebsocketConsumer):
                 'plc_sensors': (control_vars.PLC_DEFAULT_VARIABLES),
                 }))
             await asyncio.sleep(0.8)
+        # print("hola")
+        print("FRONT WS CONNECTED")
+
 
 
      
     async def receive(self, text_data=None, bytes_data=None):
         # print("hola")
+       
         print(text_data)
     
     async def disconnected(self, close_code):
@@ -60,6 +60,7 @@ class FrontConsumer(AsyncWebsocketConsumer):
         raise StopConsumer()
     
     async def front_message(self, event):
+        
         await self.send(text_data=json.dumps(event['data']))
     
     @database_sync_to_async

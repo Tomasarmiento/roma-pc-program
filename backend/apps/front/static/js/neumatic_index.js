@@ -131,7 +131,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     
         let btns = document.getElementsByTagName('button');
-        console.log(btns);
+        // console.log(btns);
         
         for(let i=0; i < btns.length; i++){
             if(btns[i].hasAttribute('menu')){
