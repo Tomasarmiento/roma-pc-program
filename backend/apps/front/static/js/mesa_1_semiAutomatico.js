@@ -8,53 +8,39 @@ window.addEventListener("DOMContentLoaded", () => {
    const text_gripper = document.querySelector("#text_gripper")
    const text_pos = document.querySelector("#text_position")
    const text_take_put = document.querySelector("#text_take_put")
+   const text_pallet = document.querySelector("#text_pallet")
    //VALOR DE LOS SELECT
    const model_value = document.getElementById('modelSelect')
    const gripper_value = document.getElementById('gripperSelect')
    const pos_value = document.querySelector('#posSelect')
    const take_put_value = document.querySelector('#take_putSelect')
    const pos_casita_value = document.querySelector('#pos_casitaSelect')
+   const pos_pallet_value = document.querySelector('#pos_palletSelect')
    //VARIABLES PARA ACTUALIZAR LOS MODELOS SELECCIONADOS LOCALES
    var current_pos_casita_value = ""
    var current_take_put_value = ""
+   //CONTENEDOR DE LOS VALORES QUE CAMBIAN DEPENDIENDO DE LA RUTINA
+   const pallet_selected_container = document.querySelector('#text_pallet_selected')
 
 
-//    btn_move_table1.addEventListener("click", () =>{
-//         console.log(model_value.value)
-//         if(model_value.value != "Mesas de armado");{ 
-//             //selector de modelo, habilida selectores dependiendo el modelo
-//             if (model_value.value == "Mesa_1" || model_value.value == "Mesa_2") {
-//                 // disableTxt("gripperSelect",false)
-//                 disableTxt("posSelect",false)
-//                 disableTxt("take_putSelect",false)
-//                 document.getElementById('sub_routine_container').style = "visibility: visible;"
-//             }
-//             else{
-//                 // disableTxt("gripperSelect",false)
-//                 disableTxt("pos_casitaSelect",false)
-//                 disableTxt("take_putSelect",false)
-//                 document.getElementById('sub_routine_container').style = "visibility: visible;"
-//             }
-//         }
-//     });
 
     model_value.addEventListener("change", () =>{
         //selector de modelo, habilida selectores dependiendo el modelo
         if (model_value.value == "Mesa_1" || model_value.value == "Mesa_2") {
-            // disableTxt("gripperSelect",false)
             disableTxt("posSelect",false)
             disableTxt("take_putSelect",false)
+            document.getElementById("text_pallet_selected").style.visibility = "hidden"
+            // disableDiv("text_pallet_selected")
             current_pos_casita_value = ""
             current_take_put_value = ""
-            // document.getElementById('sub_routine_container').style = "visibility: visible;"
         }
         else{
-            // disableTxt("gripperSelect",false)
             disableTxt("pos_casitaSelect",false)
             disableTxt("take_putSelect",false)
+            disableTxt("pos_palletSelect",false)
+            document.getElementById("text_pallet_selected").style.visibility = "visible"
             current_pos_casita_value = ""
             current_take_put_value = ""
-            // document.getElementById('sub_routine_container').style = "visibility: visible;"
         }
 });
 
@@ -66,35 +52,25 @@ window.addEventListener("DOMContentLoaded", () => {
         //inabilita selectores cuando se cambia de modelo
         if (model_value.value == "Mesa_1" || model_value.value == "Mesa_2") {
             disableTxt("pos_casitaSelect",true)
+            disableTxt("pos_palletSelect",true)
         }
         else{
             disableTxt("posSelect",true)
         }
-        
-        //disableTxt("gripperSelect",true)
-        // disableTxt("posSelect",true)
-        // disableTxt("take_putSelect",true)
-        // disableTxt("pos_casitaSelect",true)
-        // document.getElementById('sub_routine_container').style = "visibility: hidden;"
 
         //reestablece los valores del mensaje de sub rutina
         text_gripper.innerHTML = "______"
         text_pos.innerHTML = "______"
         text_take_put.innerHTML = "______"
+        text_pallet.innerHTML = "______"
 
         //reestablece valores de los select
-        // gripper_value.value = "Gripper"
         pos_value.value = "Posición"
         take_put_value.value = "Tomar/Dejar"
         pos_casita_value.value = "Posición Casita"
+        pos_pallet_value.value = "Pallet"
 
     });
-
-    //reemplaza valores en texto para ejecutar rutina
-    // gripper_value.addEventListener('change', function() {
-    //     gripper_value_string = (gripper_value.value).toString()
-    //     text_gripper.innerHTML = gripper_value_string
-    // });
 
     pos_value.addEventListener('change', function() {
         position_value_string = (pos_value.value).toString()
@@ -146,7 +122,14 @@ window.addEventListener("DOMContentLoaded", () => {
 
     });
 
-    
+    pos_pallet_value.addEventListener('change', function() {
+        pallet_value_string = (pos_pallet_value.value).toString()
+        text_pallet.innerHTML = pallet_value_string
+
+    });
+
+
+    console.log(current_pos_casita_value);
 
     
 });

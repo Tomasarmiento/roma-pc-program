@@ -15,6 +15,7 @@ window.addEventListener("DOMContentLoaded", () => {
     disableTxt("take_putSelect",true)
     disableTxt("pos_casitaSelect",true)
     disableTxt("sub_routine_container",true)
+    disableTxt("pos_palletSelect",true)
 
 
 
