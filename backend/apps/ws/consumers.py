@@ -26,22 +26,22 @@ class FrontConsumer(AsyncWebsocketConsumer):
         await self.set_channel_info()
         await self.accept()
         ws_vars.front_channel_name = self.channel_name
-        while 1:
-            #funcion para pedir valores de sensores
-            derived_sensores_states(sensores_states_plc())
-            # derived_sensores_states(fake_list)
-            #------------------------------------------------
-            await self.send(json.dumps({
-                'mesa_armado_1' : int(param_vars.PARAMS['mesa_armado_1']),
-                'mesa_armado_2' : int(param_vars.PARAMS['mesa_armado_2']),
-                'okuma_1' : int(param_vars.PARAMS['okuma_1']),
-                'okuma_2' : int(param_vars.PARAMS['okuma_2']),
-                'okuma_3' : int(param_vars.PARAMS['okuma_3']),
-                'okuma_4' : int(param_vars.PARAMS['okuma_4']),
-                'mensajes_log': ws_vars.frontState.log_messages,
-                'plc_sensors': (control_vars.PLC_DEFAULT_VARIABLES),
-                }))
-            await asyncio.sleep(0.8)
+        # while 1:
+        #     #funcion para pedir valores de sensores
+        #     derived_sensores_states(sensores_states_plc())
+        #     # derived_sensores_states(fake_list)
+        #     #------------------------------------------------
+        #     await self.send(json.dumps({
+        #         'mesa_armado_1' : int(param_vars.PARAMS['mesa_armado_1']),
+        #         'mesa_armado_2' : int(param_vars.PARAMS['mesa_armado_2']),
+        #         'okuma_1' : int(param_vars.PARAMS['okuma_1']),
+        #         'okuma_2' : int(param_vars.PARAMS['okuma_2']),
+        #         'okuma_3' : int(param_vars.PARAMS['okuma_3']),
+        #         'okuma_4' : int(param_vars.PARAMS['okuma_4']),
+        #         'mensajes_log': ws_vars.frontState.log_messages,
+        #         'plc_sensors': (control_vars.PLC_DEFAULT_VARIABLES),
+        #         }))
+        #     await asyncio.sleep(0.8)
         # print("hola")
         print("FRONT WS CONNECTED")
 

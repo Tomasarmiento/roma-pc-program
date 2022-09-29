@@ -130,20 +130,20 @@ window.addEventListener("DOMContentLoaded", () => {
     //button scroll//
 
     
-        let btns = document.getElementsByTagName('button');
-        // console.log(btns);
-        
-        for(let i=0; i < btns.length; i++){
-            if(btns[i].hasAttribute('menu')){
-                btns[i].addEventListener('click', (e) => {
-                    let menu = btns[i].getAttribute('menu');
-                    let name = btns[i].getAttribute('id');
-                    let btn = name.slice(name.indexOf('X')+1)
-                    name = name.slice(0, name.indexOf('X'));
-                    sendCommand(menu, name, btn);
-                });
-            }
+    let btns = document.getElementsByTagName('button');
+    // console.log(btns);
+    
+    for(let i=0; i < btns.length; i++){
+        if(btns[i].hasAttribute('menu')){
+            btns[i].addEventListener('click', (e) => {
+                let menu = btns[i].getAttribute('menu');
+                let name = btns[i].getAttribute('id');
+                let btn = name.slice(name.indexOf('X')+1)
+                name = name.slice(0, name.indexOf('X'));
+                sendCommand(menu, name, btn);
+            });
         }
+    }
     
     
     function sendCommand(menu, name, btn){
