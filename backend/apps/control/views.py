@@ -17,8 +17,8 @@ from apps.ws.utils.variables import frontState
 from apps.parameters.utils.functions import toggle_disable_machine
 from apps.parameters.models import Parameter
 
-from apps.control.utils.variables import OKUMA,MESA,PLC_TOKEN
-from apps.control.utils.functions import derived_sensores_states,obtain_token_plc
+from apps.control.utils.variables import OKUMA,MESA,PLC_TOKEN,M_PROGS_SEMIAUTO
+from apps.control.utils.functions import derived_sensores_states,obtain_token_plc,send_message_semi
 
 
 @csrf_exempt
@@ -241,6 +241,7 @@ class ManualPneumatic(View):
 
     def post(self, request):
         post_req = request.POST
+        print("entro al post")
         
         req_data = []
         
@@ -359,4 +360,110 @@ class ManualPneumatic(View):
         # print(f"el valor cambio a{bool_state_sensor}")
 
 
+@csrf_exempt
+def send_command_bit(request):
+    post_req = request.POST
+    print(post_req)
+
+    req_data = []
+        
+    for item in post_req.items():   # Item is in (key, value) format
+        req_data.append(item)
+
+
+    menu = req_data[0][1]
+    name = req_data[1][1]
+    print(menu,name)
+    # print("el m prog es",M_PROGS_SEMIAUTO['M_PRG_30_40'])
+
+    if name == "mesa1":
+        name = "M_PRG_MA"
+        bool_value = False
+        send_message_semi(name,bool_value)
+
+    elif name == "mesa2":
+        name = "M_PRG_30_40"
+        bool_value = True
+        send_message_semi(name,bool_value)
+    
+    elif name == "okuma1":
+        name = ["M_PRG_BIT0_ch","M_PRG_BIT1_ch"]
+        bool_value_1 = False
+        bool_value_2 = False
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+
+    elif name == "okuma2":
+        name = ["M_PRG_BIT0_ch","M_PRG_BIT1_ch"]
+        bool_value_1 = False
+        bool_value_2 = True
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+    
+    elif name == "okuma3":
+        name = ["M_PRG_BIT0_ch","M_PRG_BIT1_ch"]
+        bool_value_1 = True
+        bool_value_2 = False
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+
+    elif name == "okuma4":
+        name = ["M_PRG_BIT0_ch","M_PRG_BIT1_ch"]
+        bool_value_1 = False
+        bool_value_2 = False
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+
+    elif name == "U1":
+        name = ["M_PRG_DRW","M_PRG_PAL"]
+        bool_value_1 = True
+        bool_value_2 = False
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+        
+    elif name == "U2":
+        name = ["M_PRG_DRW","M_PRG_PAL"]
+        bool_value_1 = True
+        bool_value_2 = True
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+    
+    elif name == "D1":
+        name = ["M_PRG_DRW","M_PRG_PAL"]
+        bool_value_1 = False
+        bool_value_2 = False
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+
+    elif name == "D2":
+        name = ["M_PRG_DRW","M_PRG_PAL"]
+        bool_value_1 = False
+        bool_value_2 = True
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+
+    elif name == "tomar":
+        name = "M_PRG_GET_PUT"
+        bool_value = False
+        send_message_semi(name,bool_value)
+
+    elif name == "dejar":
+        name = "M_PRG_GET_PUT"
+        bool_value = True
+        send_message_semi(name,bool_value)
+
+    elif name == "op30":
+        name = "M_PRG_30_40"
+        bool_value = False
+        send_message_semi(name,bool_value)
+
+    elif name == "op40":
+        name = "M_PRG_30_40"
+        bool_value = True
+        send_message_semi(name,bool_value)
+
+    elif name == "casita1":
+        name = "M_PRG_CAS"
+        bool_value = False
+        send_message_semi(name,bool_value)
+
+    elif name == "casita2":
+        name = "M_PRG_CAS"
+        bool_value = True
+        send_message_semi(name,bool_value)
+
+   
+    return JsonResponse({})
         

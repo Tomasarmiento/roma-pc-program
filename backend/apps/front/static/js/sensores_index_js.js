@@ -27,6 +27,9 @@ window.addEventListener("DOMContentLoaded", () => {
     else if(window.location.pathname == /okuma_4_neumatic/) {//tablaSensoresCNC1
         disableDivExeptValue('tablaSensoresCNC4',list_of_tables)
     }
+    else if(window.location.pathname == /semiAutomatico/) {//tablaSensoresCNC1
+        disableDivExeptValue('',list_of_tables)
+    }
 
     console.log(window.location.pathname);
     function see_state_sensor(sensor_name,state,invest) {
@@ -130,19 +133,15 @@ window.addEventListener("DOMContentLoaded", () => {
         }
         // okumas bits
         if (R_I_BIT0_CH == true && R_I_BIT1_CH == false) {
-            console.log('okuma3');
             see_state_sensor('okuma_3',true)
         }
         if (R_I_BIT0_CH == false && R_I_BIT1_CH == true) {
-            console.log('okuma2');
             see_state_sensor('okuma_2',true)
         }
         if (R_I_BIT0_CH == false && R_I_BIT1_CH == false) {
-            console.log('okuma3');
             see_state_sensor('okuma_1',true)
         }
         if (R_I_BIT0_CH == true && R_I_BIT1_CH == true) {
-            console.log('okuma2');
             see_state_sensor('okuma_4',true)
         }
     };

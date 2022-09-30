@@ -310,3 +310,41 @@ def threadA(dqu,):
         time.sleep(120)
 
 
+#funcion para armar rutinas en el semiatumatico
+def send_message_semi(name_routine, bool_value, second_name_routine=None, second_bool_value=None):
+    import ssl
+    ssl._create_default_https_context = ssl._create_unverified_context
+    # vars para armar mensaje
+    msg_data_directions_container = []
+
+    first = '\"'
+    last = '\"'
+
+    try:
+        conn = http.client.HTTPSConnection("192.168.3.150")
+    except:
+        print("Conexion con plc no establecida")    
+    
+    #arma el mensaje
+    if second_name_routine:
+        msg_data_directions = {"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}},
+        {"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+second_name_routine+last),"value":second_bool_value}}
+        msg_data_directions_container.append(msg_data_directions)
+    else:
+        msg_data_directions = {"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}}
+        msg_data_directions_container.append(msg_data_directions)
+
+
+    #mensaje armado
+    payload = json.dumps(msg_data_directions_container)
+
+    headers = {
+        'X-Auth-Token': PLC_TOKEN['token'],
+        'Content-Type': 'application/json',
+    }
+
+    #se manda el mensaje
+    conn.request("POST", "/api/jsonrpc", payload, headers)
+
+
+

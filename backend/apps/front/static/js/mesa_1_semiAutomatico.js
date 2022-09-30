@@ -42,7 +42,7 @@ window.addEventListener("DOMContentLoaded", () => {
             current_pos_casita_value = ""
             current_take_put_value = ""
         }
-});
+    });
 
     //reemplaza valores texto para seleccionar el modelo que habilita funciones
     model_value.addEventListener('change', function() {
@@ -70,6 +70,11 @@ window.addEventListener("DOMContentLoaded", () => {
         pos_casita_value.value = "Posición Casita"
         pos_pallet_value.value = "Pallet"
 
+        //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
+        const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
+        console.log(name_bit);
+        sendCommandSemi("semi", name_bit)
+
     });
 
     pos_value.addEventListener('change', function() {
@@ -77,14 +82,19 @@ window.addEventListener("DOMContentLoaded", () => {
         text_pos.innerHTML = position_value_string
         text_gripper.innerHTML = "Gripper 1" // pone como valor gripper 1 al seleccionar posicion de mesa xq siempre toma o deja con gripper 1
 
+        //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
+        const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
+        console.log(name_bit);
+        sendCommandSemi("semi", name_bit)
+
     });
 
     take_put_value.addEventListener('change', function() {
         take_put_value_string = (take_put_value.value).toString()
-        console.log(take_put_value_string);
         text_take_put.innerHTML = take_put_value_string
         //actualiza el estado actual en una variable local
         current_take_put_value = take_put_value_string
+
         //modifica el texto de gripper dependiendo de que se va a hacer
         if ((current_take_put_value == "Tomar") && (current_pos_casita_value == "OP 30")) {
             text_gripper.innerHTML = "Gripper 2"
@@ -98,6 +108,12 @@ window.addEventListener("DOMContentLoaded", () => {
         else if (current_take_put_value == "Dejar" && current_pos_casita_value == "OP 40"){
             text_gripper.innerHTML = "Gripper 2"
         }
+
+
+        //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
+        const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
+        console.log(name_bit);
+        sendCommandSemi("semi", name_bit)
     });
 
     pos_casita_value.addEventListener('change', function() {
@@ -120,20 +136,27 @@ window.addEventListener("DOMContentLoaded", () => {
             text_gripper.innerHTML = "Gripper 2"
         }
 
+        //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
+        const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
+        console.log(name_bit);
+        sendCommandSemi("semi", name_bit)
     });
 
     pos_pallet_value.addEventListener('change', function() {
         pallet_value_string = (pos_pallet_value.value).toString()
         text_pallet.innerHTML = pallet_value_string
 
-    });
+        //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
+        const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
+        console.log(name_bit);
+        sendCommandSemi("semi", name_bit)
 
-   
+    });
     
     
-    function sendCommand(menu, name){
-        let url = "http://localhost:8000/control/sensores/";
-        let params = "&menu=" + menu + "&name=" + name;
+    function sendCommandSemi(menu, name_bit){
+        let url = "http://localhost:8000/control/semiautomatico/routine/";
+        let params = "&menu=" + menu + "&name=" + name_bit;
     
         // var params = "lorem=ipsum&name=alpha";
         let xhr = new XMLHttpRequest();
