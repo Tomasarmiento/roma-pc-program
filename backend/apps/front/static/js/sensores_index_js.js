@@ -3,7 +3,7 @@ window.addEventListener("DOMContentLoaded", () => {
     //sensores states//
     const list_of_tables = ['tablaDrawer1','tablaDrawer2','tablaSensoresCNC1', 'tablaSensoresCNC2','tablaSensoresCNC3','tablaSensoresCNC4']
     const list_inverted_signal = ['MA1_I_DR_U_PS_1','MA1_I_DR_U_PS_2','MA1_I_DR_D_PS_1','MA1_I_DR_D_PS_2']
-    const list_robot_routines_signal = ['R_I_AUT_SEM','R_I_30_40','R_I_CAS','R_I_BIT0_CH','R_I_BIT1_CH','R_I_PAL','R_I_DRW','R_I_MA','R_I_GET_PUT','R_I_MA_CH']
+    const list_1flag_2leds = ['R_I_AUT_SEM','R_I_30_40','R_I_CAS','R_I_BIT0_CH','R_I_BIT1_CH','R_I_PAL','R_I_DRW','R_I_MA','R_I_GET_PUT','R_I_MA_CH','INF30','Blower','Booster','INF40']
     const list_okuma_selector = ['R_I_BIT0_CH','R_I_BIT1_CH']
     const list_okuma_selector_bit0 = ['R_I_BIT0_CH']
     const list_okuma_selector_bit1 = ['R_I_BIT1_CH']
@@ -53,11 +53,12 @@ window.addEventListener("DOMContentLoaded", () => {
         var count = 0
         var R_I_BIT0_CH = false
         var R_I_BIT1_CH = false
+
         const datosWs = JSON.parse(event.data);
         dict = datosWs.plc_sensors
         arr_of_dict = Object.keys(dict)
         for (sensor_key of arr_of_dict) {
-            // console.log(arr_of_dict[0]+"1");
+            console.log(arr_of_dict);
             if (datosWs.plc_sensors[sensor_key] == true){
                 //señales invertidas
                 if (list_inverted_signal.includes(sensor_key)) {
@@ -69,7 +70,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     see_state_sensor(sensor_key+"_copy",false)
                 }
                 //rutinas robot
-                if (list_robot_routines_signal.includes(sensor_key)) {
+                if (list_1flag_2leds.includes(sensor_key)) {
                     see_state_sensor(sensor_key,false)
                     see_state_sensor(sensor_key+"_1",true)
                 }
@@ -100,7 +101,7 @@ window.addEventListener("DOMContentLoaded", () => {
                     see_state_sensor(sensor_key+"_copy",true)
                 }
                 //rutinas robot
-                if (list_robot_routines_signal.includes(sensor_key)) {
+                if (list_1flag_2leds.includes(sensor_key)) {
                     see_state_sensor(sensor_key,true)
                     see_state_sensor(sensor_key+"_1",false)
                 }
