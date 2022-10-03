@@ -317,7 +317,61 @@ class ManualPneumatic(View):
                     bool_value_1  = False
                 
                 self.send_message(name_routine,bool_value_1,False)
-            return JsonResponse({})
+
+        if menu == 'okuma1':
+            if name == 'inflador':
+                name_routine = 'Man_CH1_NF'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+
+            elif name == 'booster':
+                name_routine = 'Man_CH1_BOO'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+
+            elif name == 'soplador':
+                name_routine = 'Man_CH1_BLW'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+            
+            elif name == 'desclampeo30':
+                name_routine = 'Man_CH1_INF30'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+
+            elif name == 'desclampeo40':
+                name_routine = 'Man_CH1_INF40'
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                self.send_message(name_routine,bool_value_1,False)
+                
+        return JsonResponse({})
+
+            
 
     def send_message(self,name_routine, bool_value, data_base_plc_direction):
         import ssl
@@ -377,58 +431,66 @@ def send_command_bit(request):
     # print("el m prog es",M_PROGS_SEMIAUTO['M_PRG_30_40'])
 
     if name == "mesa1":
-        name = "M_PRG_MA"
-        bool_value = False
-        send_message_semi(name,bool_value)
+        name = ["M_PRG_MA","M_PRG_MA_CH"]
+        bool_value_1 = False
+        bool_value_2 = False
+        # send_message_semi(name,bool_value)
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
 
     elif name == "mesa2":
-        name = "M_PRG_30_40"
+        name = ["M_PRG_MA","M_PRG_MA_CH"]
         bool_value = True
-        send_message_semi(name,bool_value)
+        bool_value_2 = False
+        # send_message_semi(name,bool_value)
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
     
     elif name == "okuma1":
-        name = ["M_PRG_BIT0_ch","M_PRG_BIT1_ch"]
+        name = ["M_PRG_BIT0_CH","M_PRG_BIT1_CH","M_PRG_MA_CH"]
         bool_value_1 = False
         bool_value_2 = False
-        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+        bool_value_3 = True
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2,name[2],bool_value_3)
 
     elif name == "okuma2":
-        name = ["M_PRG_BIT0_ch","M_PRG_BIT1_ch"]
+        name = ["M_PRG_BIT0_CH","M_PRG_BIT1_CH","M_PRG_MA_CH"]
         bool_value_1 = False
         bool_value_2 = True
-        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+        bool_value_3 = True
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2,name[2],bool_value_3)
     
     elif name == "okuma3":
-        name = ["M_PRG_BIT0_ch","M_PRG_BIT1_ch"]
+        name = ["M_PRG_BIT0_CH","M_PRG_BIT1_CH","M_PRG_MA_CH"]
         bool_value_1 = True
         bool_value_2 = False
-        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+        bool_value_3 = True
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2,name[2],bool_value_3)
 
     elif name == "okuma4":
-        name = ["M_PRG_BIT0_ch","M_PRG_BIT1_ch"]
+        name = ["M_PRG_BIT0_CH","M_PRG_BIT1_CH","M_PRG_MA_CH"]
         bool_value_1 = False
         bool_value_2 = False
-        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+        bool_value_3 = True
+        send_message_semi(name[0],bool_value_1,name[1],bool_value_2,name[2],bool_value_3)
 
-    elif name == "U1":
+    elif name == "u1":
         name = ["M_PRG_DRW","M_PRG_PAL"]
         bool_value_1 = True
         bool_value_2 = False
         send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
         
-    elif name == "U2":
+    elif name == "u2":
         name = ["M_PRG_DRW","M_PRG_PAL"]
         bool_value_1 = True
         bool_value_2 = True
         send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
     
-    elif name == "D1":
+    elif name == "d1":
         name = ["M_PRG_DRW","M_PRG_PAL"]
         bool_value_1 = False
         bool_value_2 = False
         send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
 
-    elif name == "D2":
+    elif name == "d2":
         name = ["M_PRG_DRW","M_PRG_PAL"]
         bool_value_1 = False
         bool_value_2 = True

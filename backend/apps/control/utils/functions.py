@@ -311,11 +311,11 @@ def threadA(dqu,):
 
 
 #funcion para armar rutinas en el semiatumatico
-def send_message_semi(name_routine, bool_value, second_name_routine=None, second_bool_value=None):
+def send_message_semi(name_routine, bool_value, second_name_routine=None, second_bool_value=None, three_name_routie=None, three_bool_value=None):
     import ssl
     ssl._create_default_https_context = ssl._create_unverified_context
     # vars para armar mensaje
-    msg_data_directions_container = []
+    # print(f"primer rutina{name_routine}, y el bool que se le pasa es {bool_value}. Segunda rutina{second_name_routine}, y el bool2 q se le pasa es {second_bool_value}")
 
     first = '\"'
     last = '\"'
@@ -327,16 +327,19 @@ def send_message_semi(name_routine, bool_value, second_name_routine=None, second
     
     #arma el mensaje
     if second_name_routine:
-        msg_data_directions = {"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}},
-        {"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+second_name_routine+last),"value":second_bool_value}}
-        msg_data_directions_container.append(msg_data_directions)
+        print("2 valores")
+        payload = json.dumps([{"jsonrpc":"2.0","id":"1","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}},
+        {"jsonrpc":"2.0","id":"2","method":"PlcProgram.Write","params":{"var":(first+second_name_routine+last),"value":second_bool_value}}])
+
+        if three_name_routie:
+            payload = json.dumps([{"jsonrpc":"2.0","id":"1","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}},
+            {"jsonrpc":"2.0","id":"2","method":"PlcProgram.Write","params":{"var":(first+second_name_routine+last),"value":second_bool_value}},
+            {"jsonrpc":"2.0","id":"3","method":"PlcProgram.Write","params":{"var":(first+three_name_routie+last),"value":three_bool_value}},])
+
     else:
-        msg_data_directions = {"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}}
-        msg_data_directions_container.append(msg_data_directions)
-
-
-    #mensaje armado
-    payload = json.dumps(msg_data_directions_container)
+        print("1 solo valor")
+        #mensaje armado
+        payload = json.dumps([{"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}}])
 
     headers = {
         'X-Auth-Token': PLC_TOKEN['token'],
@@ -345,6 +348,7 @@ def send_message_semi(name_routine, bool_value, second_name_routine=None, second
 
     #se manda el mensaje
     conn.request("POST", "/api/jsonrpc", payload, headers)
+    print(f"la paylod es{payload}")
 
 
 

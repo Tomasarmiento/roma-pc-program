@@ -19,7 +19,7 @@ class ControlConfig(AppConfig):
 
     def ready(self) -> None:
         print('start')
-        # functions.obtain_token_plc()
+        functions.obtain_token_plc()
 
 
     # def ready(self) -> None:
