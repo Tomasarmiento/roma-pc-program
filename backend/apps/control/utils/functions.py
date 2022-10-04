@@ -327,7 +327,7 @@ def send_message_semi(name_routine, bool_value, second_name_routine=None, second
     
     #arma el mensaje
     if second_name_routine:
-        print("2 valores")
+        # print("2 valores")
         payload = json.dumps([{"jsonrpc":"2.0","id":"1","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}},
         {"jsonrpc":"2.0","id":"2","method":"PlcProgram.Write","params":{"var":(first+second_name_routine+last),"value":second_bool_value}}])
 
@@ -337,7 +337,7 @@ def send_message_semi(name_routine, bool_value, second_name_routine=None, second
             {"jsonrpc":"2.0","id":"3","method":"PlcProgram.Write","params":{"var":(first+three_name_routie+last),"value":three_bool_value}},])
 
     else:
-        print("1 solo valor")
+        # print("1 solo valor")
         #mensaje armado
         payload = json.dumps([{"jsonrpc":"2.0","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}}])
 
@@ -348,7 +348,7 @@ def send_message_semi(name_routine, bool_value, second_name_routine=None, second
 
     #se manda el mensaje
     conn.request("POST", "/api/jsonrpc", payload, headers)
-    print(f"la paylod es{payload}")
+    # print(f"la paylod es{payload}")
 
 
 

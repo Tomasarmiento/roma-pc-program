@@ -21,6 +21,9 @@ window.addEventListener("DOMContentLoaded", () => {
    var current_take_put_value = ""
    //CONTENEDOR DE LOS VALORES QUE CAMBIAN DEPENDIENDO DE LA RUTINA
    const pallet_selected_container = document.querySelector('#text_pallet_selected')
+   //BOTON PARA ENVIAR COMANDO DE EJECUTAR RUTINA
+   const btn_semiauto = document.getElementById('btn_semiauto_routine')
+
 
 
 
@@ -152,6 +155,12 @@ window.addEventListener("DOMContentLoaded", () => {
         sendCommandSemi("semi", name_bit)
 
     });
+
+    btn_semiauto.addEventListener('click', (e) => {
+        sendCommandSemi("semi","execute_routine")
+    });
+
+    
     
     
     function sendCommandSemi(menu, name_bit){

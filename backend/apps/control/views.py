@@ -241,7 +241,7 @@ class ManualPneumatic(View):
 
     def post(self, request):
         post_req = request.POST
-        print("entro al post")
+        # print("entro al post")
         
         req_data = []
         
@@ -417,7 +417,7 @@ class ManualPneumatic(View):
 @csrf_exempt
 def send_command_bit(request):
     post_req = request.POST
-    print(post_req)
+    print("la post",post_req)
 
     req_data = []
         
@@ -429,6 +429,8 @@ def send_command_bit(request):
     name = req_data[1][1]
     print(menu,name)
     # print("el m prog es",M_PROGS_SEMIAUTO['M_PRG_30_40'])
+
+    #CAMBIADOR DE BITS DE RUTINAS DEL ROBOT
 
     if name == "mesa1":
         name = ["M_PRG_MA","M_PRG_MA_CH"]
@@ -467,8 +469,8 @@ def send_command_bit(request):
 
     elif name == "okuma4":
         name = ["M_PRG_BIT0_CH","M_PRG_BIT1_CH","M_PRG_MA_CH"]
-        bool_value_1 = False
-        bool_value_2 = False
+        bool_value_1 = True
+        bool_value_2 = True
         bool_value_3 = True
         send_message_semi(name[0],bool_value_1,name[1],bool_value_2,name[2],bool_value_3)
 
@@ -525,6 +527,15 @@ def send_command_bit(request):
         name = "M_PRG_CAS"
         bool_value = True
         send_message_semi(name,bool_value)
+
+
+    #BOTON PARA EJECUTAR RUTINA EN SEMIAUTOMATICO
+    elif name == "execute_routine":
+        name = "run_semi"
+        bool_value = True
+        send_message_semi(name,bool_value)
+
+    
 
    
     return JsonResponse({})

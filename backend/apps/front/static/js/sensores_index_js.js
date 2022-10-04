@@ -58,7 +58,7 @@ window.addEventListener("DOMContentLoaded", () => {
         dict = datosWs.plc_sensors
         arr_of_dict = Object.keys(dict)
         for (sensor_key of arr_of_dict) {
-            console.log(arr_of_dict);
+            // console.log(arr_of_dict);
             if (datosWs.plc_sensors[sensor_key] == true){
                 //señales invertidas
                 if (list_inverted_signal.includes(sensor_key)) {
@@ -106,10 +106,10 @@ window.addEventListener("DOMContentLoaded", () => {
                     see_state_sensor(sensor_key+"_1",false)
                 }
                 //okuma selector
-                if (list_okuma_selector_bit0.includes(sensor_key)) {
-                    console.log(datosWs.plc_sensors[sensor_key]);
+                // if (list_okuma_selector_bit0.includes(sensor_key)) {
+                //     console.log(datosWs.plc_sensors[sensor_key]);
                     
-                }
+                // }
                 // R_I_BIT0_CH = false
                 if (list_okuma_selector_bit0.includes(sensor_key)) {
                     R_I_BIT0_CH = false

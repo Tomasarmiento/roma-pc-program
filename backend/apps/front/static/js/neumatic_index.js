@@ -147,6 +147,7 @@ window.addEventListener("DOMContentLoaded", () => {
     
     
     function sendCommand(menu, name, btn){
+        // let url = "http://192.168.3.127:8000/control/sensores/";
         let url = "http://localhost:8000/control/sensores/";
         let params = "&menu=" + menu + "&name=" + name + "&btn=" + btn;
     
