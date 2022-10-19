@@ -22,9 +22,19 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
     console.log("Enter main js");
   });
 
+  socket.onmessage = function (event) {
+    const datosWs = JSON.parse(event.data);
+    // console.log(datosWs);
+    switch (window.location.pathname) {
+      case "/semiAutomatico/":
+        semiAutomatico(datosWs)
+      case "/semiAutomatico/":
+        sensores(datosWs)
+      case "/okuma_1_neumatic/":
+        sensores(datosWs)
+      case "/mesa_1_neumatic/":
+        sensores(datosWs)
+    }
+  };
 
-socket.onmessage = function (event) {
-  const datosWs = JSON.parse(event.data);
-  // console.log(datosWs);
 
-};  

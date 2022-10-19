@@ -1,3 +1,5 @@
+// import {firstname} from "./sensores_index_js"
+
 window.addEventListener("DOMContentLoaded", () => {
     (window.location.hash);
     const model_value = document.getElementById('modelSelect')
@@ -13,10 +15,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     
     // disableTxt("gripperSelect",true)
-    disableTxt("posSelect",true)
+    disableTxt("pos_Select",true)
+    disableTxt("pos_UpDownSelect",true)
     disableTxt("take_putSelect",true)
     disableTxt("pos_casitaSelect",true)
-    disableTxt("sub_routine_container",true)
     disableTxt("pos_palletSelect",true)
 
 
@@ -25,9 +27,36 @@ window.addEventListener("DOMContentLoaded", () => {
         console.log('click routine');
     });
 
+    
 
-    let select = document.getElementsByTagName('select');
-    let options = document.getElementsByTagName('option');
+    // socket.onmessage = function (event) {
+    //     const datosWs = JSON.parse(event.data);
+    //     console.log(datosWs);
+    //     console.log('dentro de socket message');
+    // };  
+
+
+    
+
+
+
+    // function sendCommandSemi(menu, name_bit){
+    //     let url = "http://localhost:8000/control/semiautomatico/routine/";
+    //     let params = "&menu=" + menu + "&name=" + name_bit;
+    
+    //     // var params = "lorem=ipsum&name=alpha";
+    //     let xhr = new XMLHttpRequest();
+    //     xhr.open("POST", url, true);
+    
+    //     //Send the proper header information along with the request
+    //     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    //     xhr.send(params);
+    // }
+
+
+    // let select = document.getElementsByTagName('select');
+    // let options = document.getElementsByTagName('option');
     // console.log(select);
     
     // for(let i=0; i < select.length; i++){
@@ -107,4 +136,6 @@ window.addEventListener("DOMContentLoaded", () => {
     //     }
     // }
 });
+
+
 // export const nombre = "tomas";

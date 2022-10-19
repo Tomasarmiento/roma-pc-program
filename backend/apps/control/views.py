@@ -166,12 +166,14 @@ def switch_led_state_off(request):
     # {"jsonrpc":"2.0","id":"124","method":"PlcProgram.Read","params":{"var":"\"okuma_available\""}},
     # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"gen\""}},
     # {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"tags\".Man_MA1_DRD_FD", "value": True}},
-    {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Write","params":{"var":"\"CH1_O_EMS\"", "value": True}},
+    # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Write","params":{"var":"\"CH1_O_EMS\"", "value": True}},
     # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Write","params":{"var":"\"M_PRG_BIT0_CH\"", "value": False}},
     # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Write","params":{"var":"\"M_PRG_BIT1_CH\"", "value": True}},
     # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"R_O_BIT0_CH\""}},
     # {"jsonrpc":"2.0","id":"133","method":"PlcProgram.Read","params":{"var":"\"R_O_BIT1_CH\""}},
-    # {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"tags\"M_PRG_AUT_SEM", "value": True}},
+    {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"M_PRG_AUT_SEM\"", "value": True}},
+    {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"testing\"", "value": True}},
+    {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"robot_allowed\"", "value": True}},
     # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_AUT_SEM\""}},
     # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_30_40\""}},
     # {"jsonrpc":"2.0","id":"132","method":"PlcProgram.Read","params":{"var":"\"R_I_CAS\""}},
@@ -235,7 +237,7 @@ def sensores_mesa_identify(request):
         return JsonResponse({})
 
 
-
+#ARMA MENSAJE PARA MANDAR COMANDOS DE NEUMATICA
 @method_decorator(csrf_exempt, name='dispatch')
 class ManualPneumatic(View):
 
@@ -414,6 +416,8 @@ class ManualPneumatic(View):
         # print(f"el valor cambio a{bool_state_sensor}")
 
 
+
+#ARMA MENSAJE PARA MANDAR COMANDOS DE SEMIAUTOMATICO
 @csrf_exempt
 def send_command_bit(request):
     post_req = request.POST
@@ -431,7 +435,6 @@ def send_command_bit(request):
     # print("el m prog es",M_PROGS_SEMIAUTO['M_PRG_30_40'])
 
     #CAMBIADOR DE BITS DE RUTINAS DEL ROBOT
-
     if name == "mesa1":
         name = ["M_PRG_MA","M_PRG_MA_CH"]
         bool_value_1 = False
@@ -441,7 +444,7 @@ def send_command_bit(request):
 
     elif name == "mesa2":
         name = ["M_PRG_MA","M_PRG_MA_CH"]
-        bool_value = True
+        bool_value_1 = True
         bool_value_2 = False
         # send_message_semi(name,bool_value)
         send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
@@ -474,29 +477,25 @@ def send_command_bit(request):
         bool_value_3 = True
         send_message_semi(name[0],bool_value_1,name[1],bool_value_2,name[2],bool_value_3)
 
-    elif name == "u1":
-        name = ["M_PRG_DRW","M_PRG_PAL"]
+    elif name == "arriba":
+        name = ["M_PRG_DRW"]
         bool_value_1 = True
-        bool_value_2 = False
-        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
-        
-    elif name == "u2":
-        name = ["M_PRG_DRW","M_PRG_PAL"]
-        bool_value_1 = True
-        bool_value_2 = True
-        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
-    
-    elif name == "d1":
-        name = ["M_PRG_DRW","M_PRG_PAL"]
-        bool_value_1 = False
-        bool_value_2 = False
-        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+        send_message_semi(name[0],bool_value_1)
 
-    elif name == "d2":
-        name = ["M_PRG_DRW","M_PRG_PAL"]
+    elif name == "abajo":
+        name = ["M_PRG_DRW"]
         bool_value_1 = False
-        bool_value_2 = True
-        send_message_semi(name[0],bool_value_1,name[1],bool_value_2)
+        send_message_semi(name[0],bool_value_1)
+        
+    elif name == "pos1":
+        name = ["M_PRG_PAL"]
+        bool_value_1 = False
+        send_message_semi(name[0],bool_value_1)
+
+    elif name == "pos2":
+        name = ["M_PRG_PAL"]
+        bool_value_1 = True
+        send_message_semi(name[0],bool_value_1)
 
     elif name == "tomar":
         name = "M_PRG_GET_PUT"
@@ -527,7 +526,6 @@ def send_command_bit(request):
         name = "M_PRG_CAS"
         bool_value = True
         send_message_semi(name,bool_value)
-
 
     #BOTON PARA EJECUTAR RUTINA EN SEMIAUTOMATICO
     elif name == "execute_routine":

@@ -50,7 +50,6 @@ class FrontConsumer(AsyncWebsocketConsumer):
      
     async def receive(self, text_data=None, bytes_data=None):
         # print("hola")
-       
         print(text_data)
     
     async def disconnected(self, close_code):
@@ -60,7 +59,6 @@ class FrontConsumer(AsyncWebsocketConsumer):
         raise StopConsumer()
     
     async def front_message(self, event):
-        
         await self.send(text_data=json.dumps(event['data']))
     
     @database_sync_to_async

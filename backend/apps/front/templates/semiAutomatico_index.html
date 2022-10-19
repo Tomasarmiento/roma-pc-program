@@ -5,11 +5,12 @@
     <script src="{% static 'js/disabled_text_function.js' %}"></script>
 
 </head>
-<div >
+<div>
 <form class="mx-auto py-3">
-    Seleccionar okuma o mesa de armado:
-    <select class="form-select" id="modelSelect" menu="semi">
-      <option disabled selected>Mesas de armado</option>  // Pre-selected
+  Seleccionar okuma o mesa de armado:
+  <select class="form-select" id="modelSelect" menu="semi">
+      <option disabled selected>**************</option>  // Pre-selected
+      <option disabled >Mesas de armado</option>  // Pre-selected
       <option id="mesa1" name_bit="mesa1">Mesa_1</option>
       <option id="mesa2" name_bit="mesa2">Mesa_2</option>
       <option disabled >Okumas</option>
@@ -23,17 +24,20 @@
       <option id="gripper1" name_bit=" gripper1 ">Gripper_1</option>
       <option id="gripper2" name_bit=" gripper2 ">Gripper_2</option>
     </select> -->
-    <select class="form-select" id="posSelect" menu="semi">
-      <option disabled selected>Posición</option>   // Pre-selected
-      <option id="pos1" name_bit="u1">U1</option>
-      <option id="pos2" name_bit="u2">U2</option>
-      <option id="pos3" name_bit="d1">D1</option>
-      <option id="pos4" name_bit="d2">D2</option>
-    </select>
     <select class="form-select" id="take_putSelect" menu="semi">
       <option disabled selected>Tomar/Dejar</option>   // Pre-selected
       <option id="tomar" name_bit="tomar">Tomar</option>
       <option id="dejar" name_bit="dejar">Dejar</option>
+    </select>
+    <select class="form-select" id="pos_UpDownSelect" menu="semi">
+      <option disabled selected>Posición</option>   // Pre-selected
+      <option id="pos1" name_bit="arriba">Arriba</option>
+      <option id="pos2" name_bit="abajo">Abajo</option>
+    </select>
+    <select class="form-select" id="pos_Select" menu="semi">
+      <option disabled selected>Posición</option>   // Pre-selected
+      <option id="pos1" name_bit="pos1">Posición 1</option>
+      <option id="pos2" name_bit="pos2">Posición 2</option>
     </select>
     <select class="form-select" id="pos_casitaSelect" menu="semi">
       <option disabled selected>Posición Casita</option>   // Pre-selected

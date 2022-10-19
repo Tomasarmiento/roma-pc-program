@@ -25,8 +25,6 @@ def values_sensors(sensor_value,sensor):#,name
     print(param_vars.PLC_VARIABLES)
 
 
-
-
 #pasaje a variable local valores de la lista con los sensores
 def derived_sensores_states(list_state_sensores):
     for n in range(0,len(list_state_sensores)):

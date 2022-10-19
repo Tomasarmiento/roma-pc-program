@@ -697,9 +697,18 @@ body {
     display: flex;
     flex-direction: row;
     font-size: smaller;
+    /* background: rgba(0, 0, 0, 0.5); */
     /* visibility: hidden; */
     
   }
+
+  .block_sub_routine_container_class{
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  /* #text_model_selected_container{
+    display: none;
+  } */
   
   .routine_container_class{
     display: flex;
@@ -1126,6 +1135,27 @@ body {
   color: rgb(7, 181, 239);
 }
 
+#desactive_container_routine_mesa{
+  display: none;
+  z-index: 99;
+  width: 100%;
+  height: 16%;
+  position: absolute;
+  top: 15%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+#desactive_container_routine_okuma{
+  display: none;
+  z-index: 99;
+  width: 100%;
+  height: 16%;
+  position: absolute;
+  top: 30%;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+}
 
 
 

@@ -1,7 +1,7 @@
 {% load static %}
 {% block content %}
 <head>
-    <script src="{% static 'js/sensores_index_js.js' %}"></script>
+    <script  src="{% static 'js/sensores_index_js.js' %}"></script>
     <script  src="{% static 'js/disabled_text_function.js' %}"></script>
 </head>
 <div class="row m-auto d-flex mx-auto py-3 mx-5 px-0 space_betwin" id="sensores">
@@ -268,12 +268,14 @@
 
             </tbody>
         </table>
-    </div>  
-        <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5">
+    </div>
+
+
+        <!-- <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5">
             <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoresRobot">
                 <thead>
                     <tr>
-                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores Salidas del Robot</th>
+                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores Salidas del Robot Okuma</th>
                     </tr>
                     <tr>
                         <th>Sensor</th>
@@ -282,16 +284,6 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Gripper 1</td>
-                        <td><div class="led led-grey" id="gripp_1"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Gripper_2</td>
-                        <td><div class="led led-grey" id="gripp_2"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
                     <tr> 
                         <td>Modo automatico</td>
                         <td><div class="led led-grey" id="R_I_AUT_SEM"></div></td>
@@ -302,24 +294,14 @@
                         <td><div class="led led-grey" id="R_I_AUT_SEM_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
-                    <tr>
-                        <td>Casita OP 30</td>
-                        <td><div class="led led-grey" id="R_I_30_40"></div></td>
+                    <tr> 
+                        <td>Mesa</td>
+                        <td><div class="led led-grey" id="R_I_MA_CH"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Casita OP 40</td>
-                        <td><div class="led led-grey" id="R_I_30_40_1"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Pallet casita 1</td>
-                        <td><div class="led led-grey" id="R_I_CAS"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Pallet casita 2</td>
-                        <td><div class="led led-grey" id="R_I_CAS_1"></div></td>
+                        <td>Okuma</td>
+                        <td><div class="led led-grey" id="R_I_MA_CH_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
@@ -343,26 +325,6 @@
                         <td class="text-center">x</td>
                     </tr>
                     <tr> 
-                        <td>Pieza 1</td>
-                        <td><div class="led led-grey" id="R_I_PAL"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Pieza 2</td>
-                        <td><div class="led led-grey" id="R_I_PAL_1"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Mesa drawer superior</td>
-                        <td><div class="led led-grey" id="R_I_DRW_1"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Mesa drawer inferior</td>
-                        <td><div class="led led-grey" id="R_I_DRW"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr> 
                         <td>Mesa 1</td>
                         <td><div class="led led-grey" id="R_I_MA"></div></td>
                         <td class="text-center">x</td>
@@ -382,19 +344,45 @@
                         <td><div class="led led-grey" id="R_I_GET_PUT_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
+                    <tr>
+                        <td>Casita OP 30</td>
+                        <td><div class="led led-grey" id="R_I_30_40"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Casita OP 40</td>
+                        <td><div class="led led-grey" id="R_I_30_40_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Pallet casita 1</td>
+                        <td><div class="led led-grey" id="R_I_CAS"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Pallet casita 2</td>
+                        <td><div class="led led-grey" id="R_I_CAS_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+
                     <tr> 
-                        <td>Mesa</td>
-                        <td><div class="led led-grey" id="R_I_MA_CH"></div></td>
+                        <td>Pieza 1</td>
+                        <td><div class="led led-grey" id="R_I_PAL"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Okuma</td>
-                        <td><div class="led led-grey" id="R_I_MA_CH_1"></div></td>
+                        <td>Pieza 2</td>
+                        <td><div class="led led-grey" id="R_I_PAL_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Orden recibida</td>
-                        <td><div class="led led-grey" id="order_received"></div></td>
+                        <td>Mesa drawer superior</td>
+                        <td><div class="led led-grey" id="R_I_DRW_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Mesa drawer inferior</td>
+                        <td><div class="led led-grey" id="R_I_DRW"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
@@ -412,11 +400,6 @@
                         <td><div class="led led-grey" id="R_I_HF"></div></td>
                         <td class="text-center">x</td>
                     </tr>
-                    <!-- <tr>
-                        <td>Trabajando</td>
-                        <td><div class="led led-grey" id="R_I_ID"></div></td>
-                        <td class="text-center">x</td>
-                    </tr> -->
                     <tr>
                         <td>Idle</td>
                         <td><div class="led led-grey" id="R_I_ID"></div></td>
@@ -429,7 +412,188 @@
                     </tr>
                 </tbody>        
             </table>
-        </div>    
+        </div> -->
+
+
+        <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5" style="height: 100%;"">
+            <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoresRobot">
+                <thead>
+                    <tr>
+                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Salidas del Robot Rutinas Okuma</th>
+                    </tr>
+                    <tr>
+                        <th>Rutina</th>
+                        <th class="text-center">Estado</th>
+                        <th class="text-center">N°DI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Okuma</td>
+                        <td><div class="led led-grey" id="R_I_MA_CH_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Número de okuma</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr>
+                        <td>Okuma 1</td>
+                        <td><div class="led led-grey" id="okuma_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Okuma 2</td>
+                        <td><div class="led led-grey" id="okuma_2"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Okuma 3</td>
+                        <td><div class="led led-grey" id="okuma_3"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Okuma 4</td>
+                        <td><div class="led led-grey" id="okuma_4"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Interaccion con dispositivo</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr> 
+                        <td>Tomar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Dejar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Posición en casita</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr>
+                        <td>OP 30</td>
+                        <td><div class="led led-grey" id="R_I_30_40"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>OP 40</td>
+                        <td><div class="led led-grey" id="R_I_30_40_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Pallet seleccionado</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr>
+                        <td>Pallet casita 1</td>
+                        <td><div class="led led-grey" id="R_I_CAS"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Pallet casita 2</td>
+                        <td><div class="led led-grey" id="R_I_CAS_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                </tbody>        
+            </table>
+        </div>
+
+
+
+        <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5" style="height: 90%;">
+            <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoresRobot">
+                <thead>
+                    <tr>
+                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Salidas del Robot Rutinas Mesa</th>
+                    </tr>
+                    <tr>
+                        <th>Rutina</th>
+                        <th class="text-center">Estado</th>
+                        <th class="text-center">N°DI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td>Mesa</td>
+                        <td><div class="led led-grey" id="R_I_MA_CH"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Número de mesa</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr> 
+                        <td>Mesa 1</td>
+                        <td><div class="led led-grey" id="R_I_MA"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Mesa 2</td>
+                        <td><div class="led led-grey" id="R_I_MA_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Interaccion con dispositivo</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr> 
+                        <td>Tomar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT_copy"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Dejar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT_1_copy"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Posición en la mesa</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr>
+                        <td>Mesa drawer superior</td>
+                        <td><div class="led led-grey" id="R_I_DRW_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Mesa drawer inferior</td>
+                        <td><div class="led led-grey" id="R_I_DRW"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Posición en la mesa</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr> 
+                        <td>Pieza 1</td>
+                        <td><div class="led led-grey" id="R_I_PAL"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Pieza 2</td>
+                        <td><div class="led led-grey" id="R_I_PAL_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                </tbody>        
+            </table>
+        </div>
+
+
+
+
         <div class="container-fluid col-md-3">
             <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC1">
                 <table class="table table-sm table-striped table-borderless" style="color: black;" >
@@ -682,21 +846,59 @@
                 <table class="table table-sm table-striped table-borderless" style="color: black" id="tablaSensoresGrRobot">
                     <thead>
                         <tr>
-                            <th colspan="2" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Gripper Robot</th>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Salidas del Robot</th>
                         </tr>
                         <tr>
                             <th>Sensor</th>
                             <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr> 
+                            <td>Modo automatico</td>
+                            <td><div class="led led-grey" id="R_I_AUT_SEM"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Modo semiautomatico</td>
+                            <td><div class="led led-grey" id="R_I_AUT_SEM_1"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Home</td>
+                            <td><div class="led led-grey" id="R_I_HF"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Idle</td>
+                            <td><div class="led led-grey" id="R_I_ID"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>En alarma</td>
+                            <td><div class="led led-grey" id="R_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
                         <tr>
                             <td>Dispositivo Presente gripper 1</td>
                             <td><div class="led led-grey" id="R_I_G1_PS"></div></td>
+                            <td class="text-center">x</td>
                         </tr>
                         <tr>
                             <td>Dispositivo Presente gripper 2</td>
                             <td><div class="led led-grey" id="R_I_G2_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Limite fordward EJE 1</td>
+                            <td><div class="led led-grey" id="R_I_FLS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Limite reverse EJE 1</td>
+                            <td><div class="led led-grey" id="R_I_RLS"></div></td>
+                            <td class="text-center">x</td>
                         </tr>
                     </tbody>
                 </table>

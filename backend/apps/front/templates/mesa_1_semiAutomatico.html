@@ -3,52 +3,80 @@
 {% block content %}
 {% include 'semiAutomatico_index.html'%}
 <head>
-    <script  src="{% static 'js/mesa_1_semiAutomatico.js' %}"></script>
+    <script src="{% static 'js/mesa_1_semiAutomatico.js' %}"></script>
     <script  src="{% static 'js/disabled_text_function.js' %}"></script>
-    <!-- <script   type="module " src="../static/js/mesa_1_semiAutomatico.js"></script> -->
+    <!-- <script   type="module" src="../static/js/mesa_1_semiAutomatico.js"></script> -->
 </head>
 
-<div class="routine_container_class" id="routine_container">
-    <!-- <div id="text_default_container">
-        <h2>Mover robot a &nbsp</h2>
-    </div>
-    <div id="text_model_selected_container">
-        <h2 id="text_model_selected">______</h2>
-    </div> -->
-    <!-- <button id="move_table_1" type="button" class="btn btn-primary mb-3" >Mover</button> -->
-</div>
-
-<div class="sub_routine_container_class" id="sub_routine_container">
+<h2 style="color: black;"><u>MESA</u></h2>
+<div class="sub_routine_container_class" id="routine_container_mesa">
     <div id="text_default_container">
         <h2>Mover robot a &nbsp</h2>
     </div>
-    <div id="text_model_selected_container" class="letering-semiauto-color">
-        <h2 id="text_model_selected">______</h2>
+    <div id="text_model_selected_container" class="letering-semiauto-color ">
+        <h2 id="text_model_selected_mesa">______</h2>
     </div>
     <div id="text_default_container">
         <h2>&nbsp para &nbsp</h2>
     </div>
     <div id="text_take_put_container" class="letering-semiauto-color">
-        <h2 id="text_take_put">______</h2>
+        <h2 id="text_take_put_mesa">______</h2>
     </div>
     <div id="text_default_container">
         <h2>&nbsp dispositivo con &nbsp</h2>
     </div>
     <div id="text_gripper_container" class="letering-semiauto-color">
-        <h2 id="text_gripper">______</h2>
+        <h2 id="text_gripper_mesa">______</h2>
     </div>
     <div id="text_default_container">
-        <h2>&nbsp en posicion &nbsp</h2>
+        <h2>&nbsp en posición &nbsp</h2>
     </div>
-    <div id="text_position_selected" class="letering-semiauto-color">
-        <h2 id="text_position">______</h2>
+    <div id="text_position_up_down_container" class="letering-semiauto-color">
+        <h2 id="text_position_up_down_mesa">______</h2>
     </div>
-    <div id="text_pallet_selected" class="letering-semiauto-color">
-        <h2 id="text_pallet">______</h2>
+    <div id="text_position_container" class="letering-semiauto-color">
+        <h2 id="text_position_mesa">______</h2>
     </div>
     <button id="btn_semiauto_routine" type="button" class="btn btn-primary mb-3" >Ejecutar</button>
+    <div id="desactive_container_routine_mesa" style="display: none;"></div>
 </div>
 
+
+<h2 style="color: black;"><u>OKUMA</u></h2>
+<div class="sub_routine_container_class" id="routine_container_okuma">
+    <div id="text_default_container">
+        <h2>Mover robot a &nbsp</h2>
+    </div>
+    <div id="text_model_selected_container" class="letering-semiauto-color">
+        <h2 id="text_model_selected_okuma">______</h2>
+    </div>
+    <div id="text_default_container">
+        <h2>&nbsp para &nbsp</h2>
+    </div>
+    <div id="text_take_put_container" class="letering-semiauto-color">
+        <h2 id="text_take_put_okuma">______</h2>
+    </div>
+    <div id="text_default_container">
+        <h2>&nbsp dispositivo con &nbsp</h2>
+    </div>
+    <div id="text_gripper_container" class="letering-semiauto-color">
+        <h2 id="text_gripper_okuma">______</h2>
+    </div>
+    <div id="text_default_container">
+        <h2>&nbsp posición &nbsp</h2>
+    </div>
+    <div id="text_position_selected" class="letering-semiauto-color">
+        <h2 id="text_position_okuma">______</h2>
+    </div>
+    <div id="text_default_container">
+        <h2>en &nbsp</h2>
+    </div>
+    <div id="text_pallet_selected" class="letering-semiauto-color">
+        <h2 id="text_pallet_okuma">______</h2>
+    </div>
+    <button id="btn_semiauto_routine" type="button" class="btn btn-primary mb-3" >Ejecutar</button>
+    <!-- <div id="desactive_container_routine_okuma" style="display: block;"></div> -->
+</div>
 
 <div>
     {% include 'sensores_index_template.html'%}
