@@ -29,6 +29,9 @@ window.addEventListener("DOMContentLoaded", () => {
    const pallet_selected_container = document.querySelector('#text_pallet_selected')
    //BOTON PARA ENVIAR COMANDO DE EJECUTAR RUTINA
    const btn_semiauto = document.getElementById('btn_semiauto_routine')
+   //BOTON PARA ENVIAR COMANDO DE DETENER RUTINA
+   const btn_semiauto_stop = document.getElementById('btn_semiauto_routine_stop')
+   
 
 
     model_value.addEventListener("change", () =>{
@@ -205,6 +208,11 @@ window.addEventListener("DOMContentLoaded", () => {
 
     });
 
+    btn_semiauto_stop.addEventListener('click', (e) => {
+        sendCommandSemi("semi","stop_routine")
+    });
+    
+
     // console.log('hola',conectionWs());
     
 
@@ -322,10 +330,10 @@ function semiAutomatico(dataWs) {
             text_model_selected_okuma.innerHTML = "OKUMA 1"
         }
         else if (dataWs.plc_sensors.R_I_BIT0_CH == false && dataWs.plc_sensors.R_I_BIT1_CH == true) {
-            text_model_selected_okuma.innerHTML = "OKUMA 2"
+            text_model_selected_okuma.innerHTML = "OKUMA 3"
         }
         else if (dataWs.plc_sensors.R_I_BIT0_CH == true && dataWs.plc_sensors.R_I_BIT1_CH == false) {
-            text_model_selected_okuma.innerHTML = "OKUMA 3"
+            text_model_selected_okuma.innerHTML = "OKUMA 2"
         }
         else{
             text_model_selected_okuma.innerHTML = "OKUMA 4"
@@ -350,18 +358,6 @@ function semiAutomatico(dataWs) {
         else{
             text_gripper_okuma.innerHTML = "GRIPPER 2"
         }
-        // if ((current_take_put_value == "Tomar") && (current_pos_casita_value == "OP 30")) {
-        //     text_gripper_okuma.innerHTML = "Gripper 2"
-        // } 
-        // else if (current_take_put_value == "Dejar" && current_pos_casita_value == "OP 30") {
-        //     text_gripper_okuma.innerHTML = "Gripper 1"
-        // }
-        // else if (current_take_put_value == "Tomar" && current_pos_casita_value == "OP 40"){
-        //     text_gripper_okuma.innerHTML = "Gripper 1"
-        // }
-        // else if (current_take_put_value == "Dejar" && current_pos_casita_value == "OP 40"){
-        //     text_gripper_okuma.innerHTML = "Gripper 2"
-        // }
         //SI ES OP30 U OP40
         if (dataWs.plc_sensors.R_I_30_40 == true) {
             text_pos_okuma.innerHTML = "OP 40"

@@ -39,7 +39,8 @@ function sensores(dataWs) {
     var R_I_BIT1_CH = false
 
     
-    // console.log(dataWs.);
+    // console.log("atras: ",dataWs.plc_sensors.CH1_I_NPR,"adelante: ",dataWs.plc_sensors.CH1_I_NPA);
+    // console.log(dataWs.plc_sensors);
     dict = dataWs.plc_sensors
     arr_of_dict = Object.keys(dict)
     for (sensor_key of arr_of_dict) {
@@ -97,15 +98,15 @@ function sensores(dataWs) {
     }
     // okumas bits
     if (R_I_BIT0_CH == true && R_I_BIT1_CH == false) {
-        see_state_sensor('okuma_3',true)
-        see_state_sensor('okuma_1',false)
-        see_state_sensor('okuma_2',false)
-        see_state_sensor('okuma_4',false)
-    }
-    if (R_I_BIT0_CH == false && R_I_BIT1_CH == true) {
         see_state_sensor('okuma_2',true)
         see_state_sensor('okuma_1',false)
         see_state_sensor('okuma_3',false)
+        see_state_sensor('okuma_4',false)
+    }
+    if (R_I_BIT0_CH == false && R_I_BIT1_CH == true) {
+        see_state_sensor('okuma_3',true)
+        see_state_sensor('okuma_1',false)
+        see_state_sensor('okuma_2',false)
         see_state_sensor('okuma_4',false)
     }
     if (R_I_BIT0_CH == false && R_I_BIT1_CH == false) {

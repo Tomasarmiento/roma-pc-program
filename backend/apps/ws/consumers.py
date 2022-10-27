@@ -17,7 +17,7 @@ from apps.ws.models import ChannelInfo
 from apps.ws.utils import variables as ws_vars
 from apps.ws.utils.functions import send_front_message
 from apps.parameters.utils import variables as param_vars
-from apps.control.utils.functions import derived_sensores_states,switch_led_state_off,sensores_states_plc
+from apps.control.utils.functions import derived_sensores_states,switch_led_state_off,sensores_states_plc,update_msg_error
 from apps.control.utils import variables as control_vars
 
 
@@ -29,6 +29,9 @@ class FrontConsumer(AsyncWebsocketConsumer):
         while 1:
             #funcion para pedir valores de sensores
             derived_sensores_states(sensores_states_plc())
+            msg = derived_sensores_states(sensores_states_plc())
+            update_msg_error(msg)
+            # print(msg)
             # derived_sensores_states(fake_list)
             #------------------------------------------------
             await self.send(json.dumps({
@@ -41,7 +44,9 @@ class FrontConsumer(AsyncWebsocketConsumer):
                 'mensajes_log': ws_vars.frontState.log_messages,
                 'plc_sensors': (control_vars.PLC_DEFAULT_VARIABLES),
                 }))
-            await asyncio.sleep(0.8)
+            ws_vars.frontState.log_messages = []
+            
+            await asyncio.sleep(0.2)
         # print("hola")
         print("FRONT WS CONNECTED")
 
