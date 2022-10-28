@@ -27,14 +27,21 @@ def values_sensors(sensor_value,sensor):#,name
 
 
 def update_msg_error(list_state_sensores):
+    ws_vars.frontState.log_messages = []
     for key, value in (list_state_sensores.items()):
         # print(key,value)
-        # print("antes",ws_vars.frontState.log_messages)
         if key in MSG_ERROR_DIRECTIONS:
             # print(value)
-            if value == True:
+            # print("antes",ws_vars.frontState.log_messages)
+           
+            if value == True :  # and MSG_ERROR_CODIFICATION[key] not in ws_vars.frontState.log_messages
+                # count += 1
+                # print(MSG_ERROR_CODIFICATION[key])
                 ws_vars.frontState.log_messages.append(MSG_ERROR_CODIFICATION[key])
-            # print("despues",ws_vars.frontState.log_messages)
+            # print(ws_vars.frontState.log_messages)
+            else:
+                ws_vars.frontState.log_messages.append("")
+
 
     # for n in range(0,len(list_state_sensores)):
     #     print(list_state_sensores)

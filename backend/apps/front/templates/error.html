@@ -1,0 +1,10 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block content %}
+
+<div id="contenedor-terminal-texto" class="card col-md-6 my-4 mx-auto border shadow rounded bg-white p-1" style="height: 100%;">
+    <div id="salidaDeTexto"></div>
+    {% include 'cuadroMensajes.html'%}
+</div>
+
+{% endblock %}

@@ -42,5 +42,8 @@ def semiAutomatico(request):
 def automatico(request):
     return render(request, "automatico.html")
 
+def error(request):
+    return render(request, "error.html")
+
 
 
