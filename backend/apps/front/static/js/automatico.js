@@ -32,8 +32,6 @@ btn_comenzar.addEventListener("click", (e) => {
 
 
 
-
-
 function sendCommandAuto(menu, cmd){
     let url = "http://localhost:8000/control/automatico/buttons-cmd/";
     let params = "&menu=" + menu + "&cmd=" + cmd;
@@ -49,4 +47,10 @@ function sendCommandAuto(menu, cmd){
     xhr.send(params);
 }
 
+
 });
+
+function auto_step(dataWs) {
+    console.log(dataWs.plc_sensors.CH1_I_PSA);
+    
+}

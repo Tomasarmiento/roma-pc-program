@@ -24,6 +24,8 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
 
   socket.onmessage = function (event) {
     const datosWs = JSON.parse(event.data);
+    // console.log(datosWs.plc_sensors.R_I_AUT_SEM);
+    // console.log(datosWs.plc_sensors);
     // console.log(datosWs);
     switch (window.location.pathname) {
       case "/semiAutomatico/":
@@ -34,6 +36,8 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
         sensores(datosWs)
       case "/mesa_1_neumatic/":
         sensores(datosWs)
+      // case "/automatico/":
+      //   auto_step(datosWs)
     }
   };
 

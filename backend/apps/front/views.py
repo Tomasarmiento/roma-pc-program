@@ -44,6 +44,3 @@ def automatico(request):
 
 def error(request):
     return render(request, "error.html")
-
-
-

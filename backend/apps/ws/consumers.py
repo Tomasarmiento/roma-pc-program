@@ -46,8 +46,8 @@ class FrontConsumer(AsyncWebsocketConsumer):
                 }))
             ws_vars.frontState.log_messages = []
             
-            await asyncio.sleep(0.2)
-        # print("hola")
+            await asyncio.sleep(0.8)
+            # print("hola")
         print("FRONT WS CONNECTED")
 
 

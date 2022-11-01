@@ -15,5 +15,6 @@ urlpatterns = [
     path('semiAutomatico/', views.semiAutomatico, name="semiAutomatico"),
     path('automatico/', views.automatico, name="automatico"),
     path('error/', views.error, name="error"),
+    
 
 ]

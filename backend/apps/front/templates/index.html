@@ -12,6 +12,7 @@
     <link rel="stylesheet"  href="{% static '../static/bootstrap/bootstrap.min.css' %}">
     <link rel="stylesheet" type="text/css"  href="{% static '../static/bootstrap/bootstrap.min.css.map' %}">
     <link href="{% static '../static/css/main.css' %}" rel="stylesheet">
+    <script src="{% static 'js/index.js' %}"></script>
 </head>
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 56px;">
@@ -29,10 +30,10 @@
                 <a class="nav-link" href="{% url 'okuma_1_neumatic' %}">Manual-Sensores</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'semiAutomatico' %}">SemiAutomatico</a>
+                <a id="semi_hash" class="nav-link" href="{% url 'semiAutomatico' %}">SemiAutomatico</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="{% url 'automatico' %}">Automatico</a>
+                <a id="auto_hash" class="nav-link" href="{% url 'automatico' %}">Automatico</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="{% url 'error' %}">Errores</a>

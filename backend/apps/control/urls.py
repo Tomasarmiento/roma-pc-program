@@ -12,6 +12,7 @@ urlpatterns = [
     path('sensores/', views.ManualPneumatic.as_view(), name='manual-pneumatic'),
     path('semiautomatico/routine/', views.send_command_bit, name='semiAutomatico-routine'),
     path('msge-test/', views.msge_test, name='msge_test'),
+    path('index_change/', views.index_change, name="index_change"),
     # path('ws/front/', views.switch_led_state_off, name='led-off'),
     # path('https://192.168.3.150/api/jsonrpc', views.token_register, name='okuma'),
 ]

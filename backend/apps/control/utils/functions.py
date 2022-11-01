@@ -9,7 +9,7 @@ import json
 from apps.service.api.service import start_service
 from apps.ws.utils import variables as ws_vars
 
-from apps.control.utils.variables import PLC_TOKEN,LIST_OF_DIRECTIONS,PLC_DEFAULT_VARIABLES,MSG_ERROR_DIRECTIONS,MSG_ERROR_CODIFICATION
+from apps.control.utils.variables import PLC_TOKEN,LIST_OF_DIRECTIONS,PLC_DEFAULT_VARIABLES,MSG_ERROR_DIRECTIONS,MSG_ERROR_CODIFICATION,TAGS_DIRECTIONS
 
 def values_sensors(sensor_value,sensor):#,name
     # print(sensor_value)
@@ -74,12 +74,12 @@ def switch_led_state_off():
     ssl._create_default_https_context = ssl._create_unverified_context
     conn = http.client.HTTPSConnection("192.168.3.150")
     payload = json.dumps([
-    {"jsonrpc":"2.0","id":"1","method":"PlcProgram.Read","params":{"var":"\"CH1_I_RA\""}},
+    {"jsonrpc":"2.0","id":"1","method":"PlcProgram.Read","params":{"var":"\"CH1_I_M181\""}},
     {"jsonrpc":"2.0","id":"2","method":"PlcProgram.Read","params":{"var":"\"CH1_I_AL\""}},
-    {"jsonrpc":"2.0","id":"3","method":"PlcProgram.Read","params":{"var":"\"CH1_I_ID\""}},
-    {"jsonrpc":"2.0","id":"4","method":"PlcProgram.Read","params":{"var":"\"CH1_I_MB\""}},
+    {"jsonrpc":"2.0","id":"3","method":"PlcProgram.Read","params":{"var":"\"CH1_I_M182\""}},
+    {"jsonrpc":"2.0","id":"4","method":"PlcProgram.Read","params":{"var":"\"CH1_I_M183\""}},
     {"jsonrpc":"2.0","id":"5","method":"PlcProgram.Read","params":{"var":"\"CH1_I_PS\""}},
-    {"jsonrpc":"2.0","id":"6","method":"PlcProgram.Read","params":{"var":"\"CH1_I_HO\""}},
+    # {"jsonrpc":"2.0","id":"6","method":"PlcProgram.Read","params":{"var":"\"CH1_I_HO\""}},
     {"jsonrpc":"2.0","id":"7","method":"PlcProgram.Read","params":{"var":"\"CH1_I_NPA\""}},
     {"jsonrpc":"2.0","id":"8","method":"PlcProgram.Read","params":{"var":"\"CH1_I_NPR\""}},
 
@@ -294,6 +294,8 @@ def sensores_states_plc():
     last = '\"'
     first_1 = '\"errors\"'
     last_1 = ""
+    first_2 = '\"tags\"'
+    last_2 = ""
 
     try:
         conn = http.client.HTTPSConnection("192.168.3.150")
@@ -306,6 +308,8 @@ def sensores_states_plc():
         if LIST_OF_DIRECTIONS[n] in MSG_ERROR_DIRECTIONS:
             # print(LIST_OF_DIRECTIONS[n])
             msg_data_directions = {"jsonrpc":"2.0","id":n,"method":"PlcProgram.Read","params":{"var":(first_1+LIST_OF_DIRECTIONS[n]+last_1)}}
+        elif LIST_OF_DIRECTIONS[n] in TAGS_DIRECTIONS:
+            msg_data_directions = {"jsonrpc":"2.0","id":n,"method":"PlcProgram.Read","params":{"var":(first_2+LIST_OF_DIRECTIONS[n]+last_2)}}
         # print(msg_data_directions)
         msg_data_directions_container.append(msg_data_directions)
     
