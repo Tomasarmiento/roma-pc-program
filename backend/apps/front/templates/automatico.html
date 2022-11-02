@@ -3,6 +3,7 @@
 {% block content %}
 <head>
     <script src="{% static 'js/automatico.js' %}"></script>
+    <script  src="{% static 'js/disabled_text_function.js' %}"></script>
 </head>
 <div class="automatico_hash_container">
     <div class="left_container">
@@ -31,13 +32,19 @@
                     <div class="text_automatic">Automatico</div>
                     <div class="line_desactivar"></div>
                 </div>
-                <div class="boton_up_container_automatic">
-                    <button id="comenzar" class="boton_up" menu="auto" cmd="comenzar" style="background-color: green;">Comenzar</button>
-                    <button id="detener" class="boton_up" menu="auto" cmd="detener" style="background-color: red;">Pausa</button>
-                </div>
-                <div class="boton_down_container_automatic">
-                    <button id="terminar" class="boton_up" menu="auto" cmd="terminar">Terminar</button>
-                    <button id="reset_program" class="boton_up" menu="auto" cmd="reset_program">Reset Program</button>
+                <div class="row">
+                    <div class="boton_up_container_automatic_new">
+                        <button id="comenzar" class="boton_up mb-2" menu="auto" cmd="comenzar" style="background-color: green;">Despausar</button>
+                        <button id="detener" class="boton_up mb-2" menu="auto" cmd="detener" style="background-color: red;">Pausar</button>
+                        <button id="terminar" class="boton_up mb-2" menu="auto" cmd="terminar">Ultima Vuelta</button>
+                        <button id="reset_program" class="boton_up mb-2" menu="auto" cmd="reset_program" disabled>Reset Program</button>
+                    </div>
+                    <div class="w-120 ">
+                        <div id="led-comenzar" class="led led-grey mb-5"></div>
+                        <div id="led-detener" class="led led-grey mb-5"></div>
+                        <div id="led-terminar" class="led led-grey mb-5"></div>
+                        <div id="led-reset-program" class="led led-grey mb-5"></div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,7 +63,7 @@
                             <th class="text-center">Descripcion</th>
                         </tr>
                     </thead>
-                    <tbody>
+                    <tbody >
                         <tr>
                             <th>1</th>
                             <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
@@ -78,7 +85,44 @@
                             <th>5</th>
                             <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
                         </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
+                        <tr>
+                            <th>5</th>
+                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        </tr>
                     </tbody>
+                </div>
                 </table>
         </div>
     </div>

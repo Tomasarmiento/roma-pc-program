@@ -14,6 +14,7 @@ PLC_DEFAULT_VARIABLES = {
     # 'CH1_I_HO': False,
     'CH1_I_NPA': False,
     'CH1_I_NPR': False,
+    'CH1_I_NCR': False,
 
     'CH2_I_RA': False,
     'CH2_I_AL': False,
@@ -139,6 +140,7 @@ PLC_DEFAULT_VARIABLES = {
     '.chx_not_available':False,
 
     '.step_auto':False,
+    '.pause_auto':False,
 }
 
 PLC_VARIABLES = {
@@ -151,7 +153,7 @@ PLC_VARIABLES = {
 # -------------------------------------------------------------------------------------------- #
 
 LIST_OF_DIRECTIONS = [
-"CH1_I_M181","CH1_I_AL","CH1_I_M182","CH1_I_M183","CH1_I_PSA","CH1_I_NPA","CH1_I_NPR",
+"CH1_I_M181","CH1_I_AL","CH1_I_M182","CH1_I_M183","CH1_I_PSA","CH1_I_NPA","CH1_I_NPR","CH1_I_NCR",
 "CH2_I_RA","CH2_I_AL","CH2_I_ID","CH2_I_MB","CH2_I_PSA","CH2_I_HO","CH2_I_NPA","CH2_I_NPR",
 "CH3_I_RA","CH3_I_AL","CH3_I_ID","CH3_I_MB","CH3_I_PSA","CH3_I_HO","CH3_I_NPA","CH3_I_NPR",
 "CH4_I_RA","CH4_I_AL","CH4_I_ID","CH4_I_MB","CH4_I_PSA","CH4_I_HO","CH4_I_NPA","CH4_I_NPR",
@@ -199,6 +201,7 @@ LIST_OF_DIRECTIONS = [
 
 
     '.step_auto',
+    '.pause_auto',
 ]
 
 MSG_ERROR_DIRECTIONS = [
@@ -231,6 +234,7 @@ MSG_ERROR_DIRECTIONS = [
 
 TAGS_DIRECTIONS = [
     '.step_auto',
+    '.pause_auto',
 ]
 
 #error messages

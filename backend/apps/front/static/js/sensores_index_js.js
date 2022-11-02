@@ -25,8 +25,10 @@ window.addEventListener("DOMContentLoaded", () => {
 
     console.log(window.location.pathname);
    
-    });
-    //sensores states//
+});
+
+
+//sensores states//
 function sensores(dataWs) {
 
     const list_inverted_signal = ['MA1_I_DR_U_PS_1','MA1_I_DR_U_PS_2','MA1_I_DR_D_PS_1','MA1_I_DR_D_PS_2']
@@ -123,20 +125,6 @@ function sensores(dataWs) {
     }
    
 
-    function see_state_sensor(sensor_name,state,invest) {
-        const sensor_name_id = document.getElementById( sensor_name );
-        if (sensor_name_id){
-            if (state == true){
-                sensor_name_id.className = "led led-green";
-            }
-            else{
-                sensor_name_id.className = "led led-grey";
-            }
-        }
-        else{
-            // console.log("No existe un led con ese nombre");
-        }
-
-    }
+    
 
 };

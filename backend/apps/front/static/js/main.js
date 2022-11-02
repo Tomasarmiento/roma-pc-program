@@ -30,14 +30,17 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
     switch (window.location.pathname) {
       case "/semiAutomatico/":
         semiAutomatico(datosWs)
-      case "/semiAutomatico/":
         sensores(datosWs)
+        break
       case "/okuma_1_neumatic/":
         sensores(datosWs)
+        break
       case "/mesa_1_neumatic/":
         sensores(datosWs)
-      // case "/automatico/":
-      //   auto_step(datosWs)
+        break
+      case "/automatico/":
+        auto_step(datosWs)
+        break
     }
   };
 
