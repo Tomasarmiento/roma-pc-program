@@ -141,6 +141,7 @@ PLC_DEFAULT_VARIABLES = {
 
     '.step_auto':False,
     '.pause_auto':False,
+    '.last_auto':False,
 }
 
 PLC_VARIABLES = {
@@ -202,6 +203,7 @@ LIST_OF_DIRECTIONS = [
 
     '.step_auto',
     '.pause_auto',
+    '.last_auto',
 ]
 
 MSG_ERROR_DIRECTIONS = [
@@ -235,6 +237,7 @@ MSG_ERROR_DIRECTIONS = [
 TAGS_DIRECTIONS = [
     '.step_auto',
     '.pause_auto',
+    '.last_auto',
 ]
 
 #error messages

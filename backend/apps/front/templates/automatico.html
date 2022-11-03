@@ -36,14 +36,18 @@
                     <div class="boton_up_container_automatic_new">
                         <button id="comenzar" class="boton_up mb-2" menu="auto" cmd="comenzar" style="background-color: green;">Despausar</button>
                         <button id="detener" class="boton_up mb-2" menu="auto" cmd="detener" style="background-color: red;">Pausar</button>
-                        <button id="terminar" class="boton_up mb-2" menu="auto" cmd="terminar">Ultima Vuelta</button>
+                        <div class="row">
+                            <!-- <button id="terminar" class="boton_up mb-2" menu="auto" cmd="terminar" disabled>Ultima Vuelta</button> -->
+                            <button id="terminarOn" type="button" menu="auto" cmd="terminarON" class="btn btn-primary mb-3">Ultima vuelta ON</button>
+                            <button id="terminarOff" type="button" menu="auto" cmd="terminarOFF" class="btn btn-danger mb-3">Ultima vuelta OFF</button>
+                        </div>
                         <button id="reset_program" class="boton_up mb-2" menu="auto" cmd="reset_program" disabled>Reset Program</button>
                     </div>
                     <div class="w-120 ">
                         <div id="led-comenzar" class="led led-grey mb-5"></div>
                         <div id="led-detener" class="led led-grey mb-5"></div>
                         <div id="led-terminar" class="led led-grey mb-5"></div>
-                        <div id="led-reset-program" class="led led-grey mb-5"></div>
+                        <!-- <div id="led-reset-program" class="led led-grey mb-5"></div> -->
                     </div>
                 </div>
             </div>
@@ -64,62 +68,158 @@
                         </tr>
                     </thead>
                     <tbody >
-                        <tr>
+                        <!-- <tr style="background-color: green;"></tr> -->
+                        <tr id="step-1">
                             <th>1</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                            <td>Start</td>
                         </tr>
-                        <tr>
+                        <tr id="step-2">
                             <th>2</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                            <td>Generar codigo de programa y cargar cariables</td>
                         </tr>
-
-                        <tr>
+                        <tr id="step-3">
                             <th>3</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                            <td>Timer</td>
                         </tr>
-                        <tr>
+                        <tr id="step-4">
                             <th>4</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                            <td>Checkeo de condiciones iniciales</td>
                         </tr>
-                        <tr>
+                        <tr id="step-5">
                             <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                            <td>Run Program</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-6">
+                            <th>6</th>
+                            <td>Checkeo que este libre el gripper 1</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-7">
+                            <th>7</th>
+                            <td>Robot Go, entra a pieza 20 en ma</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-8">
+                            <th>8</th>
+                            <td>Desbloqueo de Pallet, Neumatico adelante</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-9">
+                            <th>9</th>
+                            <td>Robot Go, retira pieza 20</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-10">
+                            <th>10</th>
+                            <td>Checkeo de presion de aire</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-11">
+                            <th>11</th>
+                            <td>Bloqueo de la mesa, checkeo de gripper 1 con pieza</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-12">
+                            <th>12</th>
+                            <td>Chekeo de neumatico no retraido antes de viajar</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-13">
+                            <th>13</th>
+                            <td>Robot Go, viaja a okuma</td>
                         </tr>
-                        <tr>
-                            <th>5</th>
-                            <td>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</td>
+                        <tr id="step-14">
+                            <th>14</th>
+                            <td>Robot con op 30 gipper abierto</td>
+                        </tr>
+                        <tr id="step-15">
+                            <th>15</th>
+                            <td>Desclameo op 30, checkeo de presion</td>
+                        </tr>
+                        <tr id="step-16">
+                            <th>16</th>
+                            <td>Robot Go, cierra gripper se retira, activa soplador</td>
+                        </tr>
+                        <tr id="step-17">
+                            <th>17</th>
+                            <td>Checkeo que gripper 2 tenga la pieza op 30</td>
+                        </tr>
+                        <tr id="step-18">
+                            <th>18</th>
+                            <td>Checkeo que gripper 1 tenga pieza op 20</td>
+                        </tr>
+                        <tr id="step-19">
+                            <th>19</th>
+                            <td>Robot Go, coloca op 20 en posicion 30</td>
+                        </tr>
+                        <tr id="step-20">
+                            <th>20</th>
+                            <td>Clampeo op 20 en posicion 30</td>
+                        </tr>
+                        <tr id="step-21">
+                            <th>21</th>
+                            <td>Robot Go, checkeo de gripper 1 libre</td>
+                        </tr>
+                        <tr id="step-22">
+                            <th>22</th>
+                            <td>Robot Go, a posicion 40 con gripper abierto</td>
+                        </tr>
+                        <tr id="step-23">
+                            <th>23</th>
+                            <td>Desclampeo posicion 40, checkeo de presion</td>
+                        </tr>
+                        <tr id="step-24">
+                            <th>24</th>
+                            <td>Robot Go, retira op 40 con gripper 1, prende el blower</td>
+                        </tr>
+                        <tr id="step-25">
+                            <th>25</th>
+                            <td>Checkeado que el gripper 1 tenga pieza op 40</td>
+                        </tr>
+                        <tr id="step-26">
+                            <th>26</th>
+                            <td>Checkeo que gripper 2 tenga pieza op 30</td>
+                        </tr>
+                        <tr id="step-27">
+                            <th>27</th>
+                            <td>Robot Go, para poner op 30 en posicion op 40</td>
+                        </tr>
+                        <tr id="step-28">
+                            <th>28</th>
+                            <td>Checkeo que el gripper 2 este libre</td>
+                        </tr>
+                        <tr id="step-29">
+                            <th>29</th>
+                            <td>Clampeo posicion 40, retraccion de neumatico, checkeo de presion</td>
+                        </tr>
+                        <tr id="step-30">
+                            <th>30</th>
+                            <td>Robot Go, viaje a mesa de armado, prendemos pallet libre para girar y WLF(work load finished)</td>
+                        </tr>
+                        <tr id="step-31">
+                            <th>31</th>
+                            <td>Desbloqueo posicion de mesa de armado</td>
+                        </tr>
+                        <tr id="step-32">
+                            <th>32</th>
+                            <td>Checkeo de que no haya pieza en esa posicion de la mesa</td>
+                        </tr>
+                        <tr id="step-33">
+                            <th>33</th>
+                            <td>Posicion de la posicion del drawer</td>
+                        </tr>
+                        <tr id="step-34">
+                            <th>34</th>
+                            <td>Robot Go, deja pieza en mesa de armado</td>
+                        </tr>
+                        <tr id="step-35">
+                            <th>35</th>
+                            <td>Chekeo que la neumatica se haya retraido del okuma</td>
+                        </tr>
+                        <tr id="step-36">
+                            <th>36</th>
+                            <td>Bloqueo de posicion de mesa</td>
+                        </tr>
+                        <tr id="step-37">
+                            <th>37</th>
+                            <td>Rama alternativa pausa graph, despues de haber pasado por ultima vuelta</td>
+                        </tr>
+                        <tr id="step-38">
+                            <th>38</th>
+                            <td>Rama alternativa pausa graph, error condiciones iniciales</td>
                         </tr>
                     </tbody>
                 </div>

@@ -19,7 +19,7 @@ window.addEventListener("DOMContentLoaded", () => {
     disableTxt("pos_UpDownSelect",true)
     disableTxt("take_putSelect",true)
     disableTxt("pos_casitaSelect",true)
-    disableTxt("pos_palletSelect",true)
+    // disableTxt("pos_palletSelect",true)
 
 
 

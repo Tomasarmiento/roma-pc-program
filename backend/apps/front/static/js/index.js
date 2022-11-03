@@ -1,19 +1,17 @@
 window.addEventListener("DOMContentLoaded", () => {
     (window.location.hash);
-    // console.log("dentro de indexjs");
-    hash_automatic = document.getElementById("auto_hash")
-    hash_semi = document.getElementById("semi_hash")
-
-    // console.log(hash_automatic);
+    const hash_automatic = document.getElementById("auto_hash")
+    const hash_semi = document.getElementById("semi_hash")
+    const hash_manual = document.getElementById("manual_hash")
 
 
     hash_automatic.addEventListener('click', (e) => {
-        // console.log('click en hash automatic');
         sendCommandChangeModeRoutine("auto_routine_change")
+        // hash_manual.className = "nav-link disabled"
+        
     });
 
     hash_semi.addEventListener('click', (e) => {
-        // console.log('click en hash automatic');
         sendCommandChangeModeRoutine("semi_routine_change")
     });
 

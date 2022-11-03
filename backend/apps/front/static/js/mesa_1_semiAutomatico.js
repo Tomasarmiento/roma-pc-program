@@ -38,7 +38,7 @@ window.addEventListener("DOMContentLoaded", () => {
         //selector de modelo, habilida selectores dependiendo el modelo
         if (model_value.value == "Mesa_1" || model_value.value == "Mesa_2") {
             disableTxt("pos_casitaSelect",true)
-            disableTxt("pos_palletSelect",true)
+            // disableTxt("pos_palletSelect",true)
             disableTxt("pos_Select",false)
             disableTxt("pos_UpDownSelect",false)
             disableTxt("take_putSelect",false)
@@ -50,7 +50,7 @@ window.addEventListener("DOMContentLoaded", () => {
         else{
             disableTxt("pos_casitaSelect",false)
             disableTxt("take_putSelect",false)
-            disableTxt("pos_palletSelect",false)
+            // disableTxt("pos_palletSelect",false)
             disableTxt("pos_Select",true)
             disableTxt("pos_UpDownSelect",true)
             // document.getElementById("text_pallet_selected").style.visibility = "visible"
@@ -191,16 +191,16 @@ window.addEventListener("DOMContentLoaded", () => {
         sendCommandSemi("semi", name_bit)
     });
 
-    pos_pallet_value.addEventListener('change', function() {
-        // pallet_value_string = (pos_pallet_value.value).toString()
-        // text_pallet_okuma.innerHTML = pallet_value_string
+    // pos_pallet_value.addEventListener('change', function() {
+    //     // pallet_value_string = (pos_pallet_value.value).toString()
+    //     // text_pallet_okuma.innerHTML = pallet_value_string
 
-        //manda comando al back con lo seleccionado y el menu para rutina de semiautomatico
-        const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
-        console.log(name_bit);
-        sendCommandSemi("semi", name_bit)
+    //     //manda comando al back con lo seleccionado y el menu para rutina de semiautomatico
+    //     const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
+    //     console.log(name_bit);
+    //     sendCommandSemi("semi", name_bit)
 
-    });
+    // });
 
     btn_semiauto.addEventListener('click', (e) => {
         sendCommandSemi("semi","execute_routine")

@@ -3,6 +3,8 @@ const btn_comenzar = document.getElementById("comenzar")
 const btn_detener = document.getElementById("detener")
 const btn_terminar = document.getElementById("terminar")
 const reset_program = document.getElementById("reset_program")
+const btn_terminarOn = document.getElementById("terminarOn")
+const btn_terminarOff = document.getElementById("terminarOff")
 
 
 reset_program.addEventListener("click", (e) => {
@@ -11,9 +13,15 @@ reset_program.addEventListener("click", (e) => {
     sendCommandAuto(menu, cmd);
 });
 
-btn_terminar.addEventListener("click", (e) => {
-    menu = btn_terminar.getAttribute('menu');
-    cmd = btn_terminar.getAttribute('cmd');
+btn_terminarOn.addEventListener("click", (e) => {
+    menu = btn_terminarOn.getAttribute('menu');
+    cmd = btn_terminarOn.getAttribute('cmd');
+    sendCommandAuto(menu, cmd);
+});
+
+btn_terminarOff.addEventListener("click", (e) => {
+    menu = btn_terminarOff.getAttribute('menu');
+    cmd = btn_terminarOff.getAttribute('cmd');
     sendCommandAuto(menu, cmd);
 });
 
@@ -56,37 +64,44 @@ function auto_step(dataWs) {
     const led_detener = document.getElementById("led-detener")
     const led_terminar = document.getElementById("led-terminar")
     const led_reset_program = document.getElementById("led-reset-program")
+    const hash_manual = document.getElementById("manual_hash")
 
-    console.log(dataWs.plc_sensors[".pause_auto"]);
+    // console.log(dataWs.plc_sensors[".pause_auto"]);
     var flag = 1
+    //invalida boton si esta en pausa y prende o apaga leds
     if (dataWs.plc_sensors[".pause_auto"] == true){
         led_detener.className = "led led-red mb-5";
         led_comenzar.className = "led led-grey mb-5";
-        // see_state_sensor("led-detener",true)
-        // see_state_sensor("led-comenzar",false)
         if (flag == 1) {
             document.getElementById("reset_program").disabled = false;
-            flag ++    
+            flag ++
         }
     }
     else {
         led_detener.className = "led led-grey mb-5";
         led_comenzar.className = "led led-green mb-5";
         document.getElementById("reset_program").disabled = true;
-        // see_state_sensor("led-comenzar",true)
-        // see_state_sensor("led-detener",false)
     }
 
 
-    // for (automatic_led of automatic_led) {
-    //     if (dataWs.plc_sensors[sensor_key] == true){
+    if (dataWs.plc_sensors[".last_auto"] == true){
+        led_terminar.className = "led led-green mb-5";
+    }
+    else {
+        led_terminar.className = "led led-grey mb-5";
+    }
 
-    //     }
+    console.log(dataWs.plc_sensors[".step_auto"]);
+    if (document.getElementById("contenedorEstadistica")) {
+        // step = document.getElementById("step-"+dataWs.plc_sensors[".step_auto"])
+        // console.log(step);
 
-    // }
-    
+        for (let i = 1; i <= 38;i++){
+            step = document.getElementById("step-"+i)
+            step.style.backgroundColor = ""
+        }
+        step = document.getElementById("step-"+dataWs.plc_sensors[".step_auto"])
+        step.style.backgroundColor = "lightgreen"
 
-
-    // console.log(flag);
-    
+    }
 }

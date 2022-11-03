@@ -616,17 +616,22 @@ def cmd_automatic_routines(request):
             bool_value_1 = False
             send_message_auto(name,bool_value_1)
 
-        if cmd == "detener":
+        elif cmd == "detener":
             name = ".pause_auto"
             bool_value_1 = True
             send_message_auto(name,bool_value_1)
 
-        if cmd == "terminar":
+        elif cmd == "terminarON":
             name = ".last_auto"
             bool_value_1 = True
             send_message_auto(name,bool_value_1)
+        
+        elif cmd == "terminarOFF":
+            name = ".last_auto"
+            bool_value_1 = False
+            send_message_auto(name,bool_value_1)
 
-        if cmd == "reset_program":
+        elif cmd == "reset_program":
             name = ".reset_auto"
             bool_value_1 = True
             send_message_auto(name,bool_value_1)

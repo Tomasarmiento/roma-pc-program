@@ -24,9 +24,15 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
 
   socket.onmessage = function (event) {
     const datosWs = JSON.parse(event.data);
-    // console.log(datosWs.plc_sensors.R_I_AUT_SEM);
-    // console.log(datosWs.plc_sensors);
-    // console.log(datosWs);
+    const hash_manual = document.getElementById("manual_hash")
+
+    if (datosWs.plc_sensors[".pause_auto"] == true){
+      hash_manual.className = "nav-link"
+    }
+    else {
+      hash_manual.className = "nav-link disabled"
+    }
+
     switch (window.location.pathname) {
       case "/semiAutomatico/":
         semiAutomatico(datosWs)
@@ -43,5 +49,3 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
         break
     }
   };
-
-
