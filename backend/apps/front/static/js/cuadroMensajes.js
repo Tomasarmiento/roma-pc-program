@@ -57,20 +57,3 @@ function InsertarTexto(datosWs) {
     }
   }
 
-socket.onmessage = function (event) {
-    const datosWs = JSON.parse(event.data);
-    // console.log(datosWs);
-
-    if (datosWs.mensajes_log.length > 0) {
-        listaMensajes = [];
-        if (sessionStorage.getItem("mensajes")){
-          console.log("borro mensaje");
-          window.sessionStorage.removeItem("mensajes")
-          // sessionStorage.removeItem("mensajesError");
-          sessionStorage.setItem("mensajesError", listaMensajes);
-        }
-        listaMensajes.push(datosWs.mensajes_log);
-        sessionStorage.setItem("mensajes", listaMensajes);
-        InsertarTexto(datosWs.mensajes_log);
-      };
-}

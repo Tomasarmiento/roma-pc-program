@@ -875,7 +875,6 @@ body {
   .automatico_container{
     display: flex;
     flex-direction: row;
-
   }
 
 
@@ -1115,6 +1114,21 @@ body {
   height: 38px;
 }
 
+.semiauto-box{
+  display: flex;
+  flex-direction: row;
+  /* flex-flow: row wrap; */
+}
+
+.boton_up_container_semiautomatic_new{
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+  width: 308px;
+  height: 38px;
+}
+
 
 .buttons-leds-container{
   display: flex;
@@ -1183,7 +1197,7 @@ body {
 
 #contenedorEstadistica{
   overflow: auto;
-  height: 50vh;
+  height: 70vh;
   overflow-x: hidden;
   
 }

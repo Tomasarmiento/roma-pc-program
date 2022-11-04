@@ -21,16 +21,19 @@ window.addEventListener("DOMContentLoaded", () => {
    const pos_value = document.querySelector('#pos_Select')
    const take_put_value = document.querySelector('#take_putSelect')
    const pos_casita_value = document.querySelector('#pos_casitaSelect')
-   const pos_pallet_value = document.querySelector('#pos_palletSelect')
+//    const pos_pallet_value = document.querySelector('#pos_palletSelect')
    //VARIABLES PARA ACTUALIZAR LOS MODELOS SELECCIONADOS LOCALES
    var current_pos_casita_value = ""
    var current_take_put_value = ""
    //CONTENEDOR DE LOS VALORES QUE CAMBIAN DEPENDIENDO DE LA RUTINA
    const pallet_selected_container = document.querySelector('#text_pallet_selected')
    //BOTON PARA ENVIAR COMANDO DE EJECUTAR RUTINA
-   const btn_semiauto = document.getElementById('btn_semiauto_routine')
+//    const btn_semiauto = document.getElementById('btn_semiauto_routine')
+   const btn_semiauto_start = document.getElementById('btn_semiauto_routine')
    //BOTON PARA ENVIAR COMANDO DE DETENER RUTINA
    const btn_semiauto_stop = document.getElementById('btn_semiauto_routine_stop')
+   const btn_reset_program = document.getElementById('btn_semiauto_reset_program')
+   const btn_step = document.getElementById('btn_semiauto_step')
    
 
 
@@ -44,8 +47,8 @@ window.addEventListener("DOMContentLoaded", () => {
             disableTxt("take_putSelect",false)
             // document.getElementById("text_pallet_selected").style.visibility = "hidden"
             // disableDiv("text_pallet_selected")
-            // current_pos_casita_value = ""
-            // current_take_put_value = ""
+            current_pos_casita_value = ""
+            current_take_put_value = ""
         }
         else{
             disableTxt("pos_casitaSelect",false)
@@ -202,15 +205,41 @@ window.addEventListener("DOMContentLoaded", () => {
 
     // });
 
-    btn_semiauto.addEventListener('click', (e) => {
-        sendCommandSemi("semi","execute_routine")
-        console.log(model_value.value,current_take_put_value);
+    // btn_semiauto.addEventListener('click', (e) => {
+    //     sendCommandSemi("semi","execute_routine")
 
+    // });
+    
+    // btn_semiauto_stop.addEventListener('click', (e) => {
+    //     sendCommandSemi("semi","stop_routine")
+    // });
+
+
+    btn_semiauto_start.addEventListener("click", (e) => {
+        menu = btn_detener.getAttribute('menu');
+        cmd = btn_detener.getAttribute('cmd');
+        sendCommandSemiButton(menu, cmd);
     });
 
-    btn_semiauto_stop.addEventListener('click', (e) => {
-        sendCommandSemi("semi","stop_routine")
+    btn_semiauto_stop.addEventListener("click", (e) => {
+        menu = btn_detener.getAttribute('menu');
+        cmd = btn_detener.getAttribute('cmd');
+        sendCommandSemiButton(menu, cmd);
     });
+
+    btn_reset_program.addEventListener("click", (e) => {
+        menu = btn_detener.getAttribute('menu');
+        cmd = btn_detener.getAttribute('cmd');
+        sendCommandSemiButton(menu, cmd);
+    });
+
+    btn_step.addEventListener("click", (e) => {
+        menu = btn_detener.getAttribute('menu');
+        cmd = btn_detener.getAttribute('cmd');
+        sendCommandSemiButton(menu, cmd);
+    });
+
+    
     
 
     // console.log('hola',conectionWs());
@@ -230,6 +259,22 @@ window.addEventListener("DOMContentLoaded", () => {
     
     
     function sendCommandSemi(menu, name_bit){
+        let url = "http://localhost:8000/control/semiautomatico/routine/";
+        let params = "&menu=" + menu + "&name=" + name_bit;
+        console.log('send command');
+    
+        // var params = "lorem=ipsum&name=alpha";
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+    
+        //Send the proper header information along with the request
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+        xhr.send(params);
+    }
+
+
+    function sendCommandSemiButton(menu, cmd){
         let url = "http://localhost:8000/control/semiautomatico/routine/";
         let params = "&menu=" + menu + "&name=" + name_bit;
         console.log('send command');

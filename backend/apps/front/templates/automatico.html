@@ -24,8 +24,8 @@
                     <button class="boton_down" id="desactivate_me2">Mesa_2</button>
                 </div>
             </div>
-        </div> -->
-        <!-- <div class="divisor_automatic_line"></div> -->
+        </div> 
+        <div class="divisor_automatic_line"></div>-->
         <div class="automatic_container">
             <div class="bloque_automatico_container">
                 <div class="texto_container_automatic">
@@ -42,12 +42,12 @@
                             <button id="terminarOff" type="button" menu="auto" cmd="terminarOFF" class="btn btn-danger mb-3">Ultima vuelta OFF</button>
                         </div>
                         <button id="reset_program" class="boton_up mb-2" menu="auto" cmd="reset_program" disabled>Reset Program</button>
+                        <button id="buton_step" class="boton_up mb-2" menu="auto" cmd="step_step" disabled>Paso a Paso</button>
                     </div>
                     <div class="w-120 ">
                         <div id="led-comenzar" class="led led-grey mb-5"></div>
                         <div id="led-detener" class="led led-grey mb-5"></div>
                         <div id="led-terminar" class="led led-grey mb-5"></div>
-                        <!-- <div id="led-reset-program" class="led led-grey mb-5"></div> -->
                     </div>
                 </div>
             </div>
@@ -68,7 +68,6 @@
                         </tr>
                     </thead>
                     <tbody >
-                        <!-- <tr style="background-color: green;"></tr> -->
                         <tr id="step-1">
                             <th>1</th>
                             <td>Start</td>
@@ -223,8 +222,13 @@
                         </tr>
                     </tbody>
                 </div>
-                </table>
+            </table>
         </div>
+        <!-- <button>hola</button> -->
+    </div>
+    <div id="contenedor-terminal-texto" class="card col-md-3 mx-auto border shadow rounded bg-white p-1" style="height: 100%;">
+        <div id="salidaDeTexto"></div>
+        {% include 'cuadroMensajes.html'%}
     </div>
     <!-- <div class="layout_container">
         <img src="../static/img/layout-roma.png" alt="">

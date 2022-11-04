@@ -24,6 +24,7 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
 
   socket.onmessage = function (event) {
     const datosWs = JSON.parse(event.data);
+    console.log(datosWs);
     const hash_manual = document.getElementById("manual_hash")
 
     if (datosWs.plc_sensors[".pause_auto"] == true){
@@ -31,6 +32,17 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
     }
     else {
       hash_manual.className = "nav-link disabled"
+    }
+    if (document.getElementById("salidaDeTexto")) {
+      if (datosWs.mensajes_log.length > 0) {
+        listaMensajes = [];
+        if (sessionStorage.getItem("mensajes")){
+          window.sessionStorage.removeItem("mensajes")
+        }
+        listaMensajes.push(datosWs.mensajes_log);
+        sessionStorage.setItem("mensajes", listaMensajes);
+        InsertarTexto(datosWs.mensajes_log);
+      };
     }
 
     switch (window.location.pathname) {
