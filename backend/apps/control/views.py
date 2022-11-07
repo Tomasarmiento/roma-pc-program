@@ -214,13 +214,14 @@ def switch_led_state_off(request):
     # {"jsonrpc":"2.0","id":"125","method":"PlcProgram.Read","params":{"var":"\"errors\".ch1_nsense_adv"}},
     # {"jsonrpc":"2.0","id":"125","method":"PlcProgram.Read","params":{"var":"\"errors\".ch1_psa"}},
     # {"jsonrpc":"2.0","id":"125","method":"PlcProgram.Read","params":{"var":"\"errors\".max_block_error"}},
-    # {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"tags\".pause_auto", "value": False}},
+    # {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"tags\".pause_semi", "value": False}},
     # {"jsonrpc":"2.0","id":"125","method":"PlcProgram.Read","params":{"var":"\"tags\".pause_auto"}},
     # {"jsonrpc":"2.0","id":"5","method":"PlcProgram.Read","params":{"var":"\"CH1_I_NCR\""}},
+    # {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"tags\".CH1_FreePallet", "value": True}},   
     {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"tags\".CH1_FreePallet", "value": True}},
-    # {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Write","params":{"var":"\"tags\".CH1_FreePallet", "value": True}},
     # {"jsonrpc":"2.0","id":"135","method":"PlcProgram.Write","params":{"var":"\"M_PRG_AUT_SEM\"", "value": True}},
     # {"jsonrpc":"2.0","id":"107","method":"PlcProgram.Read","params":{"var":"\"tags\".step_auto"}},
+    
 
     ])
     
@@ -586,22 +587,22 @@ def send_command_bit(request):
 
     #BOTON PARA EJECUTAR RUTINA EN SEMIAUTOMATICO
     elif name == "comenzar":
-        name = "run_semi"
-        bool_value = True
-        send_message_semi(name,bool_value)
-
-    elif name == "detener":
-        name = "pause_semi"
+        name = ".pause_semi"
         bool_value = False
         send_message_semi(name,bool_value)
 
+    elif name == "detener":
+        name = ".pause_semi"
+        bool_value = True
+        send_message_semi(name,bool_value)
+
     elif name == "reset_program":
-        name = "reset_semi"
+        name = ".reset_semi"
         bool_value = True
         send_message_semi(name,bool_value)
         
     elif name == "step_step":
-        name = "step_semi"
+        name = ".step_semi"
         bool_value = True
         send_message_semi(name,bool_value)
 

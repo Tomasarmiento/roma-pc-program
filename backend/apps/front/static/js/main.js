@@ -24,7 +24,7 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
 
   socket.onmessage = function (event) {
     const datosWs = JSON.parse(event.data);
-    console.log(datosWs);
+    // console.log(datosWs.plc_sensors['.pause_semi']);
     const hash_manual = document.getElementById("manual_hash")
 
     if (datosWs.plc_sensors[".pause_auto"] == true){

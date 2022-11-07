@@ -216,26 +216,26 @@ window.addEventListener("DOMContentLoaded", () => {
 
 
     btn_semiauto_start.addEventListener("click", (e) => {
-        menu = btn_detener.getAttribute('menu');
-        cmd = btn_detener.getAttribute('cmd');
+        menu = btn_semiauto_start.getAttribute('menu');
+        cmd = btn_semiauto_start.getAttribute('cmd');
         sendCommandSemiButton(menu, cmd);
     });
 
     btn_semiauto_stop.addEventListener("click", (e) => {
-        menu = btn_detener.getAttribute('menu');
-        cmd = btn_detener.getAttribute('cmd');
+        menu = btn_semiauto_stop.getAttribute('menu');
+        cmd = btn_semiauto_stop.getAttribute('cmd');
         sendCommandSemiButton(menu, cmd);
     });
 
     btn_reset_program.addEventListener("click", (e) => {
-        menu = btn_detener.getAttribute('menu');
-        cmd = btn_detener.getAttribute('cmd');
+        menu = btn_reset_program.getAttribute('menu');
+        cmd = btn_reset_program.getAttribute('cmd');
         sendCommandSemiButton(menu, cmd);
     });
 
     btn_step.addEventListener("click", (e) => {
-        menu = btn_detener.getAttribute('menu');
-        cmd = btn_detener.getAttribute('cmd');
+        menu = btn_step.getAttribute('menu');
+        cmd = btn_step.getAttribute('cmd');
         sendCommandSemiButton(menu, cmd);
     });
 
@@ -276,7 +276,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     function sendCommandSemiButton(menu, cmd){
         let url = "http://localhost:8000/control/semiautomatico/routine/";
-        let params = "&menu=" + menu + "&name=" + name_bit;
+        let params = "&menu=" + menu + "&cmd=" + cmd;
         console.log('send command');
     
         // var params = "lorem=ipsum&name=alpha";
@@ -293,6 +293,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function semiAutomatico(dataWs) {
+    console.log(dataWs);
     //CONTENEDORES DE LAS RUTINAS
     const routine_container_okuma = document.querySelector("#routine_container_okuma")
     const routine_container_mesa = document.querySelector("#routine_container_mesa")
@@ -311,6 +312,55 @@ function semiAutomatico(dataWs) {
     const text_pos_okuma = document.querySelector("#text_position_okuma")
     const text_take_put_okuma = document.querySelector("#text_take_put_okuma")
     const text_pallet_okuma = document.querySelector("#text_pallet_okuma")
+    //LEDS BOTONES RUTINAS
+    const led_comenzar_semi = document.getElementById("led-comenzar-semi")
+    const led_detener_semi = document.getElementById("led-detener-semi")
+
+    if (dataWs.plc_sensors["R_O_AUT_SEM"] == true) {
+        document.body.style.backgroundColor = "green"
+        
+    } else {
+        document.body.style.backgroundColor = "grey"
+    }
+
+
+
+    var flag = 1
+    if (dataWs.plc_sensors[".pause_semi"] == true){
+        led_detener_semi.className = "led led-red mb-4";
+        led_comenzar_semi.className = "led led-grey mb-4";
+        if (flag == 1) {
+            document.getElementById("btn_semiauto_reset_program").disabled = false;
+            document.getElementById("btn_semiauto_step").disabled = false;
+            flag ++
+        }
+    }
+    else {
+        led_detener_semi.className = "led led-grey mb-4";
+        led_comenzar_semi.className = "led led-green mb-4";
+        document.getElementById("btn_semiauto_reset_program").disabled = true;
+        document.getElementById("btn_semiauto_step").disabled = true;
+    }
+
+    if (document.getElementById("contenedorEstadistica")) {
+        var a = document.getElementById("contenedorEstadistica")
+        var c = a.querySelectorAll("tbody tr")
+        if (c) {
+            for (let i = 1; i <= c.length;i++){
+                step = document.getElementById("step-"+i)
+                if (step) {
+                    step.style.backgroundColor = ""
+                }
+                // console.log(step);
+            }
+            step = document.getElementById("step-"+dataWs.plc_sensors[".step_semi"])
+            if (dataWs.plc_sensors[".init_error"] == true) {
+                step.style.backgroundColor = "red"
+            } else {
+                step.style.backgroundColor = "lightgreen"
+            }
+        }
+    }
     
     // console.log(dataWs.plc_sensors.R_I_MA_CH);
     if (dataWs.plc_sensors.R_I_MA_CH == true) {
@@ -419,5 +469,6 @@ function semiAutomatico(dataWs) {
         }
 
     }
+
     
 }

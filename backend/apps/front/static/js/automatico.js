@@ -73,6 +73,14 @@ function auto_step(dataWs) {
     const led_reset_program = document.getElementById("led-reset-program")
     const hash_manual = document.getElementById("manual_hash")
 
+    if (dataWs.plc_sensors["R_O_AUT_SEM"] == true) {
+        document.body.style.backgroundColor = "grey"
+        
+    } else {
+        document.body.style.backgroundColor = "green"
+    }
+
+
     // console.log(dataWs.plc_sensors[".pause_auto"]);
     var flag = 1
     //invalida boton si esta en pausa y prende o apaga leds
@@ -105,6 +113,7 @@ function auto_step(dataWs) {
         // step = document.getElementById("step-"+dataWs.plc_sensors[".step_auto"])
         // console.log(step);
         var c = document.querySelectorAll("tbody tr")
+        console.log(c.length);
         if (c) {
             for (let i = 1; i <= c.length;i++){
                 step = document.getElementById("step-"+i)

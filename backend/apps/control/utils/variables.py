@@ -47,6 +47,7 @@ PLC_DEFAULT_VARIABLES = {
     'R_I_HF': False,
     'R_I_ID': False,
     'R_I_AUT_SEM': False,####
+    'R_O_AUT_SEM': False,
     'R_I_30_40': False,
     'R_I_CAS': False,
     'R_I_BIT0_CH': False,
@@ -149,6 +150,8 @@ PLC_DEFAULT_VARIABLES = {
     '.step_auto':False,
     '.pause_auto':False,
     '.last_auto':False,
+    '.pause_semi':False,
+    '.step_semi':False,
 }
 
 PLC_VARIABLES = {
@@ -167,7 +170,7 @@ LIST_OF_DIRECTIONS = [
 "CH4_I_RA","CH4_I_AL","CH4_I_ID","CH4_I_MB","CH4_I_PSA","CH4_I_HO","CH4_I_NPA","CH4_I_NPR",
 
 "R_I_AL","R_I_HF","R_I_ID",
-"R_I_AUT_SEM","R_I_30_40","R_I_CAS","R_I_BIT0_CH","R_I_BIT1_CH","R_I_PAL","R_I_DRW","R_I_MA","R_I_GET_PUT","R_I_MA_CH",
+"R_I_AUT_SEM","R_O_AUT_SEM","R_I_30_40","R_I_CAS","R_I_BIT0_CH","R_I_BIT1_CH","R_I_PAL","R_I_DRW","R_I_MA","R_I_GET_PUT","R_I_MA_CH",
 "R_I_G1_PS","R_I_G2_PS","R_I_FLS","R_I_RLS",
 
 "MA1_I_DR_U_PS_1","MA1_I_DR_U_PS_2","MA1_I_DR_D_PS_1","MA1_I_DR_D_PS_2","MA1_I_GS_UP",
@@ -217,6 +220,8 @@ LIST_OF_DIRECTIONS = [
     '.step_auto',
     '.pause_auto',
     '.last_auto',
+    '.pause_semi',
+    '.step_semi',
 ]
 
 MSG_ERROR_DIRECTIONS = [
@@ -257,6 +262,8 @@ TAGS_DIRECTIONS = [
     '.step_auto',
     '.pause_auto',
     '.last_auto',
+    '.pause_semi',
+    '.step_semi',
 ]
 
 #error messages

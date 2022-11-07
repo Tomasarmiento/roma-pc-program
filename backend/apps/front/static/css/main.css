@@ -697,6 +697,8 @@ body {
     display: flex;
     flex-direction: row;
     font-size: smaller;
+    /* box-sizing: content-box;
+    width: 100%; */
     /* background: rgba(0, 0, 0, 0.5); */
     /* visibility: hidden; */
     
@@ -1117,7 +1119,13 @@ body {
 .semiauto-box{
   display: flex;
   flex-direction: row;
+  /* align-self: center; */
+  /* justify-content: space-between; */
   /* flex-flow: row wrap; */
+}
+
+.buttons-semi-container{
+  align-self: center
 }
 
 .boton_up_container_semiautomatic_new{
