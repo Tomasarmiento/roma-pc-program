@@ -30,6 +30,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 //sensores states//
 function sensores(dataWs) {
+    console.log(dataWs.plc_sensors.CH1_I_NPR);
 
     const list_inverted_signal = ['MA1_I_DR_U_PS_1','MA1_I_DR_U_PS_2','MA1_I_DR_D_PS_1','MA1_I_DR_D_PS_2']
     const list_1flag_2leds = ['R_I_AUT_SEM','R_I_30_40','R_I_CAS','R_I_BIT0_CH','R_I_BIT1_CH','R_I_PAL','R_I_DRW','R_I_MA','R_I_GET_PUT','R_I_MA_CH','INF30','Blower','Booster','INF40']
@@ -47,16 +48,13 @@ function sensores(dataWs) {
     arr_of_dict = Object.keys(dict)
     for (sensor_key of arr_of_dict) {
         // console.log(arr_of_dict);
+        see_state_sensor(sensor_key,dataWs.plc_sensors[sensor_key])
+        see_state_sensor(sensor_key+"_copy",dataWs.plc_sensors[sensor_key])
+        see_state_sensor(sensor_key+"_1_copy",dataWs.plc_sensors[sensor_key])
         if (dataWs.plc_sensors[sensor_key] == true){
             //señales invertidas
             if (list_inverted_signal.includes(sensor_key)) {
                 see_state_sensor(sensor_key,false)
-            }
-            //señales comunes
-            else {
-                see_state_sensor(sensor_key,true)
-                see_state_sensor(sensor_key+"_copy",false)
-                see_state_sensor(sensor_key+"_1_copy",true)
             }
             //rutinas robot
             if (list_1flag_2leds.includes(sensor_key)) {
@@ -70,18 +68,11 @@ function sensores(dataWs) {
             if (list_okuma_selector_bit1.includes(sensor_key)) {
                 R_I_BIT1_CH = true
             }
-
         }
         else {
             //señales invertidas
             if (list_inverted_signal.includes(sensor_key)) {
                 see_state_sensor(sensor_key,true)
-            }
-            //señales comunes
-            else{
-                see_state_sensor(sensor_key,false)
-                see_state_sensor(sensor_key+"_copy",true)
-                see_state_sensor(sensor_key+"_1_copy",false)
             }
             //rutinas robot
             if (list_1flag_2leds.includes(sensor_key)) {
@@ -95,7 +86,6 @@ function sensores(dataWs) {
             if (list_okuma_selector_bit1.includes(sensor_key)) {
                 R_I_BIT1_CH = false
             }
-
         }
     }
     // okumas bits
@@ -123,8 +113,5 @@ function sensores(dataWs) {
         see_state_sensor('okuma_2',false)
         see_state_sensor('okuma_3',false)
     }
-   
-
-    
 
 };
