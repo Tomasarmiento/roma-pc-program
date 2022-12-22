@@ -1,19 +1,93 @@
+// import {firstname} from "./sensores_index_js"
+
 window.addEventListener("DOMContentLoaded", () => {
     (window.location.hash);
-    console.log(window.location);
-    const okuma_value = document.getElementById('okumaSelect')
-    const mesa_value = document.getElementById('mesaSelect')
-    const gripper_value = document.getElementById('gripperSelect')
-    const changeMachineBtn = document.getElementById('changeMachineBtn')
-    const mover_robot_text = document.querySelector('#mover_robot')
-    const pos_value = document.querySelector('#posSelect')
+    const model_value = document.getElementById('modelSelect')
+    const pos_drawer_value = document.getElementById('posSelect')
+    const get_put_value = document.getElementById('take_putSelect')
+    const op30_op40_value = document.getElementById('pos_casitaSelect')
+    const casita1_casita2_value = document.getElementById('pos_palletSelect')
+
 
     
-    disableTxt("gripperSelect",true)
-    disableTxt("posSelect",true)
+
+    const btn_semiauto = document.getElementById('btn_semiauto_routine')
+
+    
+    // disableTxt("gripperSelect",true)
+    disableTxt("pos_Select",true)
+    disableTxt("pos_UpDownSelect",true)
     disableTxt("take_putSelect",true)
     disableTxt("pos_casitaSelect",true)
-    disableTxt("sub_routine_container",true)
+    // disableTxt("pos_palletSelect",true)
+
+
+
+    btn_semiauto.addEventListener('click', (e) => {
+        console.log('click routine');
+    });
+
+    
+
+    // socket.onmessage = function (event) {
+    //     const datosWs = JSON.parse(event.data);
+    //     console.log(datosWs);
+    //     console.log('dentro de socket message');
+    // };  
+
+
+    
+
+
+
+    // function sendCommandSemi(menu, name_bit){
+    //     let url = "http://localhost:8000/control/semiautomatico/routine/";
+    //     let params = "&menu=" + menu + "&name=" + name_bit;
+    
+    //     // var params = "lorem=ipsum&name=alpha";
+    //     let xhr = new XMLHttpRequest();
+    //     xhr.open("POST", url, true);
+    
+    //     //Send the proper header information along with the request
+    //     xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+    //     xhr.send(params);
+    // }
+
+
+    // let select = document.getElementsByTagName('select');
+    // let options = document.getElementsByTagName('option');
+    // console.log(select);
+    
+    // for(let i=0; i < select.length; i++){
+    //     if(select[i].hasAttribute('menu')){
+    //         console.log('tiene atributo');
+    //         select[i].addEventListener('change', (e) => {
+    //             if(options[i].hasAttribute('menu')){
+    //                 let menu = options[i].getAttribute('menu');
+    //                 let name = options[i].getAttribute('id');
+    //                 sendCommand(menu, name);
+    //             }
+    //         });
+    //     }
+    // }
+
+    // for(let i=0; i < select.length; i++){
+    //     if(select[i].hasAttribute('menu')){
+    //         select[i].addEventListener('change', (e) => {
+    //             console.log(select[i]);
+    //             let menu = select[i].getAttribute('menu');
+    //             for(let w=0; w < options.length; w++){
+    //                 // console.log(options[w]);
+    //                 if(options[w].hasAttribute('other')){
+    //                     let name = options[w].getAttribute('id');
+    //                     sendCommand(menu, name);
+    //                 }
+    //             }
+    //         });
+    //     }
+    // }
+
 
     // okuma_value.addEventListener('change', function() {
     //     //reedireccionamiento
@@ -62,4 +136,6 @@ window.addEventListener("DOMContentLoaded", () => {
     //     }
     // }
 });
+
+
 // export const nombre = "tomas";

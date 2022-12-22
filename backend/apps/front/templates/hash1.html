@@ -6,8 +6,17 @@
 </head>
 <h1>first hash</h1>
 <div class="container-fluid col-md-3 card p-1 border shadow rounded">
-    <button type="button" class="btn btn-primary mb-3" id="apagar">Apagar led</button>
+    <!-- <button type="button" class="btn btn-primary mb-3" id="apagar">Apagar led</button> -->
     <button type="button" class="btn btn-primary mb-3" id="prender">Prender led</button>
+    <button type="button" class="btn btn-primary mb-3" id="plc_test">plc test</button>
+    <button type="button" class="btn btn-primary mb-3" id="msg_test">msg test</button>
+    <button type="button" class="btn btn-primary mb-3" id="javascript">javascript</button>
+    <button type="button" class="btn btn-primary mb-3" id="mensaje_test">drawer switch</button>
     <td><div class="led led-grey" id="ledPrueba"></div></td>
 </div>
+
+<div id="contenedor-terminal-texto" class="card col-md-6 my-4 mx-auto border shadow rounded bg-white p-1" style="height: 155px;">
+    <div id="salidaDeTexto"></div>
+    {% include 'cuadroMensajes.html'%}
+  </div>
 {% endblock %}

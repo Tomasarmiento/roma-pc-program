@@ -3,52 +3,38 @@
 {% block content %}
 <head>
     <script src="{% static 'js/automatico.js' %}"></script>
+    <script  src="{% static 'js/disabled_text_function.js' %}"></script>
 </head>
-<div class="automatico_hash_container">
-    <div class="left_container">
-        <div class="desactivar_container">
-            <div class="bloque_container">
-                <div class="texto_container">
-                    <div class="text_desactive">Desactivar</div>
-                    <div class="line_desactivar"></div>
-                </div>
-                <div class="boton_up_container">
-                    <button class="boton_up" id="desactivate_ok1">Okuma_1</button>
-                    <button class="boton_up" id="desactivate_ok2">Okuma_2</button>
-                    <button class="boton_up" id="desactivate_me1">Mesa_1</button>
-                </div>
-                <div class="boton_down_container">
-                    <button class="boton_down" id="desactivate_ok3">Okuma_3</button>
-                    <button class="boton_down" id="desactivate_ok4">Okuma_4</button>
-                    <button class="boton_down" id="desactivate_me2">Mesa_2</button>
-                </div>
-            </div>
-        </div>
-        <div class="divisor_automatic_line"></div>
-        <div class="automatic_container">
-            <div class="bloque_automatico_container">
-                <div class="texto_container_automatic">
-                    <div class="text_automatic">Automatico</div>
-                    <div class="line_desactivar"></div>
-                </div>
-                <div class="boton_up_container_automatic">
-                    <button class="boton_up">Comenzar</button>
-                    <button class="boton_up">Detener</button>
-                </div>
-                <div class="boton_down_container_automatic">
-                    <button class="boton_up">Terminar</button>
-                </div>
-            </div>
+
+<div class="row col-md-12 col-12 align-items-center d-flex justify-content-around mx-auto px-0">
+    
+    <div class="" style="margin-bottom: 300px;">
+        <div id="" class="col-md-12  card card-programa text-info mt-3 col-12  shadow rounded componentemonitorAuto" style="left: 10px;height: 200px;text-align: center;">
+            {% include 'routineControllerAuto.html' %}
         </div>
     </div>
-    <div class="layout_container">
-        <img src="../static/img/layout-roma.png" alt="">
-        <div class="cuadrado_okuma1 mb-5"></div>
-        <div class="cuadrado_okuma2 mb-5"></div>
-        <div class="cuadrado_okuma3 mb-5"></div>
-        <div class="cuadrado_okuma4 mb-5"></div>
-        <div class="cuadrado_mesa1 mb-5"></div>
-        <div class="cuadrado_mesa2 mb-5"></div>
+
+    <div id="componentemonitorStepAuto" class="col-md-6 col-12 mb-5 shadow rounded bg-white px-1 py-1 componentemonitorStepAuto" style="right: 10px;top: 40px;">
+        {% include 'routineStepAuto.html' %}
     </div>
+    
 </div>
+
+
+<!-- 
+
+    </div> -->
+    <!-- <div id="contenedor-terminal-texto" class="card col-md-3 mx-auto border shadow rounded bg-white p-1" style="height: 100%;">
+        <div id="salidaDeTexto"></div>
+        {% include 'cuadroMensajes.html'%}
+    </div> -->
+    <!-- <div class="layout_container">
+        <img src="../static/img/layout-roma.png" alt="">
+        <div class="cuadrado_okuma1 cuadrado_green mb-5" id="cuadrado_okuma1"></div>
+        <div class="cuadrado_okuma2 cuadrado_green mb-5" id="cuadrado_okuma2"></div>
+        <div class="cuadrado_okuma3 cuadrado_green mb-5" id="cuadrado_okuma3"></div>
+        <div class="cuadrado_okuma4 cuadrado_green mb-5" id="cuadrado_okuma4"></div>
+        <div class="cuadrado_mesa1 cuadrado_green mb-5" id="cuadrado_mesa1"></div>
+        <div class="cuadrado_mesa2 cuadrado_green mb-5" id="cuadrado_mesa2"></div>
+    </div> -->
 {% endblock %}

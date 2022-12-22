@@ -1,6 +1,6 @@
 {% load static %}
 {% block content %}
-{% include 'neumatic_index.html'%}
+<div style="text-align: center;font-size: 20px;">{% include 'neumatic_index.html'%}</div>
 <head>
     <script src="{% static 'js/okuma_3_neumatic.js' %}"></script>
 </head>
@@ -102,7 +102,7 @@
         </div>
         </div>  
     </div>
-    <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-interval="false"  style="width: 60%;height: 60%;">
+    <!-- <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-interval="false"  style="width: 60%;height: 60%;">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -127,7 +127,7 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+    </div> -->
 </div>
 <section class="second_section">
     {% include 'sensores_index_template.html'%}

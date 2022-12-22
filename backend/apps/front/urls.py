@@ -14,5 +14,6 @@ urlpatterns = [
     path('gripper_neumatic/', views.gripper_neumatic, name="gripper_neumatic"),
     path('semiAutomatico/', views.semiAutomatico, name="semiAutomatico"),
     path('automatico/', views.automatico, name="automatico"),
-
+    path('error/', views.error, name="error"),
+    path('desactivar_okuma/', views.desactivar_okuma, name="desactivar_okuma"),
 ]

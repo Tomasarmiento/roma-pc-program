@@ -1,39 +1,317 @@
 {% extends 'index.html'%}
 {% load static %}
 {% block content %}
-{% include 'semiAutomatico_index.html'%}
+<div style="font-size: 20px;">{% include 'semiAutomatico_index.html'%}</div>
 <head>
-    <script  src="{% static 'js/mesa_1_semiAutomatico.js' %}"></script>
+    <script src="{% static 'js/mesa_1_semiAutomatico.js' %}"></script>
     <script  src="{% static 'js/disabled_text_function.js' %}"></script>
-    <!-- <script   type="module " src="../static/js/mesa_1_semiAutomatico.js"></script> -->
+    <!-- <script   type="module" src="../static/js/mesa_1_semiAutomatico.js"></script> -->
 </head>
 
-<div class="routine_container_class" id="routine_container">
-    <div id="text_default_container">
-        <h1>Mover robot a &nbsp</h1>
-    </div>
-    <div id="text_model_selected_container">
-        <h1 id="text_model_selected">______</h1>
-    </div>
-    <button id="move_table_1" type="button" class="btn btn-primary mb-3" >Mover</button>
+<div id="componentemonitorSemi" class="col-md-3 col-12 mb-5 float-right shadow rounded bg-white px-1 py-1 componentemonitorSemi" style="right: 10px;">
+    {% include 'routineControllerSemi.html' %}
 </div>
 
-<div class="sub_routine_container_class" id="sub_routine_container">
-    <div id="text_take_put_container">
-        <h1 id="text_take_put">______</h1>
+
+<div class="semiauto-box">
+    <div>
+        <h2 style="color: black;"><u>MESA</u></h2>
+        <div class="sub_routine_container_class" id="routine_container_mesa">
+            <div id="text_default_container">
+                <h2>Mover a &nbsp</h2>
+            </div>
+            <div id="text_model_selected_container" class="letering-semiauto-color ">
+                <h2 id="text_model_selected_mesa">______</h2>
+            </div>
+            <div id="text_default_container">
+                <h2>&nbsp para &nbsp</h2>
+            </div>
+            <div id="text_take_put_container" class="letering-semiauto-color">
+                <h2 id="text_take_put_mesa">______</h2>
+            </div>
+            <div id="text_default_container">
+                <h2>&nbsp dispositivo con &nbsp</h2>
+            </div>
+            <div id="text_gripper_container" class="letering-semiauto-color">
+                <h2 id="text_gripper_mesa">______</h2>
+            </div>
+            <div id="text_default_container">
+                <h2>&nbsp pos: &nbsp</h2>
+            </div>
+            <div id="text_position_up_down_container" class="letering-semiauto-color">
+                <h2 id="text_position_up_down_mesa">______</h2>
+            </div>
+            <div id="text_position_container" class="letering-semiauto-color">
+                <h2 id="text_position_mesa">______</h2>
+            </div>
+            <div id="desactive_container_routine_mesa" style="display: none;"></div>
+        </div>
+
+
+
+        <h2 style="color: black;"><u>OKUMA</u></h2>
+        <div class="sub_routine_container_class" id="routine_container_okuma">
+            <div id="text_default_container">
+                <h2>Mover a &nbsp</h2>
+            </div>
+            <div id="text_model_selected_container" class="letering-semiauto-color">
+                <h2 id="text_model_selected_okuma">______</h2>
+            </div>
+            <div id="text_default_container">
+                <h2>&nbsp para &nbsp</h2>
+            </div>
+            <div id="text_take_put_container" class="letering-semiauto-color">
+                <h2 id="text_take_put_okuma">______</h2>
+            </div>
+            <div id="text_default_container">
+                <h2>&nbsp dispositivo con &nbsp</h2>
+            </div>
+            <div id="text_gripper_container" class="letering-semiauto-color">
+                <h2 id="text_gripper_okuma">______</h2>
+            </div>
+            <div id="text_default_container">
+                <h2>&nbsp pos: &nbsp</h2>
+            </div>
+            <div id="text_position_selected" class="letering-semiauto-color">
+                <h2 id="text_position_okuma">______</h2>
+            </div>
+            <div id="text_default_container">
+                <h2>&nbsp en &nbsp</h2>
+            </div>
+            <div id="text_pallet_selected" class="letering-semiauto-color">
+                <h2 id="text_pallet_okuma">______</h2>
+            </div>
+            <!-- <button id="btn_semiauto_routine" type="button" class="btn btn-primary mb-3">Ejecutar</button>
+            <button id="btn_semiauto_routine_stop" type="button" class="btn btn-danger mb-3">Detener</button> -->
+            <!-- <div id="desactive_container_routine_okuma" style="display: block;"></div> -->
+        </div>
     </div>
-    <div id="text_default_container">
-        <h1>&nbsp dispositivo con &nbsp</h1>
+
+        <!-- <div class="row d-flex buttons-semi-container" style="margin-left: 0px;">
+            <div id="buttons-semi-routine" class="py-3 col-md-4" >
+                <button id="btn_semiauto_routine" type="button" menu="semi" cmd="comenzar" class="btn btn-primary mb-2">Despausar</button>
+                <button id="btn_semiauto_routine_stop" type="button" menu="semi" cmd="detener" class="btn btn-danger mb-2">Pausar</button>
+                <button id="btn_semiauto_reset_program" type="button" menu="semi" cmd="reset_program" class="btn btn-danger mb-2" disabled>Reset Program</button>
+                <button id="btn_semiauto_ejecutar" type="button" menu="semi" cmd="ejecutar" class="btn btn-primary mb-2">Ejecutar</button>
+            </div>
+            <div class="py-3">
+                <div id="led-comenzar-semi" class="led led-grey mb-4"></div>
+                <div id="led-detener-semi" class="led led-grey mb-4"></div>
+            </div>
+        </div> -->
+
+        
     </div>
-    <div id="text_gripper_container">
-        <h1 id="text_gripper">______</h1>
+    <div class="py-5">{% include 'sensores_index_template.html'%}
+<!-- <div>
+     <div class="py-3 ">
+        <div id="contenedorEstadistica" class="col-md-9 col-12 mb-5 card rounded p-1 mx-auto shadow-sm contenedor-estadistica">
+            <table class="table table-sm table-striped table-borderless" id="tablaRoutineSteps">
+                <thead>
+                    <tr>
+                        <th colspan="2" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Rutina Automatico</th>
+                    </tr>
+                    <tr>
+                        <th>Paso N°</th>
+                        <th class="text-center">Descripcion</th>
+                    </tr>
+                </thead>
+                <tbody >
+                    <tr id="step-1">
+                        <th>1</th>
+                        <td>Start</td>
+                    </tr>
+                    <tr id="step-2">
+                        <th>2</th>
+                        <td>Checkeo de condiciones iniciales</td>
+                    </tr>
+                    <tr id="step-3">
+                        <th>3</th>
+                        <td>Run Program</td>
+                    </tr>
+                    <tr>
+                        <th>Rutina</th>
+                        <th class="text-center">Tomar de mesa</th>
+                    </tr>
+                    <tr id="step-4">
+                        <th>4</th>
+                        <td>Checkeo de posicion de drawer</td>
+                    </tr>
+                    <tr id="step-5">
+                        <th>5</th>
+                        <td>Checkeo del idle</td>
+                    </tr>
+                    <tr id="step-6">
+                        <th>6</th>
+                        <td>Checkeo de gripper 1 libre</td>
+                    </tr>
+                    <tr id="step-7">
+                        <th>7</th>
+                        <td>Robot Go</td>
+                    </tr>
+                    <tr id="step-8">
+                        <th>8</th>
+                        <td>Desbloqueo de pallet y checkeo de desbloqueo</td>
+                    </tr>
+                    <tr id="step-9">
+                        <th>9</th>
+                        <td>Robot Go</td>
+                    </tr>
+                    <tr id="step-10">
+                        <th>10</th>
+                        <td>Bloqueo del pallet, checkeo que se haya bloqueado</td>
+                    </tr>
+                    <tr id="step-11">
+                        <th>11</th>
+                        <td>Checkeo de que gripper 1 no este libre</td>
+                    </tr>
+                    <tr>
+                        <th>Rutina</th>
+                        <th class="text-center">Dejar de mesa</th>
+                    </tr>
+                    <tr id="step-12">
+                        <th>12</th>
+                        <td>Checkea que la posicion elegida sea la que este disponible</td>
+                    </tr>
+                    <tr id="step-13">
+                        <th>13</th>
+                        <td>Checkeo de que el gripper 1 tenga pieza</td>
+                    </tr>
+                    <tr id="step-14">
+                        <th>14</th>
+                        <td>Checkeo de idle del robot</td>
+                    </tr>
+                    <tr id="step-15">
+                        <th>15</th>
+                        <td>Desbloqueo de pallet,checkeo de que este libre la posicion</td>
+                    </tr>
+                    <tr id="step-16">
+                        <th>16</th>
+                        <td>Checkeo de desbloqueo</td>
+                    </tr>
+                    <tr id="step-17">
+                        <th>17</th>
+                        <td>Robot Go</td>
+                    </tr>
+                    <tr id="step-18">
+                        <th>18</th>
+                        <td>Bloqueo pallet, checkea idle</td>
+                    </tr>
+                    <tr id="step-19">
+                        <th>19</th>
+                        <td>Checkeo de bloqueo posición</td>
+                    </tr>
+                    <tr>
+                        <th>Rutina</th>
+                        <th class="text-center">Tomar de Okuma</th>
+                    </tr>
+                    <tr id="step-20">
+                        <th>20</th>
+                        <td>Checkeo de que la neumatica este retraida</td>
+                    </tr>
+                    <tr id="step-21">
+                        <th>21</th>
+                        <td>Acciona avance neumatico, checkea sensor de presion</td>
+                    </tr>
+                    <tr id="step-22">
+                        <th>22</th>
+                        <td>Checkeo del idle</td>
+                    </tr>
+                    <tr id="step-23">
+                        <th>23</th>
+                        <td>Checkea que no este retraido el neumatico</td>
+                    </tr>
+                    <tr id="step-24">
+                        <th>24</th>
+                        <td>Robot Go</td>
+                    </tr>
+                    <tr id="step-25">
+                        <th>25</th>
+                        <td>Acciona el inflador (op30 u op40) y checkea la presion</td>
+                    </tr>
+                    <tr id="step-26">
+                        <th>26</th>
+                        <td>Robot Go y acciona blower</td>
+                    </tr>
+                    <tr id="step-27">
+                        <th>27</th>
+                        <td>Timer</td>
+                    </tr>
+                    <tr id="step-28">
+                        <th>28</th>
+                        <td>Solo para op40 checkea que gripper 1 tenga pieza</td>
+                    </tr>
+                    <tr id="step-31">
+                        <th>31</th>
+                        <td>Solo para op30 checkea que gripper 2 tenga pieza</td>
+                    </tr>
+                    <tr id="step-29">
+                        <th>29</th>
+                        <td>Apaga el inflador y retira el neumatico, checkea neumatico retraido</td>
+                    </tr>
+                    <tr id="step-30">
+                        <th>30</th>
+                        <td>Checkeo de idle</td>
+                    </tr>
+                    <tr>
+                        <th>Rutina</th>
+                        <th class="text-center">Dejar en Okuma</th>
+                    </tr>
+                    <tr id="step-32">
+                        <th>32</th>
+                        <td>Checkeo de neumatica retraida</td>
+                    </tr>
+                    <tr id="step-33">
+                        <th>33</th>
+                        <td>Avance neumatico y checkeo de numatica no retraida</td>
+                    </tr>
+                    <tr id="step-34">
+                        <th>34</th>
+                        <td>Activa inflador, checkeo de presion</td>
+                    </tr>
+                    <tr id="step-35">
+                        <th>35</th>
+                        <td>Checkeo del idle del robot</td>
+                    </tr>
+                    <tr id="step-36">
+                        <th>36</th>
+                        <td>Robot Go</td>
+                    </tr>
+                    <tr id="step-37">
+                        <th>37</th>
+                        <td>Pieza op30 apaga inflador y Robot Go</td>
+                    </tr>
+                    <tr id="step-43">
+                        <th>43</th>
+                        <td>Pieza op40 apaga inflador</td>
+                    </tr>
+                    <tr id="step-38">
+                        <th>38</th>
+                        <td>Checkeo de neumatica retraida</td>
+                    </tr>
+                    <tr id="step-39">
+                        <th>39</th>
+                        <td>Timer</td>
+                    </tr>
+                    <tr id="step-40">
+                        <th>40</th>
+                        <td>Solo para op 40 checkea que gripper 2 este libre</td>
+                    </tr>
+                    <tr id="step-42">
+                        <th>42</th>
+                        <td>Solo para op 30 checkea que gripper 1 este libre</td>
+                    </tr>
+                    <tr id="step-41">
+                        <th>41</th>
+                        <td>Checkeo de idle</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
     </div>
-    <div id="text_default_container">
-        <h1>&nbsp en posicion &nbsp</h1>
-    </div>
-    <div id="text_position_selected">
-        <h1 id="text_position">______</h1>
-    </div>
-    <button id="btn_subRoutine_grip_pos_text" type="button" class="btn btn-primary mb-3" >Ejecutar</button>
 </div>
+<div><button id="btn_semiauto_step" type="button" menu="semi" cmd="step_step" class="btn btn-danger mb-3" style="margin-left: 1040px;" disabled>Paso a Paso</button></div> -->
+
+
 {% endblock %}

@@ -1,0 +1,22 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block content %}
+
+
+
+<div class="row col-md-9 col-12 align-items-center d-flex justify-content-around mx-auto px-0 py-5">
+    {% include 'blockOkumaController.html' %}
+    <div class="layout_container">
+        <img src="../static/img/layout-roma.png" alt="">
+        <div class="cuadrado_okuma1 cuadrado_green mb-5" id="cuadrado_okuma1"></div>
+        <div class="cuadrado_okuma2 cuadrado_green mb-5" id="cuadrado_okuma2"></div>
+        <div class="cuadrado_okuma3 cuadrado_green mb-5" id="cuadrado_okuma3"></div>
+        <div class="cuadrado_okuma4 cuadrado_green mb-5" id="cuadrado_okuma4"></div>
+        <div class="cuadrado_mesa1 cuadrado_green mb-5" id="cuadrado_mesa1"></div>
+        <div class="cuadrado_mesa2 cuadrado_green mb-5" id="cuadrado_mesa2"></div>
+    </div>
+</div>
+
+
+
+{% endblock %}

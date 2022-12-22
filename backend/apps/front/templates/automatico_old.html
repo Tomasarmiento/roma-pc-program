@@ -1,0 +1,55 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block content %}
+<head>
+    <script src="{% static 'js/automatico.js' %}"></script>
+</head>
+<div class="automatico_hash_container">
+    <div class="left_container">
+        <div class="desactivar_container">
+            <div class="bloque_container">
+                <div class="texto_container">
+                    <div class="text_desactive">Desactivar</div>
+                    <div class="line_desactivar"></div>
+                </div>
+                <div class="boton_up_container">
+                    <button class="boton_up" id="desactivate_ok1">Okuma_1</button>
+                    <button class="boton_up" id="desactivate_ok2">Okuma_2</button>
+                    <button class="boton_up" id="desactivate_me1">Mesa_1</button>
+                </div>
+                <div class="boton_down_container">
+                    <button class="boton_down" id="desactivate_ok3">Okuma_3</button>
+                    <button class="boton_down" id="desactivate_ok4">Okuma_4</button>
+                    <button class="boton_down" id="desactivate_me2">Mesa_2</button>
+                </div>
+            </div>
+        </div>
+        <div class="divisor_automatic_line"></div>
+        <div class="automatic_container">
+            <div class="bloque_automatico_container">
+                <div class="texto_container_automatic">
+                    <div class="text_automatic">Automatico</div>
+                    <div class="line_desactivar"></div>
+                </div>
+                <div class="boton_up_container_automatic">
+                    <button id="comenzar" class="boton_up" menu="auto" cmd="comenzar" style="background-color: green;">Comenzar</button>
+                    <button id="detener" class="boton_up" menu="auto" cmd="detener" style="background-color: red;">Detener</button>
+                </div>
+                <div class="boton_down_container_automatic">
+                    <button id="terminar" class="boton_up" menu="auto" cmd="terminar">Terminar</button>
+                    <button id="reset_program" class="boton_up" menu="auto" cmd="reset_program">Reset Program</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- <div class="layout_container">
+        <img src="../static/img/layout-roma.png" alt="">
+        <div class="cuadrado_okuma1 cuadrado_green mb-5" id="cuadrado_okuma1"></div>
+        <div class="cuadrado_okuma2 cuadrado_green mb-5" id="cuadrado_okuma2"></div>
+        <div class="cuadrado_okuma3 cuadrado_green mb-5" id="cuadrado_okuma3"></div>
+        <div class="cuadrado_okuma4 cuadrado_green mb-5" id="cuadrado_okuma4"></div>
+        <div class="cuadrado_mesa1 cuadrado_green mb-5" id="cuadrado_mesa1"></div>
+        <div class="cuadrado_mesa2 cuadrado_green mb-5" id="cuadrado_mesa2"></div>
+    </div> -->
+</div>
+{% endblock %}

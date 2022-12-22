@@ -1,0 +1,64 @@
+
+{% load static %}
+{% block content %}
+
+<div>
+
+    <div class="row justify-content-center h1">
+        <p style="color: black;">AUTOMATICO</p>
+    </div>
+
+    
+    <div class="btn-group" role="group" aria-label="Basic example">
+        <div class=" bg-c-skyblue text-white mt-3 p-1"> 
+            <button id="detener" type="button" menu="auto" cmd="detener" class="btn-lg btn-warning" style="width: 225px;height: 80px;" disabled>Pausar</button>
+        </div>
+    
+        <div class=" bg-c-skyblue text-white mt-3 p-1">
+            <button id="comenzar" type="button" menu="auto" cmd="comenzar" class="btn-lg btn-success" style="width: 210px;height: 80px;" disabled>Despausar</button>
+        </div>
+    </div>
+
+    <div id="" class="col-md-12 card card-programa text-info mt-3 col-12  shadow rounded componentemonitorAuto" style="top: 50px;">
+        <div class="row justify-content-center h1">
+           <p style="color: black;">Okuma Seleccionado</p>
+        </div>
+        <!-- #17a2b8 -->
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <div id="okuma_1" class="led led-grey mb-5">
+                <h1 class="" style="margin-top: 20px;color: black;">1</h1> 
+            </div>
+            
+            <div id="okuma_2" class="led led-grey mb-5">
+                <h1 class="" style="margin-top: 20px;color: black;">2</h1>
+            </div>
+            
+            <div id="okuma_3" class="led led-grey mb-5">
+                <h1 class="" style="margin-top: 20px;color: black;">3</h1>
+            </div>
+            
+            <div id="okuma_4" class="led led-grey mb-5">
+                <h1 class="" style="margin-top: 20px;color: black;">4</h1>
+            </div>
+        </div>
+    
+    </div>
+
+    <div id="componentemonitorLastAuto" class="col-md-12 card card-programa text-info mt-3 col-12  shadow rounded componentemonitorLastAuto" style="top: 50px;">
+        <div class="row justify-content-center h1">
+            <p style="color: black;">ULTIMA VUELTA</p>
+        </div>
+        <div class="btn-group" role="group" aria-label="Basic example">
+            <div class=" bg-c-skyblue text-white  p-1"> 
+                <button id="terminarOn" type="button" menu="auto" cmd="terminarON" class="btn-lg btn-primary" style="width: 225px;height: 80px;" disabled>ON</button>
+            </div>
+        
+            <div class=" bg-c-skyblue text-white  p-1">
+                <button id="terminarOff" type="button" menu="auto" cmd="terminarOFF" class="btn-lg btn-danger" style="width: 210px;height: 80px;" disabled>OFF</button>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+{% endblock %}

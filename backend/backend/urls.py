@@ -17,6 +17,7 @@ from django.contrib import admin
 from django.urls import path
 from django.urls.conf import include
 from . import views
+from django.contrib.auth.views import LoginView,LogoutView
 
 from backend.views import saludo
 # from backend.views import index
@@ -27,5 +28,7 @@ urlpatterns = [
     path('control/', include('apps.control.urls')),
     # path('control/', include('apps.control.urls')),
     path('saludo/', saludo),
+    path('login/', LoginView.as_view(template_name='login.html'), name="login"),
+    path('logout/', LogoutView.as_view(template_name='login.html'), name ="logout")
     # path('index/', views.index, name="index"),
 ]

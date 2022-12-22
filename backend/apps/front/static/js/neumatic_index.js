@@ -1,6 +1,6 @@
 window.addEventListener("DOMContentLoaded", () => {
     (window.location.hash);
-    console.log(window.location);
+    // console.log(window.location);
     const okuma_value = document.getElementById('okumaSelect')
     const mesa_value = document.getElementById('mesaSelect')
     const gripper_value = document.getElementById('gripperSelect')
@@ -102,6 +102,8 @@ window.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+
+    //button scroll//
     //Get the button
     var mybutton = document.getElementById("boton_neumatic");
 
@@ -124,14 +126,41 @@ window.addEventListener("DOMContentLoaded", () => {
     mybutton.addEventListener("click", () =>{
         topFunction()
     });
+    //button scroll//
 
     
-    // changeMachineBtn.addEventListener('click', (e) => {
-    //     let model_machine = btn_cabezal.getAttribute('model_machine');
-    //     startRoutine(model_machine);
-    //     // redirectModelMachine(model_machine);
-       
-    // });
+    let btns = document.getElementsByTagName('button');
+    // console.log(btns);
+    
+    for(let i=0; i < btns.length; i++){
+        if(btns[i].hasAttribute('menu')){
+            btns[i].addEventListener('click', (e) => {
+                let menu = btns[i].getAttribute('menu');
+                let name = btns[i].getAttribute('id');
+                let btn = name.slice(name.indexOf('X')+1)
+                name = name.slice(0, name.indexOf('X'));
+                sendCommand(menu, name, btn);
+
+            });
+        }
+    }
+    
+    
+    function sendCommand(menu, name, btn){
+        // let url = "http://192.168.3.127:8000/control/sensores/";
+        let url = "http://localhost:8000/control/sensores/";
+        let params = "&menu=" + menu + "&name=" + name + "&btn=" + btn;
+
+    
+        // var params = "lorem=ipsum&name=alpha";
+        let xhr = new XMLHttpRequest();
+        xhr.open("POST", url, true);
+    
+        //Send the proper header information along with the request
+        xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    
+        xhr.send(params);
+    }
 
 
    

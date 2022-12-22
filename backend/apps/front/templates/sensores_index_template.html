@@ -1,11 +1,15 @@
 {% load static %}
 {% block content %}
-<div class="row m-auto d-flex justify-content-around mx-auto py-3 mx-5 px-0" id="sensores">
-    <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5">
-        <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaPlato">
+<head>
+    <script  src="{% static 'js/sensores_index_js.js' %}"></script>
+    <script  src="{% static 'js/disabled_text_function.js' %}"></script>
+</head>
+<div class="row m-auto d-flex mx-auto py-3 mx-5 px-0 space_betwin" id="sensores">
+    <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5 " id="tablaDrawer1">
+        <table class="table table-sm table-striped table-borderless" style="color: black;">
             <thead>
                 <tr>
-                    <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensor mesa de armado</th>
+                    <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensor mesa de armado 1</th>
                 </tr>
                 <tr>
                     <th>Sensor</th>
@@ -15,124 +19,268 @@
             </thead>
             <tbody>
                 <tr>
-                    <td>Pallet presente en posicion 1</td>
-                    <td><div class="led led-grey" id="paller_present_pos_1"></div></td>
+                    <td>Dispositivo presente en posicion 1 arriba</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_PS_1"></div></td> <!--id="paller_present_pos_1"> 94-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Pallet presente en posicion 2</td>
-                    <td><div class="led led-grey" id="paller_present_pos_2"></div></td>
+                    <td>Dispositivo presente en posicion 2 arriba</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_PS_2"></div></td><!--id="paller_present_pos_2"> 95-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Pallet presente en posicion 3</td>
-                    <td><div class="led led-grey" id="paller_present_pos_3"></div></td>
+                    <td>Dispositivo presente en posicion 1 abajo</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_PS_1"></div></td><!--id="paller_present_pos_3"> 96-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Pallet presente en posicion 4</td>
-                    <td><div class="led led-grey" id="paller_present_pos_4"></div></td>
+                    <td>Dispositivo presente en posicion 2 abajo</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_PS_2"></div></td><!--id="paller_present_pos_4"> 97-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Neumatico persiana arriba</td>
-                    <td><div class="led led-grey" id="persiana_up"></div></td>
+                    <td><div class="led led-grey" id="MA1_I_GS_UP"></div></td><!--id="persiana_up"> 98-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
                     <td>Neumatico persiana abajo</td>
-                    <td><div class="led led-grey" id="persiana_down"></div></td>
+                    <td><div class="led led-grey" id="MA1_I_GS_DN"></div></td><!--id="persiana_down"> 99-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Fin de carrera drawer 1 accionado</td>
-                    <td><div class="led led-grey" id="end_race_drawer_1"></div></td>
+                    <td>Neumatico empujador de dispositivo arriba</td>
+                    <td><div class="led led-grey" id="MA1_I_SE"></div></td><!--id="persiana_down"> 99-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Fin de carrera drawer 2 accionado</td>
-                    <td><div class="led led-grey" id="end_race_drawer_2"></div></td>
+                    <td>Fin de carrera drawer 1 arriba accionado</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_ES_1"></div></td><!--id="limit_drawer_1"> 100-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Fin de carrera drawer 3 accionado</td>
-                    <td><div class="led led-grey" id="end_race_drawer_3"></div></td>
+                    <td>Fin de carrera drawer 2 arriba accionado</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_ES_2"></div></td><!--id="limit_drawer_2"> 101-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Fin de carrera drawer 4 accionado</td>
-                    <td><div class="led led-grey" id="end_race_drawer_4"></div></td>
+                    <td>Fin de carrera drawer 1 abajo accionado</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_ES_1"></div></td><!--id="limit_drawer_3"> 102-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Drawer cilindro 1 atras</td>
-                    <td><div class="led led-grey" id="drawer_cilinder_1_bkwrd"></div></td>
+                    <td>Fin de carrera drawer 2 abajo accionado</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_ES_2"></div></td><!--id="limit_drawer_4"> 103-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Drawer cilindro 2 atras</td>
-                    <td><div class="led led-grey" id="drawer_cilinder_2_bkwrd"></div></td>
+                    <td>Drawer abajo atras</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_NS"></div></td> <!--preguntar-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Drawer cilindro 3 atras</td>
-                    <td><div class="led led-grey" id="drawer_cilinder_3_bkwrd"></div></td>
+                    <td>Drawer arriba atras</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_NS"></div></td> <!--preguntar-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Drawer cilindro 4 atras</td>
-                    <td><div class="led led-grey" id="drawer_cilinder_4_bkwrd"></div></td>
+                    <td>Pallet posición 1 arriba-bloqueo</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_BP_1_SA"></div></td> <!--106-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Bloqueo pallet posición 1-bloqueo</td>
-                    <td><div class="led led-grey" id="pallet_block_1"></div></td>
+                    <td>Pallet posición 1 arriba-libera</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_BP_1_SR"></div></td> <!--107-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Bloqueo pallet posición 1-libera</td>
-                    <td><div class="led led-grey" id="pallet_free_1"></div></td>
+                    <td>Pallet posición 2 arriba-bloqueo</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_BP_2_SA"></div></td> <!--108-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Bloqueo pallet posición 2-bloqueo</td>
-                    <td><div class="led led-grey" id="pallet_block_2"></div></td>
+                    <td>Pallet posición 2 arriba-libera</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_U_BP_2_SR"></div></td> <!--109-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Bloqueo pallet posición 2-libera</td>
-                    <td><div class="led led-grey" id="pallet_free_2"></div></td>
+                    <td>Pallet posición 1 abajo-bloqueo</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_BP_1_SA"></div></td> <!--110-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Bloqueo pallet posición 3-bloqueo</td>
-                    <td><div class="led led-grey" id="pallet_block_3"></div></td>
+                    <td>Pallet posición 1 abajo-libera</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_BP_1_SR"></div></td> <!--111-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Bloqueo pallet posición 3-libera</td>
-                    <td><div class="led led-grey" id="pallet_free_3"></div></td>
+                    <td>Pallet posición 2 abajo-bloqueo</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_BP_2_SA"></div></td> <!--112-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Bloqueo pallet posición 4-bloqueo</td>
-                    <td><div class="led led-grey" id="pallet_block_4"></div></td>
+                    <td>Pallet posición 2 abajo-libera</td>
+                    <td><div class="led led-grey" id="MA1_I_DR_D_BP_2_SR"></div></td> <!--113-->
                     <td class="text-center">x</td>
                 </tr>
                 <tr>
-                    <td>Bloqueo pallet posición 4-libera</td>
-                    <td><div class="led led-grey" id="pallet_free_4"></div></td>
+                    <td>Boton operador</td>
+                    <td><div class="led led-grey" id="MA1_I_OB"></div></td> <!--114-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Para de emergencia</td>
+                    <td><div class="led led-grey" id="MA1_I_EMS"></div></td> <!--115-->
                     <td class="text-center">x</td>
                 </tr>
 
             </tbody>
         </table>
     </div>
-        <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5">
-            <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoreDescarga">
+    <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5"  id="tablaDrawer2">
+        <table class="table table-sm table-striped table-borderless" style="color: black;">
+            <thead>
+                <tr>
+                    <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensor mesa de armado 2</th>
+                </tr>
+                <tr>
+                    <th>Sensor</th>
+                    <th class="text-center">Estado</th>
+                    <th class="text-center">N°DI</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Dispositivo presente en posicion 1 arriba</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_U_PS_1"></div></td> <!--id="paller_present_pos_1"> 132-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Dispositivo presente en posicion 2 arriba</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_U_PS_2"></div></td><!--id="paller_present_pos_2"> 133-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Dispositivo presente en posicion 1 abajo</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_D_PS_1"></div></td><!--id="paller_present_pos_3"> 134-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Dispositivo presente en posicion 2 abajo</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_D_PS_2"></div></td><!--id="paller_present_pos_4"> 135-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Neumatico persiana arriba</td>
+                    <td><div class="led led-grey" id="MA2_I_GS_UP"></div></td><!--id="persiana_up"> 136-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Neumatico persiana abajo</td>
+                    <td><div class="led led-grey" id="MA2_I_GS_DN"></div></td><!--id="persiana_down"> 137-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Fin de carrera drawer 1 arriba accionado</td> <!---->
+                    <td><div class="led led-grey" id="MA2_I_DR_U_ES_1"></div></td><!--id="limit_drawer_1"> 138-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Fin de carrera drawer 2 arriba accionado</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_U_ES_2"></div></td><!--id="limit_drawer_2"> 139-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Fin de carrera drawer 1 abajo accionado</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_D_ES_1"></div></td><!--id="limit_drawer_3"> 140-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Fin de carrera drawer 2 abajo accionado</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_D_ES_2"></div></td><!--id="limit_drawer_4"> 141-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Drawer cilindro 1 atras</td>
+                    <td><div class="led led-grey" id="drawer_cilinder_1_bkwrd"></div></td> <!--preguntar-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Drawer cilindro 2 atras</td>
+                    <td><div class="led led-grey" id="drawer_cilinder_2_bkwrd"></div></td> <!--preguntar-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Drawer cilindro 3 atras</td>
+                    <td><div class="led led-grey" id="drawer_cilinder_3_bkwrd"></div></td> <!--preguntar-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Drawer cilindro 4 atras</td>
+                    <td><div class="led led-grey" id="drawer_cilinder_4_bkwrd"></div></td> <!--preguntar-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Pallet posición 1 arriba-bloqueo</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_U_BP_1_SA"></div></td> <!--144-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Pallet posición 1 arriba-libera</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_U_BP_1_SR"></div></td> <!--145-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Pallet posición 2 arriba-bloqueo</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_U_BP_2_SA"></div></td> <!--146-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Pallet posición 2 arriba-libera</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_U_BP_2_SR"></div></td> <!--147-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Pallet posición 1 abajo-bloqueo</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_D_BP_1_SA"></div></td> <!--148-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Pallet posición 1 abajo-libera</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_D_BP_1_SR"></div></td> <!--149-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Pallet posición 2 abajo-bloqueo</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_D_BP_2_SA"></div></td> <!--150-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Pallet posición 2 abajo-libera</td>
+                    <td><div class="led led-grey" id="MA2_I_DR_D_BP_2_SR"></div></td> <!--151-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Boton operador</td>
+                    <td><div class="led led-grey" id="MA2_I_OB"></div></td> <!--152-->
+                    <td class="text-center">x</td>
+                </tr>
+                <tr>
+                    <td>Para de emergencia</td>
+                    <td><div class="led led-grey" id="MA2_I_EMS"></div></td> <!--153-->
+                    <td class="text-center">x</td>
+                </tr>
+
+            </tbody>
+        </table>
+    </div>
+
+
+        <!-- <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5">
+            <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoresRobot">
                 <thead>
                     <tr>
-                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores Salidas del Robot</th>
+                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores Salidas del Robot Okuma</th>
                     </tr>
                     <tr>
                         <th>Sensor</th>
@@ -141,69 +289,24 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>Pallet presente gripper 1</td>
-                        <td><div class="led led-grey" id="pallet_present_gripp_1"></div></td>
+                    <tr> 
+                        <td>Modo automatico</td>
+                        <td><div class="led led-grey" id="R_I_AUT_SEM"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Pallet presente gipper 2</td>
-                        <td><div class="led led-grey" id="pallet_present_gripp_2"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Anti Colisión</td>
-                        <td><div class="led led-grey" id="anti_colision"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Tomando dispositivo</td>
-                        <td><div class="led led-grey" id="tacking_dispositive"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Dejando dispositivo</td>
-                        <td><div class="led led-grey" id="put_dispositive"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Gripper 1</td>
-                        <td><div class="led led-grey" id="gripp_1"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Gripper_2</td>
-                        <td><div class="led led-grey" id="gripp_2"></div></td>
+                        <td>Modo semiautomatico</td>
+                        <td><div class="led led-grey" id="R_I_AUT_SEM_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr> 
-                        <td>Mesa 1</td>
-                        <td><div class="led led-grey" id="table_1"></div></td>
+                        <td>Mesa</td>
+                        <td><div class="led led-grey" id="R_I_MA_CH"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Mesa 2</td>
-                        <td><div class="led led-grey" id="table_2"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Mesa drawer inferior</td>
-                        <td><div class="led led-grey" id="table_drawer_down"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Mesa drawer superior</td>
-                        <td><div class="led led-grey" id="table_drawer_up"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Mesa lado izquierdo</td>
-                        <td><div class="led led-grey" id="table_left_side"></div></td>
-                        <td class="text-center">x</td>
-                    </tr>
-                    <tr>
-                        <td>Mesa lado derecho</td>
-                        <td><div class="led led-grey" id="table_right_side"></div></td>
+                        <td>Okuma</td>
+                        <td><div class="led led-grey" id="R_I_MA_CH_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
@@ -226,83 +329,463 @@
                         <td><div class="led led-grey" id="okuma_4"></div></td>
                         <td class="text-center">x</td>
                     </tr>
+                    <tr> 
+                        <td>Mesa 1</td>
+                        <td><div class="led led-grey" id="R_I_MA"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Mesa 2</td>
+                        <td><div class="led led-grey" id="R_I_MA_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr> 
+                        <td>Tomar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Dejar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
                     <tr>
                         <td>Casita OP 30</td>
-                        <td><div class="led led-grey" id="op_30"></div></td>
+                        <td><div class="led led-grey" id="R_I_30_40"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
                         <td>Casita OP 40</td>
-                        <td><div class="led led-grey" id="op_40"></div></td>
+                        <td><div class="led led-grey" id="R_I_30_40_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Orden recibida</td>
-                        <td><div class="led led-grey" id="order_received"></div></td>
+                        <td>Pallet casita 1</td>
+                        <td><div class="led led-grey" id="R_I_CAS"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Trabajando</td>
-                        <td><div class="led led-grey" id="working"></div></td>
+                        <td>Pallet casita 2</td>
+                        <td><div class="led led-grey" id="R_I_CAS_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+
+                    <tr> 
+                        <td>Pieza 1</td>
+                        <td><div class="led led-grey" id="R_I_PAL"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Pieza 2</td>
+                        <td><div class="led led-grey" id="R_I_PAL_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Mesa drawer superior</td>
+                        <td><div class="led led-grey" id="R_I_DRW_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Mesa drawer inferior</td>
+                        <td><div class="led led-grey" id="R_I_DRW"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Limite fordward EJE 1</td>
+                        <td><div class="led led-grey" id="R_I_FLS"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Limite reverse EJE 1</td>
+                        <td><div class="led led-grey" id="R_I_RLS"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Home</td>
+                        <td><div class="led led-grey" id="R_I_HF"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
                         <td>Idle</td>
-                        <td><div class="led led-grey" id="idle"></div></td>
+                        <td><div class="led led-grey" id="R_I_ID"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
                         <td>En alarma</td>
-                        <td><div class="led led-grey" id="alarm"></div></td>
+                        <td><div class="led led-grey" id="R_I_AL"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                 </tbody>        
             </table>
-        </div>    
-        <div class="container-fluid col-md-3">
-            <div class="container-fluid card p-1 border shadow rounded mb-3" >
-            <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoresCarga">
+        </div> -->
+
+
+        <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5" style="height: 100%;"">
+            <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoresRobot">
                 <thead>
                     <tr>
-                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salidas de los CNC</th>
+                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Salidas del Robot Rutinas Okuma</th>
                     </tr>
                     <tr>
-                        <th>Sensor</th>
+                        <th>Rutina</th>
                         <th class="text-center">Estado</th>
                         <th class="text-center">N°DI</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
-                        <td>Robot puede entrar</td>
-                        <td><div class="led led-grey" id="robot_enter"></div></td>
+                        <td>Okuma</td>
+                        <td><div class="led led-grey" id="R_I_MA_CH_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Alarma</td>
-                        <td><div class="led led-grey" id="alarm"></div></td>
+                        <th>Número de okuma</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr>
+                        <td>Okuma 1</td>
+                        <td><div class="led led-grey" id="okuma_1"></div></td>
                         <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Okuma 2</td>
+                        <td><div class="led led-grey" id="okuma_2"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Okuma 3</td>
+                        <td><div class="led led-grey" id="okuma_3"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Okuma 4</td>
+                        <td><div class="led led-grey" id="okuma_4"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Interaccion con dispositivo</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
                     </tr>
                     <tr> 
-                        <td>Idle</td>
-                        <td><div class="led led-grey" id="idle"></div></td>
+                        <td>Tomar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Maquina Operando</td>
-                        <td><div class="led led-grey" id="machine_working"></div></td>
+                        <td>Dejar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT_1"></div></td>
                         <td class="text-center">x</td>
                     </tr>
                     <tr>
-                        <td>Puerta Abierta</td>
-                        <td><div class="led led-grey" id="door_open"></div></td>
+                        <th>Posición en casita</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr>
+                        <td>OP 30</td>
+                        <td><div class="led led-grey" id="R_I_30_40"></div></td>
                         <td class="text-center">x</td>
                     </tr>
-                </tbody>
+                    <tr>
+                        <td>OP 40</td>
+                        <td><div class="led led-grey" id="R_I_30_40_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Pallet seleccionado</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr>
+                        <td>Pallet casita 1</td>
+                        <td><div class="led led-grey" id="R_I_CAS"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Pallet casita 2</td>
+                        <td><div class="led led-grey" id="R_I_CAS_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                </tbody>        
             </table>
         </div>
-        <div class="container-fluid card p-1 border shadow rounded mb-3">
-                <table class="table table-sm table-striped table-borderless" style="color: black" id="tablaSensoresMotoresDrive">
+
+
+
+        <div class="container-fluid col-md-3 card p-1 border shadow rounded mb-5" style="height: 90%;">
+            <table class="table table-sm table-striped table-borderless" style="color: black;" id="tablaSensoresRobot">
+                <thead>
+                    <tr>
+                        <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Salidas del Robot Rutinas Mesa</th>
+                    </tr>
+                    <tr>
+                        <th>Rutina</th>
+                        <th class="text-center">Estado</th>
+                        <th class="text-center">N°DI</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr> 
+                        <td>Mesa</td>
+                        <td><div class="led led-grey" id="R_I_MA_CH"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Número de mesa</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr> 
+                        <td>Mesa 1</td>
+                        <td><div class="led led-grey" id="R_I_MA"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Mesa 2</td>
+                        <td><div class="led led-grey" id="R_I_MA_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Interaccion con dispositivo</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr> 
+                        <td>Tomar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT_1_copy"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Dejar dispositivo</td>
+                        <td><div class="led led-grey" id="R_I_GET_PUT_copy"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Posición en la mesa</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr>
+                        <td>Mesa drawer superior</td>
+                        <td><div class="led led-grey" id="R_I_DRW_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Mesa drawer inferior</td>
+                        <td><div class="led led-grey" id="R_I_DRW"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <th>Posición en la mesa</th>
+                        <th class="text-center" ></th>
+                        <th class="text-center" ></th>
+                    </tr>
+                    <tr> 
+                        <td>Pieza 1</td>
+                        <td><div class="led led-grey" id="R_I_PAL"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                    <tr>
+                        <td>Pieza 2</td>
+                        <td><div class="led led-grey" id="R_I_PAL_1"></div></td>
+                        <td class="text-center">x</td>
+                    </tr>
+                </tbody>        
+            </table>
+        </div>
+
+
+
+
+        <div class="container-fluid col-md-3">
+            <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC1">
+                <table class="table table-sm table-striped table-borderless" style="color: black;" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salida del CNC 1</th>
+                        </tr>
+                        <tr>
+                            <th>Sensor</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alarma</td>
+                            <td><div class="led led-grey" id="CH1_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Presion de aire</td>
+                            <td><div class="led led-grey" id="CH1_I_PSA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 1</td>
+                            <td><div class="led led-grey" id="CH1_I_M184"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 2</td>
+                            <td><div class="led led-grey" id="CH1_I_M183"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Adelante</td>
+                            <td><div class="led led-grey" id="CH1_I_NPA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Atras</td>
+                            <td><div class="led led-grey" id="CH1_I_NPR"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+             <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC2">
+                <table class="table table-sm table-striped table-borderless" style="color: black;" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salida del CNC 2</th>
+                        </tr>
+                        <tr>
+                            <th>Sensor</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alarma</td>
+                            <td><div class="led led-grey" id="CH2_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Presion de aire</td>
+                            <td><div class="led led-grey" id="CH2_I_PSA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 1</td>
+                            <td><div class="led led-grey" id="CH2_I_M184"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 2</td>
+                            <td><div class="led led-grey" id="CH2_I_M183"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Adelante</td>
+                            <td><div class="led led-grey" id="CH2_I_NPA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Atras</td>
+                            <td><div class="led led-grey" id="CH2_I_NPR"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC3">
+                <table class="table table-sm table-striped table-borderless" style="color: black;" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salida del CNC 3</th>
+                        </tr>
+                        <tr>
+                            <th>Sensor</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alarma</td>
+                            <td><div class="led led-grey" id="CH3_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Presion de aire</td>
+                            <td><div class="led led-grey" id="CH3_I_PSA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 1</td>
+                            <td><div class="led led-grey" id="CH3_I_M184"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 2</td>
+                            <td><div class="led led-grey" id="CH3_I_M183"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Adelante</td>
+                            <td><div class="led led-grey" id="CH3_I_NPA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Atras</td>
+                            <td><div class="led led-grey" id="CH3_I_NPR"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            <div class="container-fluid card p-1 border shadow rounded mb-3" id="tablaSensoresCNC4">
+                <table class="table table-sm table-striped table-borderless" style="color: black;" >
+                    <thead>
+                        <tr>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Sensores de Salida del CNC 4</th>
+                        </tr>
+                        <tr>
+                            <th>Sensor</th>
+                            <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Alarma</td>
+                            <td><div class="led led-grey" id="CH4_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Presion de aire</td>
+                            <td><div class="led led-grey" id="CH4_I_PSA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 1</td>
+                            <td><div class="led led-grey" id="CH4_I_M184"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Casita pallet 2</td>
+                            <td><div class="led led-grey" id="CH4_I_M183"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Adelante</td>
+                            <td><div class="led led-grey" id="CH4_I_NPA"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Neumatico inflador Atras</td>
+                            <td><div class="led led-grey" id="CH4_I_NPR"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        <!-- <div class="container-fluid card p-1 border shadow rounded mb-3">
+                <table class="table table-sm table-striped table-borderless" style="color: black" id="tablaSensoresZP">
                     <thead>
                         <tr>
                             <th colspan="2" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Accionamiento de los zero point</th>
@@ -323,26 +806,64 @@
                         </tr>
                     </tbody>
                 </table>
-            </div>
+            </div> -->
             <div class="container-fluid card p-1 border shadow rounded mb-3">
-                <table class="table table-sm table-striped table-borderless" style="color: black" id="tablaSensoresMotoresDrive">
+                <table class="table table-sm table-striped table-borderless" style="color: black" id="tablaSensoresGrRobot">
                     <thead>
                         <tr>
-                            <th colspan="2" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Gripper Robot</th>
+                            <th colspan="3" style="text-align: center; background-color: #52D5DA; color:black; border-top-right-radius: 8px; border-top-left-radius: 8px;">Salidas del Robot</th>
                         </tr>
                         <tr>
                             <th>Sensor</th>
                             <th class="text-center">Estado</th>
+                            <th class="text-center">N°DI</th>
                         </tr>
                     </thead>
                     <tbody>
+                        <tr> 
+                            <td>Modo automatico</td>
+                            <td><div class="led led-grey" id="R_I_AUT_SEM"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Modo semiautomatico</td>
+                            <td><div class="led led-grey" id="R_I_AUT_SEM_1"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Home</td>
+                            <td><div class="led led-grey" id="R_I_HF"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Idle</td>
+                            <td><div class="led led-grey" id="R_I_ID"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>En alarma</td>
+                            <td><div class="led led-grey" id="R_I_AL"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
                         <tr>
                             <td>Dispositivo Presente gripper 1</td>
-                            <td><div class="led led-grey" id="dispositive_present_1"></div></td>
+                            <td><div class="led led-grey" id="R_I_G1_PS"></div></td>
+                            <td class="text-center">x</td>
                         </tr>
                         <tr>
                             <td>Dispositivo Presente gripper 2</td>
-                            <td><div class="led led-grey" id="dispositive_present_2"></div></td>
+                            <td><div class="led led-grey" id="R_I_G2_PS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Limite fordward EJE 1</td>
+                            <td><div class="led led-grey" id="R_I_FLS"></div></td>
+                            <td class="text-center">x</td>
+                        </tr>
+                        <tr>
+                            <td>Limite reverse EJE 1</td>
+                            <td><div class="led led-grey" id="R_I_RLS"></div></td>
+                            <td class="text-center">x</td>
                         </tr>
                     </tbody>
                 </table>

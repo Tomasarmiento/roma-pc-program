@@ -1,7 +1,11 @@
 #!/usr/bin/env python
 """Django's command-line utility for administrative tasks."""
 import os
-import sys
+import sys, signal
+from apps.ws.utils import variables as ws_vars
+from opcua import Client, ua
+from apps.ws.utils.variables import OPC_variables
+
 
 
 def main():
@@ -16,7 +20,17 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
     execute_from_command_line(sys.argv)
+    
 
 
 if __name__ == '__main__':
+    def signal_handler(signal, frame):
+        ws_vars.WEBSOCKET = False
+        OPC_variables.CLIENT.disconnect()
+        print("\nprogram exiting gracefully")
+        sys.exit(0)
+        
+        
+    
+    signal.signal(signal.SIGINT, signal_handler)
     main()

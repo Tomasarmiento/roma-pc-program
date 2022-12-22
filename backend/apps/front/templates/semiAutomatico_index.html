@@ -5,40 +5,56 @@
     <script src="{% static 'js/disabled_text_function.js' %}"></script>
 
 </head>
+<div>
 <form class="mx-auto py-3">
-    Seleccionar okuma o mesa de armado:
-    <select class="form-select" id="modelSelect">
-      <option disabled selected>Mesas de armado</option>  // Pre-selected
-      <option id="mesa1" model_machine={{ mesa1 }}>Mesa_1</option>
-      <option id="mesa2" model_machine={{ mesa2 }}>Mesa_2</option>
+  Seleccionar okuma o mesa de armado:
+  <select class="form-select" id="modelSelect" menu="semi">
+      <option disabled selected>**************</option>  // Pre-selected
+      <option disabled >Mesas de armado</option>  // Pre-selected
+      <option id="mesa1" name_bit="mesa1">Mesa_1</option>
+      <option id="mesa2" name_bit="mesa2">Mesa_2</option>
       <option disabled >Okumas</option>
-      <option id="okuma1" model_machine={{ okuma1 }}>Okuma_1</option>
-      <option id="okuma2" model_machine={{ okuma2 }}>Okuma_2</option>
-      <option id="okuma3" model_machine={{ okuma3 }}>Okuma_3</option>
-      <option id="okuma4" model_machine={{ okuma4 }}>Okuma_4</option>
+      <option id="okuma1" name_bit="okuma1">Okuma_1</option>
+      <option id="okuma2" name_bit="okuma2">Okuma_2</option>
+      <option id="okuma3" name_bit="okuma3">Okuma_3</option>
+      <option id="okuma4" name_bit="okuma4">Okuma_4</option>
     </select>
-    <select class="form-select" id="gripperSelect">
+    <!-- <select class="form-select" id="gripperSelect">
       <option disabled selected>Gripper</option>   // Pre-selected
-      <option id="gripper1" model_machine={{ gripper1 }}>Gripper_1</option>
-      <option id="gripper2" model_machine={{ gripper2 }}>Gripper_2</option>
-    </select>
-    <select class="form-select" id="posSelect">
-      <option disabled selected>Posición</option>   // Pre-selected
-      <option id="pos1" model_machine={{ pos1 }}>1</option>
-      <option id="pos2" model_machine={{ pos2 }}>2</option>
-      <option id="pos3" model_machine={{ pos3 }}>3</option>
-      <option id="pos4" model_machine={{ pos4 }}>4</option>
-    </select>
-    <select class="form-select" id="take_putSelect">
+      <option id="gripper1" name_bit=" gripper1 ">Gripper_1</option>
+      <option id="gripper2" name_bit=" gripper2 ">Gripper_2</option>
+    </select> -->
+    <select class="form-select" id="take_putSelect" menu="semi">
       <option disabled selected>Tomar/Dejar</option>   // Pre-selected
-      <option id="tomar" model_machine={{ tomar }}>Tomar</option>
-      <option id="dejar" model_machine={{ dejar }}>Dejar</option>
+      <option id="tomar" name_bit="tomar">Tomar</option>
+      <option id="dejar" name_bit="dejar">Dejar</option>
     </select>
-    <select class="form-select" id="pos_casitaSelect">
+    <select class="form-select" id="pos_UpDownSelect" menu="semi">
+      <option disabled selected>Posición</option>   // Pre-selected
+      <option id="pos1" name_bit="arriba">Arriba</option>
+      <option id="pos2" name_bit="abajo">Abajo</option>
+    </select>
+    <select class="form-select" id="pos_Select" menu="semi">
+      <option disabled selected>Posición</option>   // Pre-selected
+      <option id="pos1" name_bit="pos1">Posición 1</option>
+      <option id="pos2" name_bit="pos2">Posición 2</option>
+    </select>
+    <select class="form-select" id="pos_casitaSelect" menu="semi">
       <option disabled selected>Posición Casita</option>   // Pre-selected
-      <option id="op30" model_machine={{ op30 }}>OP 30</option>
-      <option id="op40" model_machine={{ op40 }}>OP 40</option>
+      <option id="op30" name_bit="op30">OP 30</option>
+      <option id="op40" name_bit="op40">OP 40</option>
     </select>
+    <!-- <select class="form-select" id="pos_palletSelect" menu="semi">
+      <option disabled selected>Pallet</option>   // Pre-selected
+      <option id="pal1" name_bit="casita1">Pallet 1</option>
+      <option id="pal2" name_bit="casita2">Pallet 2</option>
+    </select> -->
 </form>
+</div>
+
+
+
+
+
 
 {% endblock %}

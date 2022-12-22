@@ -1,12 +1,12 @@
 {% load static %}
 {% block content %}
-{% include 'neumatic_index.html'%}
+<div style="text-align: center;font-size: 20px;">{% include 'neumatic_index.html'%}</div>
 <head>
     <script src="{% static 'js/mesa_1_neumatic.js' %}"></script>
 </head>
 
 <div class="row m-auto d-flex justify-content-around mx-auto py-3 mx-5 px-0" id="mesa1_container">
-    <div id="contenedorNeumaticaMesaUno" class="col-md-3 col-12 mb-5 card rounded p-2 mx-auto shadow-sm text-black letras-neumatica " >
+    <div id="contenedorNeumaticaMesaUno" class="col-md-4 col-12 mb-5 card rounded p-2 mx-auto shadow-sm text-black letras-neumatica " >
         <div class="contanier-fluid ">
             <div class="card-header text-center">
                 <div class="col-12" style="color: black;">
@@ -21,8 +21,8 @@
                     <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="persianaXOff" menu="mesa1" cmd= {{ rem_do_set }}> Abajo </button>
                 </div>
                 <div class="col text-center" >
-                    <article class="led led-grey" style="margin-top: 6px;" id="persianaArribaOk"></article>
-                    <article class="led led-grey" style="margin-top: 24px;" id="persianaAbajoOk"></article>
+                    <article class="led led-grey" style="margin-top: 6px;" id="MA1_I_GS_UP_copy"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="MA1_I_GS_DN_copy"></article>
                 </div>
                 <!-- <div class="col text-center di-position" >
                     <label class="di-position-top-btn"><FONT SIZE=4>4 on-3 off</FONT></label>
@@ -32,33 +32,51 @@
             <hr size="100px" style="width: 100%;" color="grey">
             <div class="row mt-3">
                 <div class="col-md-4 text-center inblock-center">
-                    <p style="display: inline;margin-top: 15px;">Neumático mueve drawer</p>
+                    <p style="display: inline;margin-top: 15px;">Neumático mueve drawer de arriba</p>
                 </div>
-                <div class="col text-center di-position-left-btn" >
-                    <button class="btn btn-primary buton-width" id="drawerXOn" menu="mesa1" cmd= {{ rem_do_set }}> Adelante </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="drawerXOff" menu="mesa1" cmd= {{ rem_do_set }}> Atras </button>
+                <div class="col text-center di-position-left-btn">
+                    <button class="btn btn-primary buton-width" id="drawerUXOn" menu="mesa1" cmd= {{ rem_do_set }}> Adelante </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="drawerUXOff" menu="mesa1" cmd= {{ rem_do_set }}> Atras </button>
                 </div>
                 <div class="col text-center" >
-                    <article class="led led-grey" style="margin-top: 6px;" id="drawerOnOk"></article>
-                    <article class="led led-grey" style="margin-top: 24px;" id="drawerOffOk"></article>
+                    <article class="led led-grey" style="margin-top: 6px;" id="MA1_I_DR_U_ES_1_copy"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="MA1_I_DR_U_NS_copy"></article>
                 </div>
                 <!-- <div class="col text-center di-position" >
                     <label class="di-position-top-btn"><FONT SIZE=4>15 on</FONT></label>
                     <label class="di-position-bot-btn"><FONT SIZE=4>15 off</FONT></label>
                 </div> -->
-            </div>  
+            </div>
             <hr size="100px" style="width: 100%;" color="grey">
             <div class="row mt-3">
                 <div class="col-md-4 text-center inblock-center">
-                    <p style="display: inline">Neumático bloqueo pallet 1</p>
+                    <p style="display: inline;margin-top: 15px;">Neumático mueve drawer de abajo</p>
                 </div>
                 <div class="col text-center di-position-left-btn" >
-                    <button class="btn btn-primary buton-width" id="pallet1XOn" menu="mesa1" cmd= {{ rem_do_set }}> On </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="pallet1XOff" menu="mesa1" cmd= {{ rem_do_set }}> Off </button>
+                    <button class="btn btn-primary buton-width" id="drawerDXOn" menu="mesa1" cmd= {{ rem_do_set }}> Adelante </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="drawerDXOff" menu="mesa1" cmd= {{ rem_do_set }}> Atras </button>
                 </div>
                 <div class="col text-center" >
-                    <article class="led led-grey" style="margin-top: 6px;" id="pallet1OnOk"></article>
-                    <article class="led led-grey" style="margin-top: 24px;" id="palletOffOk"></article>
+                    <article class="led led-grey" style="margin-top: 6px;" id="MA1_I_DR_D_ES_1_copy"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="MA1_I_DR_D_NS_copy"></article>
+                </div>
+                <!-- <div class="col text-center di-position" >
+                    <label class="di-position-top-btn"><FONT SIZE=4>15 on</FONT></label>
+                    <label class="di-position-bot-btn"><FONT SIZE=4>15 off</FONT></label>
+                </div> -->
+            </div>
+            <hr size="100px" style="width: 100%;" color="grey">
+            <div class="row mt-3">
+                <div class="col-md-4 text-center inblock-center">
+                    <p style="display: inline">Neumático drawer up 1</p>
+                </div>
+                <div class="col text-center di-position-left-btn" >
+                    <button class="btn btn-primary buton-width" id="clampeo1UXOn" menu="mesa1" cmd= {{ rem_do_set }}> Libera </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="clampeo1UXOff" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
+                </div>
+                <div class="col text-center" >
+                    <article class="led led-grey" style="margin-top: 6px;" id="MA1_I_DR_U_BP_1_SR_copy"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="MA1_I_DR_U_BP_1_SA_copy"></article>
                 </div>
                 <!-- <div class="col text-center di-position" >
                     <label class="di-position-top-btn"><FONT SIZE=4>13 on</FONT></label>
@@ -68,15 +86,15 @@
             <hr size="100px" style="width: 98%;" color="grey">
             <div class="row mt-3">
                 <div class="col-md-4 text-center inblock-center">
-                    <p style="display: inline;">Neumático bloqueo pallet 2</p>
+                    <p style="display: inline;">Neumático drawer up 2</p>
                 </div>
-                <div class="col text-center di-position-left-btn"  >
-                    <button class="btn btn-primary buton-width" id="pallet2XOn" menu="mesa1" cmd= {{ rem_do_set }}> On </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="pallet2XOff" menu="mesa1" cmd= {{ rem_do_set }}> Off </button>
+                <div class="col text-center di-position-left-btn">
+                    <button class="btn btn-primary buton-width" id="clampeo2UXOn" menu="mesa1" cmd= {{ rem_do_set }}> Libera </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="clampeo2UXOff" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
                 </div>
                 <div class="col text-center" >
-                    <article class="led led-grey" style="margin-top: 6px;" id="pallet2OnOk"></article>
-                    <article class="led led-grey" style="margin-top: 24px;" id="pallet2OffOk"></article>
+                    <article class="led led-grey" style="margin-top: 6px;" id="MA1_I_DR_U_BP_2_SR_copy"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="MA1_I_DR_U_BP_2_SA_copy"></article>
                 </div>
                 <!-- <div class="col text-center di-position" >
                     <label class="di-position-top-btn"><FONT SIZE=4>6 off-5 on</FONT></label>
@@ -86,15 +104,15 @@
             <hr size="100px" style="width: 98%;" color="grey">
             <div class="row mt-3">
                 <div class="col-md-4 text-center inblock-center">
-                    <p style="display: inline;">Neumático bloqueo pallet 3</p>
+                    <p style="display: inline;">Neumático drawer down 1</p>
                 </div>
                 <div class="col text-center di-position-left-btn"  >
-                    <button class="btn btn-primary buton-width" id="pallet3XOn" menu="mesa1" cmd= {{ rem_do_set }}> On </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="pallet3XOff" menu="mesa1" cmd= {{ rem_do_set }}> Off </button>
+                    <button class="btn btn-primary buton-width" id="clampeo1DXOn" menu="mesa1" cmd= {{ rem_do_set }}> Libera </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="clampeo1DXOff" menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
                 </div>
                 <div class="col text-center" >
-                    <article class="led led-grey" style="margin-top: 6px;" id="pallet3OnOk"></article>
-                    <article class="led led-grey" style="margin-top: 24px;" id="pallet3OffOk"></article>
+                    <article class="led led-grey" style="margin-top: 6px;" id="MA1_I_DR_D_BP_1_SR_copy"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="MA1_I_DR_D_BP_1_SA_copy"></article>
                 </div>
                 <!-- <div class="col text-center di-position" >
                     <label class="di-position-top-btn"><FONT SIZE=4>6 off-5 on</FONT></label>
@@ -104,15 +122,33 @@
             <hr size="100px" style="width: 98%;" color="grey">
             <div class="row mt-3">
                 <div class="col-md-4 text-center inblock-center">
-                    <p style="display: inline;">Neumático bloqueo pallet 4</p>
+                    <p style="display: inline;">Neumático drawer down 2</p>
                 </div>
-                <div class="col text-center di-position-left-btn"  >
-                    <button class="btn btn-primary buton-width" id="pallet4XOn" menu="mesa1" cmd= {{ rem_do_set }}> On </button>
-                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="pallet4XOff" menu="mesa1" cmd= {{ rem_do_set }}> Off </button>
+                <div class="col text-center di-position-left-btn">
+                    <button class="btn btn-primary buton-width"  id="clampeo2DXOn" menu="mesa1" cmd= {{ rem_do_set }}> Libera </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="clampeo2DXOff"  menu="mesa1" cmd= {{ rem_do_set }}> Bloqueo </button>
                 </div>
                 <div class="col text-center" >
-                    <article class="led led-grey" style="margin-top: 6px;" id="pallet4OnOk"></article>
-                    <article class="led led-grey" style="margin-top: 24px;" id="pallet4OffOk"></article>
+                    <article class="led led-grey" style="margin-top: 6px;" id="MA1_I_DR_D_BP_2_SR_copy"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="MA1_I_DR_D_BP_2_SA_copy"></article>
+                </div>
+                <!-- <div class="col text-center di-position" >
+                    <label class="di-position-top-btn"><FONT SIZE=4>6 off-5 on</FONT></label>
+                    <label class="di-position-bot-btn"><FONT SIZE=4>6 on-5 off</FONT></label>
+                </div> -->
+            </div>
+            <hr size="100px" style="width: 98%;" color="grey">
+            <div class="row mt-3">
+                <div class="col-md-4 text-center inblock-center">
+                    <p style="display: inline;">Boquillas Venturi</p>
+                </div>
+                <div class="col text-center di-position-left-btn">
+                    <button class="btn btn-primary buton-width"  id="venturiXOn" menu="mesa1" cmd= {{ rem_do_set }}> ON </button>
+                    <button class="btn btn-primary buton-width" style="margin-top: 10px;" id="venturiXOff"  menu="mesa1" cmd= {{ rem_do_set }}> OFF </button>
+                </div>
+                <div class="col text-center" >
+                    <!-- <article class="led led-grey" style="margin-top: 6px;" id="MA1_I_DR_D_BP_2_SR_copy"></article>
+                    <article class="led led-grey" style="margin-top: 24px;" id="MA1_I_DR_D_BP_2_SA_copy"></article> -->
                 </div>
                 <!-- <div class="col text-center di-position" >
                     <label class="di-position-top-btn"><FONT SIZE=4>6 off-5 on</FONT></label>
@@ -122,7 +158,8 @@
         </div>     
     </div>
 
-    <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-interval="false"  style="width: 60%;height: 60%;">
+
+    <!-- <div id="carouselExampleIndicators" class="carousel slide mx-auto" data-interval="false"  style="width: 60%;height: 60%;">
         <ol class="carousel-indicators">
             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
             <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
@@ -147,7 +184,10 @@
             <span class="carousel-control-next-icon" aria-hidden="true"></span>
             <span class="sr-only">Next</span>
         </a>
-    </div>
+    </div> -->
+
+
+    
 </div>
 <section class="second_section">
     {% include 'sensores_index_template.html'%}
