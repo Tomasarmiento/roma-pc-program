@@ -4,6 +4,7 @@ import time
 from apps.ws.utils.variables import OPC_variables
 from apps.control.utils import variables as control_vars
 
+#clase que maneja el protocolo tanto para leer como para escribir
 class OPCProtocol():
 
     def __init__(self):

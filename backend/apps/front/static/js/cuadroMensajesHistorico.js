@@ -24,23 +24,6 @@ function InsertarTextoHistorico(datosWs) {
       ul.removeChild(ul.firstChild)
 
     }
-
-    // document.getElementById("cuadroMensajesHistorico").remove()
-    // g = document.createElement("ul")
-    // g.setAttribute("id","cuadroMensajesHistorico" )
-
-    // cuadroDeTextoIndex = document.querySelector("#terminalDeTexto");
-    // if (sessionStorage.getItem("mensajesHistorico") && cuadroDeTextoIndex) {
-    //     let ul = document.getElementById("cuadroMensajesHistorico");
-    //     const listaMensajes = sessionStorage.getItem("mensajesHistorico").split(",").reverse();
-    //     for (let i = 0; i < listaMensajes.length; i++) {
-    //         const li = document.createElement("li");
-    //         li.setAttribute("style", "list-style: none;");
-    //         li.innerHTML = listaMensajes[i];
-    //         ul.appendChild(li);
-    //     }
-    // }
-
   }
     var ul = document.getElementById("cuadroMensajesHistorico");
     if (ul){

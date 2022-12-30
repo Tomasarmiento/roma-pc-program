@@ -27,12 +27,11 @@ from apps.service.api.protocols import OPCProtocol
 from apps.parameters.utils.functions import toggle_disable_machine
 from apps.parameters.models import Parameter
 
-from apps.control.utils.variables import OKUMA,MESA,PLC_TOKEN,M_PROGS_SEMIAUTO,PLC_DEFAULT_VARIABLES
-from apps.control.utils.functions import derived_sensores_states,obtain_token_plc,send_message_semi,send_message_auto,FrontWs,sensores_states_plc
+from apps.control.utils.variables import OKUMA,MESA,PLC_TOKEN,PLC_DEFAULT_VARIABLES
+from apps.control.utils.functions import derived_sensores_states,obtain_token_plc
 
 
-
-
+#FUNCION PARA CAMBIAR DE DRAWER
 @csrf_exempt
 def msge_test(request):
     OPCProtocol().write_value_bool('ns=3;s="tags"."Man_MA1_CG"',False)
@@ -57,45 +56,12 @@ def msge_test(request):
     return JsonResponse({})
 
 
-# @csrf_exempt
-# def msge_test(request):
-#     print("acaaa2")
-#     inicio = time.time()
-#     import http.client
-#     import ssl
-
-#     # c = urllib3.HTTPSConnectionPool('192.168.3.150', port=8000, cert_reqs='CERT_NONE',assert_hostname=False)
-#     # c.request('POST', '/api/jsonrpc',body=payload,headers=header)
-
-
-#     header = {
-#         'X-Auth-Token': PLC_TOKEN['token'],
-#         'Content-Type': 'application/json',
-#     }
-
-#     payload = json.dumps([{"jsonrpc":"2.0","id":"1","method":"PlcProgram.Read","params":{"var":"\"CH1_I_M181\""}},])
-
-#     http = urllib3.PoolManager()
-
-#     # response = http.request('POST', "https://192.168.3.150/api/jsonrpc",body=payload,headers=header)
-
-#     c = urllib3.HTTPSConnectionPool('192.168.3.150', cert_reqs='CERT_NONE',assert_hostname=False)
-#     c.request('POST', '/api/jsonrpc',body=payload,headers=header)
-#     # c.status # ensure this equals 200, or otherwise handle it
-#     # c.data # the response text as bytes
-
-#     delta = time.time() - inicio
-#     print("tiempo",delta)
-#     return JsonResponse({})
-
-
 
 @csrf_exempt
 def token_register(request):
     msg = 'hello world'
     frontState.log_messages.append(msg)
     print()
-
 
 
 @csrf_exempt
@@ -109,8 +75,35 @@ def disable_okuma(request):
     return JsonResponse({})
 
 
+#identificador de okuma seleccionado(no se usa)
+@csrf_exempt
+def sensores_okuma_identify(request):
+    post_req = request.POST
+    if post_req['model_machine']:
+        okuma_model = str(post_req['model_machine'])
+        okuma_especific_model = okuma_model[6]
+        OKUMA['okuma_current_selected'] = int(okuma_especific_model)
+        # if OKUMA['okuma_current_selected'] == 1:
+        #     return HttpResponseRedirect(reverse('okuma_1_neumatic'))
+        print(OKUMA['okuma_current_selected'])
+        return JsonResponse({})
 
-#funcion para pedir de a un solo dato en hash1
+#identificador de mesa seleccionado(no se usa)
+@csrf_exempt
+def sensores_mesa_identify(request):
+    post_req = request.POST
+    print(post_req)
+    if post_req['model_table']:
+        mesa_model = str(post_req['model_table'])
+        mesa_especific_model = mesa_model[5]
+        MESA['mesa_current_selected'] = int(mesa_especific_model)
+        # if OKUMA['okuma_current_selected'] == 1:
+        #     return HttpResponseRedirect(reverse('okuma_1_neumatic'))
+        print(MESA['mesa_current_selected'])
+        return JsonResponse({})
+
+
+#funcion para pedir datos en hash1
 @csrf_exempt
 def switch_led_state_off(request):
     print("click")
@@ -314,38 +307,12 @@ def switch_led_state_off(request):
 
     return JsonResponse({})
 
+#funcion para pedir el token en hash1
 @csrf_exempt
 def switch_led_state_on(request):
     obtain_token_plc()
 
     return JsonResponse({})
-
-@csrf_exempt
-def sensores_okuma_identify(request):
-    post_req = request.POST
-    if post_req['model_machine']:
-        okuma_model = str(post_req['model_machine'])
-        okuma_especific_model = okuma_model[6]
-        OKUMA['okuma_current_selected'] = int(okuma_especific_model)
-        # if OKUMA['okuma_current_selected'] == 1:
-        #     return HttpResponseRedirect(reverse('okuma_1_neumatic'))
-        print(OKUMA['okuma_current_selected'])
-        return JsonResponse({})
-
-
-@csrf_exempt
-def sensores_mesa_identify(request):
-    post_req = request.POST
-    print(post_req)
-    if post_req['model_table']:
-        mesa_model = str(post_req['model_table'])
-        mesa_especific_model = mesa_model[5]
-        MESA['mesa_current_selected'] = int(mesa_especific_model)
-        # if OKUMA['okuma_current_selected'] == 1:
-        #     return HttpResponseRedirect(reverse('okuma_1_neumatic'))
-        print(MESA['mesa_current_selected'])
-        return JsonResponse({})
-
 
 #ARMA MENSAJE PARA MANDAR COMANDOS DE NEUMATICA
 @method_decorator(csrf_exempt, name='dispatch')
@@ -357,7 +324,6 @@ class ManualPneumatic(View):
         ws_vars.WEBSOCKET = False
         print("post manual neumatic")
         post_req = request.POST
-        # print("entro al post")
         
         req_data = []
         
@@ -382,7 +348,6 @@ class ManualPneumatic(View):
                 else:
                     bool_value_1  = False
                 
-                # self.send_message(name_routine,bool_value_1,False)
                 OPCProtocol().write_value_bool(f'ns=3;s="tags"."{name_routine[0]}"',bool_value_1)
 
             if name == 'drawerU':
@@ -394,7 +359,6 @@ class ManualPneumatic(View):
                     bool_value_1  = False
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="tags"."{name_routine[0]}"',bool_value_1)
-                # self.send_message(name_routine,bool_value_1,True)
 
             elif name == 'drawerD':
                 name_routine = ['Man_MA1_DRD_FD']
@@ -405,9 +369,7 @@ class ManualPneumatic(View):
                     bool_value_1  = False
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="tags"."{name_routine[0]}"',bool_value_1)
-                # self.send_message(name_routine,bool_value_1,True)
                 
-                # sensores_states_plc()
 
             elif name == 'clampeo1U':
                 name_routine = ['Man_MA1_OP_U1']
@@ -418,7 +380,6 @@ class ManualPneumatic(View):
                     bool_value_1  = False
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
-                # self.send_message(name_routine,bool_value_1,False)
 
             elif name == 'clampeo2U':
                 name_routine = ['Man_MA1_OP_U2']
@@ -429,7 +390,6 @@ class ManualPneumatic(View):
                     bool_value_1  = False
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
-                # self.send_message(name_routine,bool_value_1,False)
 
             elif name == 'clampeo1D':
                 name_routine = ['Man_MA1_OP_D1']
@@ -440,7 +400,6 @@ class ManualPneumatic(View):
                     bool_value_1  = False
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
-                # self.send_message(name_routine,bool_value_1,False)
 
             elif name == 'clampeo2D':
                 name_routine = ['Man_MA1_OP_D2']
@@ -451,7 +410,6 @@ class ManualPneumatic(View):
                     bool_value_1  = False
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
-                # self.send_message(name_routine,bool_value_1,False)
             
             elif name == 'venturi':
                 name_routine = ['Man_MA1_OP_BLW']
@@ -462,9 +420,7 @@ class ManualPneumatic(View):
                     bool_value_1  = False
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
-                # self.send_message(name_routine,bool_value_1,False)
             
-
         if menu == 'okuma1':
 
             if name == 'inflador':
@@ -480,7 +436,6 @@ class ManualPneumatic(View):
                 for n in range(0,len(name_routine)):
                     OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[n]}"',locals()[f"bool_value_{n+1}"])
                     
-                # self.send_message(name_routine[0], bool_value_1, False, name_routine[1], bool_value_2)
 
             elif name == 'garra':
                 name_routine = ['Man_CH1_NC']
@@ -495,7 +450,6 @@ class ManualPneumatic(View):
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
                 delta = time.time() - inicio
                 print(delta)
-                # self.send_message(name_routine[0], bool_value_1, False)
 
             elif name == 'booster':
                 name_routine = ['Man_CH1_BOO']
@@ -505,7 +459,6 @@ class ManualPneumatic(View):
                 else:
                     bool_value_1  = False
                 
-                # self.send_message(name_routine,bool_value_1,False)
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
             
             elif name == 'venturi_up':
@@ -516,7 +469,6 @@ class ManualPneumatic(View):
                 else:
                     bool_value_1  = False
                 
-                # self.send_message(name_routine,bool_value_1,False)
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
 
             elif name == 'venturi_down':
@@ -527,7 +479,6 @@ class ManualPneumatic(View):
                 else:
                     bool_value_1  = False
                 
-                # self.send_message(name_routine,bool_value_1,False)
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
 
             elif name == 'soplador':
@@ -538,7 +489,6 @@ class ManualPneumatic(View):
                 else:
                     bool_value_1  = False
                 
-                # self.send_message(name_routine,bool_value_1,False)
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
             
             elif name == 'desclampeo30':
@@ -549,7 +499,6 @@ class ManualPneumatic(View):
                 else:
                     bool_value_1  = False
                 
-                # self.send_message(name_routine,bool_value_1,False)
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
 
             elif name == 'desclampeo40':
@@ -560,76 +509,12 @@ class ManualPneumatic(View):
                 else:
                     bool_value_1  = False
                 
-                # self.send_message(name_routine,bool_value_1,False)
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
         
         ws_vars.WEBSOCKET = True
-        # # time.sleep(5)
-        # FrontWs().start()
+
         
         return JsonResponse({})
-
-            
-
-    def send_message(self,name_routine, bool_value, data_base_plc_direction, second_name_routine=None, second_bool_value=None):
-        # print('send mesage')
-        inicio = time.time()
-        import ssl
-        ssl._create_default_https_context = ssl._create_unverified_context
-        # vars para armar mensaje
-        msg_data_directions_container = []
-        if data_base_plc_direction == True:
-            first = '\"tags\"'
-            last = ""
-        else:
-            first = '\"'
-            last = '\"'
-
-        try:
-            conn = http.client.HTTPSConnection("192.168.3.150")
-        except:
-            print("Conexion con plc no establecida")    
-        
-        #arma el mensaje
-        if second_name_routine:
-            # print("2 valores")
-            payload = json.dumps([{"jsonrpc":"2.0","id":"1","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}},
-            {"jsonrpc":"2.0","id":"2","method":"PlcProgram.Write","params":{"var":(first+second_name_routine+last),"value":second_bool_value}}])
-        else:
-            payload = json.dumps([{"jsonrpc":"2.0","id":"1","method":"PlcProgram.Write","params":{"var":(first+name_routine+last),"value":bool_value}},
-            ])
-            # msg_data_directions_container.append(msg_data_directions)
-
-        #mensaje armado
-        # payload = json.dumps(msg_data_directions_container)
-
-        headers = {
-            'X-Auth-Token': PLC_TOKEN['token'],
-            'Content-Type': 'application/json',
-        }
-
-        #se manda el mensaje
-        conn.request("POST", "/api/jsonrpc", payload, headers)
-
-
-        res = conn.getresponse()
-        data = res.read()
-        data_json = data.decode("utf-8")
-        data_parsed = json.loads(data_json)
-        # sensor_value = data_parsed["result"]
-        # print(f"El valor que trae del plc es {sensor_value}")
-        delta = time.time() - inicio
-        print("tiempo",delta)
-        print("la data:", data_parsed)
-
-
-        #respuesata mensaje
-        # res = conn.getresponse()
-        # data = res.read()
-        # data_json = data.decode("utf-8")
-        # data_parsed = json.loads(data_json)
-        # bool_state_sensor = data_parsed["result"]
-        # print(f"el valor cambio a{bool_state_sensor}")
 
 
 #ARMA MENSAJE PARA MANDAR COMANDOS DE SEMIAUTOMATICO
@@ -652,7 +537,6 @@ def send_command_bit(request):
     menu = req_data[0][1]
     name = req_data[1][1]
     print(menu,name)
-    # print("el m prog es",M_PROGS_SEMIAUTO['M_PRG_30_40'])
 
     #CAMBIADOR DE BITS DE RUTINAS DEL ROBOT
     if name == "mesa1":
@@ -796,6 +680,8 @@ def send_command_bit(request):
     ws_vars.WEBSOCKET = True
     return JsonResponse({})
 
+
+#MANDA MENSAJES BOTONES AUTOMATICO
 @csrf_exempt
 def cmd_automatic_routines(request):
     print("entro a cmd command")
@@ -858,6 +744,8 @@ def cmd_automatic_routines(request):
     ws_vars.WEBSOCKET = True
     return JsonResponse({})
 
+
+#MANDA MENSAJE PARA DESABILITAR OKUMA O MESA
 @csrf_exempt
 def cmd_disable_okuma(request):
 
@@ -941,6 +829,7 @@ def cmd_disable_okuma(request):
     return JsonResponse({})
     
 
+#MANDA MENSAJE AL CAMBIAR DE MODO DE OPERACION AL CAMBIAR EN EL INDEX
 @csrf_exempt
 def index_change(request):
 

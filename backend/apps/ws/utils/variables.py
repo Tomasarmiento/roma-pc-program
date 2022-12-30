@@ -11,7 +11,7 @@ class OPC_variables:
     HOST = '192.168.3.150:'
     PORT = '4840'
     URI = "opc.tcp://"
-    REFRESH_TIME = 0.02 # Time to refresh states on frontend in seconds
+    REFRESH_TIME = 0.2 # Time to refresh states on frontend in seconds
     CLIENT = Client(URI+HOST+PORT)
     
     

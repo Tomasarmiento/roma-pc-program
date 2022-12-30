@@ -13,6 +13,10 @@ PLC_DEFAULT_VARIABLES_INT ={
 }
 
 
+# -------------------------------------------------------------------------------------------- #
+# --------------------------- LOCAL VARIABLES SESOR VALUES ----------------------------------- #
+# -------------------------------------------------------------------------------------------- #
+
 
 PLC_DEFAULT_VARIABLES = {
     # //Okuma 1
@@ -189,179 +193,6 @@ PLC_DEFAULT_VARIABLES = {
 }
 
 
-PLC_DEFAULT_VARIABLES = {
-    # //Okuma 1
-    'CH1_I_M181':False,
-    'CH1_I_M182':False,
-    'CH1_I_M183':False,
-    'CH1_I_M184':False,
-    'CH1_I_AL':False,
-    'CH1_I_PSA':False,
-    'CH1_I_NPA':False,
-    'CH1_I_NPR':False,
-    'CH1_I_NCR':False,
-# //Okuma 2
-    'CH2_I_M181':False,
-    'CH2_I_M182':False,
-    'CH2_I_M183':False,
-    'CH2_I_M184':False,
-    'CH2_I_AL':False,
-    'CH2_I_PSA':False,
-    'CH2_I_NPA':False,
-    'CH2_I_NPR':False,
-    'CH2_I_NCR':False,
-# //Okuma 3
-    'CH3_I_M181':False,
-    'CH3_I_M182':False,
-    'CH3_I_M183':False,
-    'CH3_I_M184':False,
-    'CH3_I_AL':False,
-    'CH3_I_PSA':False,
-    'CH3_I_NPA':False,
-    'CH3_I_NPR':False,
-    'CH3_I_NCR':False,
-# //Okuma 4
-    'CH4_I_M181':False,
-    'CH4_I_M182':False,
-    'CH4_I_M183':False,
-    'CH4_I_M184':False,
-    'CH4_I_AL':False,
-    'CH4_I_PSA':False,
-    'CH4_I_NPA':False,
-    'CH4_I_NPR':False,
-    'CH4_I_NCR':False,
-# //Robot
-    'R_I_AL':False,
-    'R_I_HF':False,
-    'R_I_ID':False,
-    'R_I_AUT_SEM':False,
-    'R_O_AUT_SEM':False,
-    'R_I_30_40':False,
-    'R_I_CAS':False,
-    'R_I_BIT0_CH':False,
-    'R_I_BIT1_CH':False,
-    'R_I_PAL':False,
-    'R_I_DRW':False,
-    'R_I_MA':False,
-    'R_I_GET_PUT':False,
-    'R_I_MA_CH':False,
-    'R_I_G1_PS':False,
-    'R_I_G2_PS':False,
-    'R_I_FLS':False,
-    'R_I_RLS':False,
-# //Mesa 1
-    'MA1_I_DR_U_PS_1':False,
-    'MA1_I_DR_U_PS_2':False,
-    'MA1_I_DR_D_PS_1':False,
-    'MA1_I_DR_D_PS_2':False,
-    'MA1_I_GS_UP':False,
-    'MA1_I_GS_DN':False,
-    'MA1_I_DR_U_ES_1':False,
-    'MA1_I_DR_U_ES_2':False,
-    'MA1_I_DR_D_ES_1':False,
-    'MA1_I_DR_D_ES_2':False,
-    'MA1_I_DR_U_NS':False,
-    'MA1_I_DR_D_NS':False,
-    'MA1_I_DR_U_BP_1_SA':False,
-    'MA1_I_DR_U_BP_1_SR':False,
-    'MA1_I_DR_U_BP_2_SA':False,
-    'MA1_I_DR_U_BP_2_SR':False,
-    'MA1_I_DR_D_BP_1_SA':False,
-    'MA1_I_DR_D_BP_1_SR':False,
-    'MA1_I_DR_D_BP_2_SA':False,
-    'MA1_I_DR_D_BP_2_SR':False,
-    'MA1_I_EMS':False,
-    'MA1_I_SE_UP':False,
-    'MA1_I_SE_DN':False,
-# //Mesa 2
-    'MA2_I_DR_U_PS_1':False,
-    'MA2_I_DR_U_PS_2':False,
-    'MA2_I_DR_D_PS_1':False,
-    'MA2_I_DR_D_PS_2':False,
-    'MA2_I_GS_UP':False,
-    'MA2_I_GS_DN':False,
-    'MA2_I_DR_U_ES_1':False,
-    'MA2_I_DR_U_ES_2':False,
-    'MA2_I_DR_D_ES_1':False,
-    'MA2_I_DR_D_ES_2':False,
-    'MA2_I_DR_U_NS':False,
-    'MA2_I_DR_D_NS':False,
-    'MA2_I_DR_U_BP_1_SA':False,
-    'MA2_I_DR_U_BP_1_SR':False,
-    'MA2_I_DR_U_BP_2_SA':False,
-    'MA2_I_DR_U_BP_2_SR':False,
-    'MA2_I_DR_D_BP_1_SA':False,
-    'MA2_I_DR_D_BP_1_SR':False,
-    'MA2_I_DR_D_BP_2_SA':False,
-    'MA2_I_DR_D_BP_2_SR':False,
-    'MA2_I_EMS':False,
-    'MA2_I_SE_UP':False,
-    'MA2_I_SE_DN':False,
-# //Gral
-    'Emergency':False,
-    'Robot_IDLE':False,
-# //Errores
-    '.emergency_active':False,
-    '.ma1_drd_endstops':False,
-    '.ma1_dru_endstops':False,
-    '.ma1_gs_dn':False,
-    '.ma1_gs_up':False,
-    '.ma1_nsense':False,
-    '.ma2_drd_endstops':False,
-    '.ma2_dru_endstops':False,
-    '.ma2_gs_dn':False,
-    '.ma2_gs_up':False,
-    '.ma2_nsense':False,
-    '.r_manualmode':False,
-    '.r_program':False,
-    '.r_gp1_not_free':False,
-    '.r_gp2_not_free':False,
-    '.r_gp1_free':False,
-    '.r_gp2_free':False,
-    '.r_not_idle':False,
-    '.r_not_home':False,
-    '.r_alarm':False,
-    '.r_flimit':False,
-    '.r_rlimit':False,
-    '.ch1_nsense_ret':False,
-    '.ch1_nsense_adv':False,
-    '.ch1_alarm':False,
-    '.ch1_psa':False,
-    '.ch2_nsense_ret':False,
-    '.ch2_nsense_adv':False,
-    '.ch2_alarm':False,
-    '.ch2_psa':False,
-    '.ch3_nsense_ret':False,
-    '.ch3_nsense_adv':False,
-    '.ch3_alarm':False,
-    '.ch3_psa':False,
-    '.ch4_nsense_ret':False,
-    '.ch4_nsense_adv':False,
-    '.ch4_alarm':False,
-    '.ch4_psa':False,
-    '.init_error':False,
-    '.max_unblock_error':False,
-    '.max_block_error':False,
-    '.max_pallet_present':False,
-    '.max_dr_position':False,
-    '.max_gs_up':False,
-    '.chx_robot_not_allowed':False,
-    '.chx_pressure_error':False,
-    '.chx_nsense_adv':False,
-    '.chx_nsense_ret':False,
-    '.chx_alarm':False,
-    '.chx_not_available':False,
-# //Tags
-    '.pause_auto':False,
-    '.last_auto':False,
-    '.pause_semi':False,
-    '.CH1_DISABLE':False,
-    '.CH2_DISABLE':False,
-    '.CH3_DISABLE':False,
-    '.CH4_DISABLE':False,
-    '.MA1_DISABLE':False,
-    '.MA2_DISABLE':False,
-}
 # -------------------------------------------------------------------------------------------- #
 # ------------------------------ PLC DIRECCIONAMIENTOS --------------------------------------- #
 # -------------------------------------------------------------------------------------------- #
@@ -596,7 +427,6 @@ MSG_ERROR_DIRECTIONS = [
 
 ]
 
-
 TAGS_DIRECTIONS = [
     '.step_auto',
     '.pause_auto',
@@ -605,7 +435,9 @@ TAGS_DIRECTIONS = [
     '.step_semi',
 ]
 
-#error messages
+# -------------------------------------------------------------------------------------------- #
+# ----------------------------- ERROR MESSAGES LEYENDS --------------------------------------- #
+# -------------------------------------------------------------------------------------------- #
 
 MSG_ERROR_CODIFICATION = {
 
@@ -684,23 +516,4 @@ MESA = {
     'mesa_1' : 1,
     'mesa_2' : 2,
     'mesa_current_selected': 0,
-}
-
-
-# -------------------------------------------------------------------------------------------- #
-# ----------------------------------- ROUTING PROGRAM ---------------------------------------- #
-# -------------------------------------------------------------------------------------------- #
-
-
-M_PROGS_SEMIAUTO = {
-    'M_PRG_AUT_SEMI' : False,
-    'M_PRG_30_40' : False,
-    'M_PRG_CAS' : False,
-    'M_PRG_BIT0_CH': False,
-    'M_PRG_BIT1_CH': False,
-    'M_PRG_PAL': False,
-    'M_PRG_DRW': False,
-    'M_PRG_MA': False,
-    'M_PRG_GET_PUT': False,
-    'M_PRG_MA_CH': False,
 }

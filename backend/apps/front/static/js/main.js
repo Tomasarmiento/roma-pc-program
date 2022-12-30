@@ -24,18 +24,15 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
 
 
   socket.onmessage = function (event) {
-    var present_error = false
-    
-
+    // var start = Date.now();
     const datosWs = JSON.parse(event.data);
-    console.log(datosWs.plc_sensors[".init_error"]);
-    // console.log(datosWs.mensajes_log[0]);
-    // if (datosWs.mensajes_log[0] == "error emergencia activa") {
-    //   console.log('es igual');
-      
-    // }
+    console.log(datosWs);
+    var present_error = false
     const hash_manual = document.getElementById("manual_hash")
+    error_hash = document.getElementById("errores_hash")
 
+
+    //hash disable manual
     if (datosWs.plc_sensors[".pause_auto"] == true && datosWs.plc_sensors[".pause_semi"] == true){
       hash_manual.className = "nav-link"
     }
@@ -43,22 +40,23 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
       hash_manual.className = "nav-link disabled"
     }
 
-    step = document.getElementById("errores_hash")
-      for (let i = 0; i <= datosWs.mensajes_log.length-1;i++){
-          // console.log(datosWs.mensajes_log[i].length);
-          if (datosWs.mensajes_log[i].length > 0) {
-            step.style.color = "red"
-            present_error = true
-          } else {
-            // step.style.color = ""
-          }
+
+    //hash errores rojo
+    for (let i = 0; i <= datosWs.mensajes_log.length-1;i++){
+      // console.log(datosWs.mensajes_log[i].length);
+      if (datosWs.mensajes_log[i].length > 0) {
+        error_hash.style.color = "red"
+        present_error = true
+      } else {
+        // error_hash.style.color = ""
       }
+    }
 
-      if (present_error == false) {
-        step.style.color = ""
-      }
+    if (present_error == false) {
+      error_hash.style.color = ""
+    }
 
-
+    //mensajes
     if (document.getElementById("salidaDeTexto")) {
       if (datosWs.mensajes_log.length > 0) {
         listaMensajes = [];
@@ -83,6 +81,7 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
       };
     }
 
+    //pasa datos WS a las funciones para usar en los hash
     switch (window.location.pathname) {
       case "/semiAutomatico/":
         semiAutomatico(datosWs)
@@ -101,4 +100,6 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
         disable_ch(datosWs)
         break
     }
+    // var end = Date.now();
+    // console.log(`Execution time: ${end - start} ms`);
   };

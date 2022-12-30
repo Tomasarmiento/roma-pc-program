@@ -7,10 +7,7 @@ const btn_terminarOn = document.getElementById("terminarOn")
 const btn_terminarOff = document.getElementById("terminarOff")
 const btn_paso_paso = document.getElementById("buton_step")
 
-
-
-
-
+//envio de comandos al tocar botones
 reset_program.addEventListener("click", (e) => {
     menu = reset_program.getAttribute('menu');
     cmd = reset_program.getAttribute('cmd');
@@ -69,39 +66,20 @@ function sendCommandAuto(menu, cmd){
 });
 
 function auto_step(dataWs) {
-
-    // console.log(dataWs.plc_sensors[".init_error"]);
-    // automatic_leds = ["led-comenzar","led-detener","led-terminar","led-reset-program"]
-    const led_comenzar = document.getElementById("led-comenzar")
-    const led_detener = document.getElementById("led-detener")
-    const led_terminar = document.getElementById("led-terminar")
-    const led_reset_program = document.getElementById("led-reset-program")
-    const hash_manual = document.getElementById("manual_hash")
     const componentemonitorLastAuto = document.getElementById("componentemonitorLastAuto")
-
-    // if (dataWs.plc_sensors["R_O_AUT_SEM"] == true) {
-    //     document.body.style.backgroundColor = "grey"
-        
-    // } else {
-    //     document.body.style.backgroundColor = "rgb(113, 172, 121)"
-    // }
     let btns = document.getElementsByTagName('button');
+
+
+    //invalida botones si no esta en automatico
     for (let i = 1; i <= 6;i++){
-        // console.log(btns[i].disabled=false);
         if (dataWs.plc_sensors["R_O_AUT_SEM"] == true) {
-            // i.disabled = false;
-            // alert("Modo automatico desactivado")
-            // alertAuto++
             btns[i].disabled = true;
-            
         } else {
-            // i.disabled = true;
             btns[i].disabled = false;
         }
-    
     }
 
-    
+    //muestra leds de okuma seleccionado
     if (dataWs.plc_sensors["R_I_BIT0_CH"] == true && dataWs.plc_sensors["R_I_BIT1_CH"] == false) {
         see_state_sensor_automatic('okuma_2',true,true)
         see_state_sensor_automatic('okuma_1',false,true)
@@ -128,8 +106,8 @@ function auto_step(dataWs) {
     }
 
 
-    var flag = 1
     //invalida boton si esta en pausa y prende o apaga leds
+    var flag = 1
     if (dataWs.plc_sensors[".pause_auto"] == true){
         if (flag == 1) {
             document.getElementById("reset_program").disabled = false;
@@ -142,6 +120,7 @@ function auto_step(dataWs) {
         document.getElementById("buton_step").disabled = true;
     }
 
+    //cambia color ultima vuelta
     if (dataWs.plc_sensors[".last_auto"] == true){
         componentemonitorLastAuto.className = "col-md-12 card card-programa-active text-info mt-3 col-12  shadow rounded componentemonitorLastAuto"
     }
@@ -149,10 +128,12 @@ function auto_step(dataWs) {
         componentemonitorLastAuto.className = "col-md-12 card card-programa text-info mt-3 col-12  shadow rounded componentemonitorLastAuto"
     }
 
+    //cambio de color y seguimiento en pasos
     if (document.getElementById("contenedorEstadistica")) {
         var c = document.querySelectorAll("tbody tr")
         if (dataWs.plc_int_variables[".step_auto"] != 0) {
             if (c) {
+                //despinta todos los pasos
                 for (let i = 1; i <= c.length;i++){
                     step = document.getElementById("step-"+i)
                     step.style.backgroundColor = ""
@@ -160,26 +141,15 @@ function auto_step(dataWs) {
                 step = document.getElementById("step-"+dataWs.plc_int_variables[".step_auto"])
                 stepComponent = document.getElementById("componentemonitorStepAuto")
 
-                //pedido de paso
+                //scroll para los pasos
                 if (dataWs.plc_sensors[".pause_auto"] == false) {
                     if (dataWs.plc_int_variables[".step_auto"] != 1) {
                         var elm = document.getElementById("step-"+(dataWs.plc_int_variables[".step_auto"]-1));
                         elm.scrollIntoView(true);
                     }
                 }
-                //pedido de paso
 
-
-                // for (let i = 0; i <= dataWs.mensajes_log.length-1;i++){
-                //     // console.log(dataWs.mensajes_log[i].length);
-                //     if (dataWs.mensajes_log[i].length > 0) {
-                //         step.style.backgroundColor = "red"
-                //     } else {
-                //     }
-                // }
-                // dataWs.plc_sensors[".init_error"] = false
-                // dataWs.plc_sensors[".pause_auto"] = false
-                // console.log(dataWs.plc_sensors[".init_error"]);
+                //color de los pasos y monitor
                 if (dataWs.plc_sensors[".init_error"] == true) {
                     step.style.backgroundColor = "red"
                     stepComponent.style.borderColor = "red"

@@ -1,19 +1,6 @@
 
 window.addEventListener("DOMContentLoaded", () => {
    (window.location.hash);
-   //BOTONES
-   const btn_move_table1 = document.querySelector("#move_table_1")
-   //TEXTOS QUE CAMBIAN RUTINA MESA
-   const text_model_selected_mesa = document.querySelector("#text_model_selected_mesa")
-   const text_gripper_mesa = document.querySelector("#text_gripper_mesa")
-   const text_pos_mesa = document.querySelector("#text_position_mesa")
-   const text_take_put_mesa = document.querySelector("#text_take_put_mesa")
-   //TEXTOS QUE CAMBIAN RUTINA OKUMA
-   const text_model_selected_okuma = document.querySelector("#text_model_selected_okuma")
-   const text_gripper_okuma = document.querySelector("#text_gripper_okuma")
-   const text_pos_okuma = document.querySelector("#text_position_okuma")
-   const text_take_put_okuma = document.querySelector("#text_take_put_okuma")
-   const text_pallet_okuma = document.querySelector("#text_pallet_okuma")
    //VALOR DE LOS SELECT
    const model_value = document.getElementById('modelSelect')
    const gripper_value = document.getElementById('gripperSelect')
@@ -21,14 +8,10 @@ window.addEventListener("DOMContentLoaded", () => {
    const pos_value = document.querySelector('#pos_Select')
    const take_put_value = document.querySelector('#take_putSelect')
    const pos_casita_value = document.querySelector('#pos_casitaSelect')
-//    const pos_pallet_value = document.querySelector('#pos_palletSelect')
    //VARIABLES PARA ACTUALIZAR LOS MODELOS SELECCIONADOS LOCALES
    var current_pos_casita_value = ""
    var current_take_put_value = ""
-   //CONTENEDOR DE LOS VALORES QUE CAMBIAN DEPENDIENDO DE LA RUTINA
-   const pallet_selected_container = document.querySelector('#text_pallet_selected')
    //BOTON PARA ENVIAR COMANDO DE EJECUTAR RUTINA
-//    const btn_semiauto = document.getElementById('btn_semiauto_routine')
    const btn_semiauto_start = document.getElementById('btn_semiauto_routine')
    //BOTON PARA ENVIAR COMANDO DE DETENER RUTINA
    const btn_semiauto_stop = document.getElementById('btn_semiauto_routine_stop')
@@ -65,39 +48,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
     //reemplaza valores texto para seleccionar el modelo que habilita funciones
     model_value.addEventListener('change', function() {
-        // model_value_string = (model_value.value).toString()
-
-        // //inabilita selectores cuando se cambia de modelo
-        // if (model_value.value == "Mesa_1" || model_value.value == "Mesa_2") {
-        //     disableTxt("pos_casitaSelect",true)
-        //     disableTxt("pos_palletSelect",true)
-        //     text_model_selected_mesa.innerHTML = model_value_string
-
-        //     //reestablece los valores del mensaje de rutina
-        //     text_model_selected_okuma.innerHTML = "______"
-        //     text_gripper_okuma.innerHTML = "______"
-        //     text_pos_okuma.innerHTML = "______"
-        //     text_take_put_okuma.innerHTML = "______"
-        //     text_pallet_okuma.innerHTML = "______"
-        // }
-        // else{
-        //     disableTxt("posSelect",true)
-        //     text_model_selected_okuma.innerHTML = model_value_string
-
-        //     //reestablece los valores del mensaje de rutina
-        //     text_model_selected_mesa.innerHTML = "______"
-        //     text_gripper_mesa.innerHTML = "______"
-        //     text_pos_mesa.innerHTML = "______"
-        //     text_take_put_mesa.innerHTML = "______"
-        // }
-
-
-        // //reestablece valores de los select
-        // pos_value.value = "Posición"
-        // take_put_value.value = "Tomar/Dejar"
-        // pos_casita_value.value = "Posición Casita"
-        // pos_pallet_value.value = "Pallet"
-
         //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
         const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
         console.log(name_bit);
@@ -106,10 +56,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     pos_UpDownSelect.addEventListener('change', function() {
-        // position_value_string = (pos_value.value).toString()
-        // text_pos_mesa.innerHTML = position_value_string
-        // text_gripper_mesa.innerHTML = "Gripper 1" // pone como valor gripper 1 al seleccionar posicion de mesa xq siempre toma o deja con gripper 1
-
         //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
         const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
         console.log(name_bit);
@@ -118,10 +64,6 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     pos_value.addEventListener('change', function() {
-        // position_value_string = (pos_value.value).toString()
-        // text_pos_mesa.innerHTML = position_value_string
-        // text_gripper_mesa.innerHTML = "Gripper 1" // pone como valor gripper 1 al seleccionar posicion de mesa xq siempre toma o deja con gripper 1
-
         //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
         const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
         console.log(name_bit);
@@ -129,40 +71,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
     });
 
-
-    
-
     take_put_value.addEventListener('change', function() {
-        // take_put_value_string = (take_put_value.value).toString()
-        
-        // if (model_value.value == "Mesa_1" || model_value.value == "Mesa_2") {
-        //     text_model_selected_mesa.innerHTML = model_value_string
-        //     text_take_put_mesa.innerHTML = take_put_value_string
-        // }
-        // else{
-        //     text_model_selected_okuma.innerHTML = model_value_string
-        //     text_take_put_okuma.innerHTML = take_put_value_string
-        // }
-
-
-        // //actualiza el estado actual en una variable local
-        // current_take_put_value = take_put_value_string
-
-        // //modifica el texto de gripper dependiendo de que se va a hacer
-        // if ((current_take_put_value == "Tomar") && (current_pos_casita_value == "OP 30")) {
-        //     text_gripper_okuma.innerHTML = "Gripper 2"
-        // } 
-        // else if (current_take_put_value == "Dejar" && current_pos_casita_value == "OP 30") {
-        //     text_gripper_okuma.innerHTML = "Gripper 1"
-        // }
-        // else if (current_take_put_value == "Tomar" && current_pos_casita_value == "OP 40"){
-        //     text_gripper_okuma.innerHTML = "Gripper 1"
-        // }
-        // else if (current_take_put_value == "Dejar" && current_pos_casita_value == "OP 40"){
-        //     text_gripper_okuma.innerHTML = "Gripper 2"
-        // }
-
-
         //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
         const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
         console.log(name_bit);
@@ -170,52 +79,14 @@ window.addEventListener("DOMContentLoaded", () => {
     });
 
     pos_casita_value.addEventListener('change', function() {
-        // // console.log(pos_casita_value.value);
-        // position_value_string = (pos_casita_value.value).toString()
-        // text_pos_okuma.innerHTML = position_value_string
-        // //actualiza el estado actual en una variable local
-        // current_pos_casita_value = position_value_string
-        // //modifica el texto de gripper dependiendo de que se va a hacer        
-        // if (current_take_put_value == "Tomar" && current_pos_casita_value == "OP 30") {
-        //     text_gripper_okuma.innerHTML = "Gripper 2"
-        // } 
-        // else if (current_take_put_value == "Dejar" && current_pos_casita_value == "OP 30") {
-        //     text_gripper_okuma.innerHTML = "Gripper 1"
-        // }
-        // else if (current_take_put_value == "Tomar" && current_pos_casita_value == "OP 40"){
-        //     text_gripper_okuma.innerHTML = "Gripper 1"
-        // }
-        // else if (current_take_put_value == "Dejar" && current_pos_casita_value == "OP 40"){
-        //     text_gripper_okuma.innerHTML = "Gripper 2"
-        // }
-
         //manda comando al back con lo seleccionado y el menupara rutina de semiautomatico
         const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
         console.log(name_bit);
         sendCommandSemi("semi", name_bit)
     });
 
-    // pos_pallet_value.addEventListener('change', function() {
-    //     // pallet_value_string = (pos_pallet_value.value).toString()
-    //     // text_pallet_okuma.innerHTML = pallet_value_string
 
-    //     //manda comando al back con lo seleccionado y el menu para rutina de semiautomatico
-    //     const name_bit = this.options[this.selectedIndex].getAttribute("name_bit");
-    //     console.log(name_bit);
-    //     sendCommandSemi("semi", name_bit)
-
-    // });
-
-    // btn_semiauto.addEventListener('click', (e) => {
-    //     sendCommandSemi("semi","execute_routine")
-
-    // });
-    
-    // btn_semiauto_stop.addEventListener('click', (e) => {
-    //     sendCommandSemi("semi","stop_routine")
-    // });
-
-
+    //manda comandos cuando se aprieta boton
     btn_semiauto_start.addEventListener("click", (e) => {
         menu = btn_semiauto_start.getAttribute('menu');
         cmd = btn_semiauto_start.getAttribute('cmd');
@@ -246,22 +117,7 @@ window.addEventListener("DOMContentLoaded", () => {
         sendCommandSemiButton(menu, cmd);
     });
 
-    // console.log('hola',conectionWs());
-    
-
-
-    // socket.onmessage = function (event) {
-    //     const datosWs2 = JSON.parse(event.data);
-    //     console.log(datosWs2);
-    //     // console.log('dentro de socket message');
-    // };
-
-
-    
-    
-
-    
-    
+  
     function sendCommandSemi(menu, name_bit){
         let url = "http://localhost:8000/control/semiautomatico/routine/";
         let params = "&menu=" + menu + "&name=" + name_bit;
@@ -297,13 +153,9 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 function semiAutomatico(dataWs) {
-    // console.log(dataWs);
     //CONTENEDORES DE LAS RUTINAS
     const routine_container_okuma = document.querySelector("#routine_container_okuma")
     const routine_container_mesa = document.querySelector("#routine_container_mesa")
-
-
-
     //TEXTOS QUE CAMBIAN RUTINA MESA
     const text_model_selected_mesa = document.querySelector("#text_model_selected_mesa")
     const text_gripper_mesa = document.querySelector("#text_gripper_mesa")
@@ -316,40 +168,23 @@ function semiAutomatico(dataWs) {
     const text_pos_okuma = document.querySelector("#text_position_okuma")
     const text_take_put_okuma = document.querySelector("#text_take_put_okuma")
     const text_pallet_okuma = document.querySelector("#text_pallet_okuma")
-    //LEDS BOTONES RUTINAS
-    const led_comenzar_semi = document.getElementById("led-comenzar-semi")
-    const led_detener_semi = document.getElementById("led-detener-semi")
 
 
 
-
+    //invalida botones si no esta en semiautomatico
     let btns = document.getElementsByTagName('button');
     for (let i = 1; i <= btns.length-1;i++){
-        // console.log(btns[i]);
-        // console.log(btns[i].disabled=false);
         if (dataWs.plc_sensors["R_O_AUT_SEM"] == false) {
-            // i.disabled = false;
-            // alert("Modo automatico desactivado")
-            // alertAuto++
             btns[i].disabled = true
-            
         } else {
-            // i.disabled = true;
             btns[i].disabled = false;
         }
     
     }
 
-    // if (dataWs.plc_sensors["R_O_AUT_SEM"] == true) {
-    //     document.body.style.backgroundColor = "rgb(61, 146, 73)"
-        
-    // } else {
-    //     document.body.style.backgroundColor = "grey"
-    // }
+    //activa botones si esta en pausa y semi
     var flag = 1
     if (dataWs.plc_sensors[".pause_semi"] == true && dataWs.plc_sensors["R_O_AUT_SEM"] == true){
-        // led_detener_semi.className = "led led-red mb-4";
-        // led_comenzar_semi.className = "led led-grey mb-4";
         if (flag == 1) {
             document.getElementById("btn_semiauto_reset_program").disabled = false;
             document.getElementById("btn_semiauto_step").disabled = false;
@@ -357,35 +192,35 @@ function semiAutomatico(dataWs) {
         }
     }
     else {
-        // led_detener_semi.className = "led led-grey mb-4";
-        // led_comenzar_semi.className = "led led-green mb-4";
         document.getElementById("btn_semiauto_reset_program").disabled = true;
         document.getElementById("btn_semiauto_step").disabled = true;
     }
 
+
+    //interacciones con el monitor
     if (document.getElementById("contenedorEstadistica")) {
         var a = document.getElementById("contenedorEstadistica")
         var c = a.querySelectorAll("tbody tr")
         if (dataWs.plc_int_variables[".step_semi"] != 0) {
             if (c) {
+                //despinta todos los pasos
                 for (let i = 1; i <= c.length;i++){
                     step = document.getElementById("step-"+i)
                     if (step) {
                         step.style.backgroundColor = ""
                     }
-                    // console.log(step);
                 }
                 step = document.getElementById("step-"+dataWs.plc_int_variables[".step_semi"])
                 stepComponent = document.getElementById("componentemonitorSemi")
-                //pedido de paso
+
+                //scroll a los pasos
                 if (dataWs.plc_sensors[".pause_semi"] == false) {
                     if (dataWs.plc_int_variables[".step_semi"] != 1) {
                         var elm = document.getElementById("step-"+(dataWs.plc_int_variables[".step_semi"]-1));
                         elm.scrollIntoView(true);
                     }
-                    
                 }
-                //pedido de paso
+                //cambia color de pasos
                 if (dataWs.plc_sensors[".init_error"] == true) {
                     step.style.backgroundColor = "red"
                     stepComponent.style.borderColor = "red"
@@ -403,10 +238,11 @@ function semiAutomatico(dataWs) {
         }
     }
     
-    // console.log(dataWs.plc_sensors.R_I_MA_CH);
+    //inhabilita y reestablece los selectores dependiendo que se elecciona
     if (dataWs.plc_sensors.R_I_MA_CH == true) {
         routine_container_mesa.className = "sub_routine_container_class block_sub_routine_container_class"
         routine_container_okuma.className = "sub_routine_container_class"
+        //reestablece los valores del mensaje de rutina
         text_model_selected_mesa.innerHTML = "______"
         text_pos_up_down_mesa.innerHTML = "______"
         text_gripper_mesa.innerHTML = "______"

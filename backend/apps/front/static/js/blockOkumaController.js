@@ -7,11 +7,8 @@ window.addEventListener("DOMContentLoaded", () => {
     const btn_ch3_disable = document.getElementById("btn_ch3_disable")
     const btn_ch4_disable = document.getElementById("btn_ch4_disable")
 
-    
 
-    
-    
-
+    //deshabilita okuma o mesa
     btn_me1_disable.addEventListener("click", (e) => {
         menu = btn_me1_disable.getAttribute('menu');
         cmd = btn_me1_disable.getAttribute('cmd');
@@ -63,7 +60,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 function disable_ch(dataWs) {
 
-    console.log(dataWs.plc_sensors[".CH1_DISABLE"],dataWs.plc_sensors[".CH2_DISABLE"],dataWs.plc_sensors[".CH3_DISABLE"],dataWs.plc_sensors[".CH4_DISABLE"],dataWs.plc_sensors[".MA1_DISABLE"]);
+    //muestra cual esta desabilitado
 
     //BLOQUES DE HABILITACION PARA OKUMAS
     const cuadrado_mesa1 = document.getElementById("cuadrado_mesa1")

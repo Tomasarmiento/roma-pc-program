@@ -30,26 +30,3 @@ class ControlConfig(AppConfig):
         # functions.obtain_token_plc()
         functions.FrontWs().start()
         # RoutineHandler().start()
-
-
-    # def ready(self) -> None:
-    #     start_thread = True
-
-
- 
-        # if start_thread == True:
-        #     dequeAB = deque()
-        #     readThread = threading.Thread(target=functions.threadA, args=(dequeAB,), daemon=True)
-        #     print("dentro de ready")
-        #     try:
-        #         readThread.start()
-        #         variables.count += 1
-        #         start_thread = False
-        #     except (KeyboardInterrupt, SystemExit):
-        #         print("except")
-        #         readThread.join()
-        # print("------------")
-        # print("------------")
-        # print("el count es",variables.count)
-        # functions.FrontWs().start()
-        # functions.FrontWs()

@@ -19,7 +19,7 @@ from apps.ws.models import ChannelInfo
 from apps.ws.utils import variables as ws_vars
 from apps.ws.utils.functions import send_front_message
 from apps.parameters.utils import variables as param_vars
-from apps.control.utils.functions import derived_sensores_states,switch_led_state_off,sensores_states_plc,update_msg_error
+from apps.control.utils.functions import derived_sensores_states,update_msg_error
 from apps.control.utils import variables as control_vars
 from apps.control.utils import routines as ctrl_rtns
 
