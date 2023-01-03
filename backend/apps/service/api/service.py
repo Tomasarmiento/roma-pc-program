@@ -26,22 +26,22 @@ data = {
     }
 
 
-async def service():
-    django.setup()
-    loop = asyncio.get_running_loop()
-    asyncio.set_event_loop(loop)
-    # loop.create_connection('ws://127.0.0.1:8000/ws/front/')
-    loop.run_until_complete(service2(),('ws://127.0.0.1:8000/ws/front/'))
-    try:
-        while True:
-            await asyncio.sleep(3600)
-            print("dentro de true")
-    finally:
-         print('finally')
+# async def service():
+#     django.setup()
+#     loop = asyncio.get_running_loop()
+#     asyncio.set_event_loop(loop)
+#     # loop.create_connection('ws://127.0.0.1:8000/ws/front/')
+#     loop.run_until_complete(service2(),('ws://127.0.0.1:8000/ws/front/'))
+#     try:
+#         while True:
+#             await asyncio.sleep(3600)
+#             print("dentro de true")
+#     finally:
+#          print('finally')
 
-def service2():
-        print("dentro de while")
-        send_front_message(data)
+# def service2():
+#         print("dentro de while")
+#         send_front_message(data)
 
 
 # async def service():

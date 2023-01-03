@@ -25,7 +25,7 @@ class ControlConfig(AppConfig):
 
     def ready(self) -> None:
         print('start')
-        OPC_variables.CLIENT.connect()
+        # OPC_variables.CLIENT.connect()
         ws_vars.WEBSOCKET = True
         # functions.obtain_token_plc()
         functions.FrontWs().start()

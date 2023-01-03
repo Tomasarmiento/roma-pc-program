@@ -115,6 +115,13 @@ def obtain_token_plc():
 def update_step_routine():
     OPCProtocol().read_input_value('ns=3;s="tags"."ints"', False) #poner ruta del array step
 
+
+#funcion para updatear estados de sensores
+def update_state_routine():
+    OPCProtocol().read_input_value('ns=3;s="tags"."ints"', False) #poner ruta del array step
+    OPCProtocol().read_input_value('ns=3;s="tags"."data"', True)
+
+
 #thread para pedir array con valor de sensores y mandar al front(se inicia en apps)
 class FrontWs(threading.Thread):
 
@@ -124,27 +131,16 @@ class FrontWs(threading.Thread):
     
     def run(self):
         while True:
+            print("while plc")
             inicio = time.time()
-            if ws_vars.WEBSOCKET == True:
+            if ws_vars.WEBSOCKET == True: #PROBAR. en caso de querer que no pare de pedir al tocar un boton reemplazar if por while y comentar en donde se baje este flag(neumatica) para que siempre se quede en el while
 
-                OPCProtocol().read_input_value('ns=3;s="tags"."data"', True)
-                update_step_routine()
+                # update_state_routine()
+
+                # print("pido datos al plc")
                 
-                data = {
-                    # 'mesa_armado_1' : int(param_vars.PARAMS['mesa_armado_1']),
-                    # 'mesa_armado_2' : int(param_vars.PARAMS['mesa_armado_2']),
-                    # 'okuma_1' : int(param_vars.PARAMS['okuma_1']),
-                    # 'okuma_2' : int(param_vars.PARAMS['okuma_2']),
-                    # 'okuma_3' : int(param_vars.PARAMS['okuma_3']),
-                    # 'okuma_4' : int(param_vars.PARAMS['okuma_4']),
-                    'mensajes_log': ws_vars.frontState.log_messages,
-                    'plc_sensors': control_vars.PLC_DEFAULT_VARIABLES,
-                    'plc_int_variables':  control_vars.PLC_DEFAULT_VARIABLES_INT,
-                    'mensajes_error_log': ws_vars.frontState.err_messages,
-                }
 
-                send_front_message(data)
 
-                time.sleep(OPC_variables.REFRESH_TIME)
+                time.sleep(OPC_variables.REFRESH_REQUESTPLC_TIME)
             # delta = time.time() - inicio
             # print("el delta es",delta)
