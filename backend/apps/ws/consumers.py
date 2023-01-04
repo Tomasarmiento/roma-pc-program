@@ -35,24 +35,35 @@ class FrontConsumer(AsyncWebsocketConsumer):
 
 
     async def receive(self, text_data=None, bytes_data=None):
+        print("receive")
+        error_code = 4011
+        await asyncio.sleep(0.5)
         while ws_vars.WEBSOCKET_front == True:
             # print("while front")
-            await self.front_message({
-                "type": "websocket.send",
-                "data": {
-                    # 'mesa_armado_1' : int(param_vars.PARAMS['mesa_armado_1']),
-                    # 'mesa_armado_2' : int(param_vars.PARAMS['mesa_armado_2']),
-                    # 'okuma_1' : int(param_vars.PARAMS['okuma_1']),
-                    # 'okuma_2' : int(param_vars.PARAMS['okuma_2']),
-                    # 'okuma_3' : int(param_vars.PARAMS['okuma_3']),
-                    # 'okuma_4' : int(param_vars.PARAMS['okuma_4']),
-                    'mensajes_log': ws_vars.frontState.log_messages,
-                    'plc_sensors': control_vars.PLC_DEFAULT_VARIABLES,
-                    'plc_int_variables':  control_vars.PLC_DEFAULT_VARIABLES_INT,
-                    'mensajes_error_log': ws_vars.frontState.err_messages,
-                },
-            })
-            await asyncio.sleep(OPC_variables.REFRESH_SENDFRONTDATA_TIME)
+            # if ws_vars.WEBSOCKET_front == True:
+            try:
+                await self.front_message({
+                    "type": "websocket.send",
+                    "data": {
+                        # 'mesa_armado_1' : int(param_vars.PARAMS['mesa_armado_1']),
+                        # 'mesa_armado_2' : int(param_vars.PARAMS['mesa_armado_2']),
+                        # 'okuma_1' : int(param_vars.PARAMS['okuma_1']),
+                        # 'okuma_2' : int(param_vars.PARAMS['okuma_2']),
+                        # 'okuma_3' : int(param_vars.PARAMS['okuma_3']),
+                        # 'okuma_4' : int(param_vars.PARAMS['okuma_4']),
+                        'mensajes_log': ws_vars.frontState.log_messages,
+                        'plc_sensors': control_vars.PLC_DEFAULT_VARIABLES,
+                        'plc_int_variables':  control_vars.PLC_DEFAULT_VARIABLES_INT,
+                        'mensajes_error_log': ws_vars.frontState.err_messages,
+                    },
+                })
+                await asyncio.sleep(OPC_variables.REFRESH_SENDFRONTDATA_TIME)
+                await asyncio.sleep(0.05)
+            except:
+                await self.disconnected({'code': error_code})
+                await self.close(error_code)
+                raise
+
 
         print("la text data",text_data)
     

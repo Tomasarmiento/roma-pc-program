@@ -6,21 +6,54 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
         message: "datos",      
       })
     );
+    console.log("se crea");
   });
   
   // Escucha cierre de WebSocket
   socket.onclose = function (event) {
-      window.location.reload();
-    };
+    console.log("cierre de websockets");
+    // window.location.reload();
+  };
 
-    window.addEventListener("hashchange", () => {                  //cuando tocas f5
-      (window.location.hash);
+
+  
+  window.addEventListener("hashchange", () => {                  //cuando tocas f5
+    (window.location.hash);
+    // window.location.pathname = "/okuma_1_neumatic/"
   });
 
   window.addEventListener("DOMContentLoaded", () => {                         //todo el tiempo
     (window.location.hash);
+    console.log('changed hash');
     console.log("Enter main js");
+    sleepFor(200);
+
+    function sleepFor(sleepDuration){
+      var now = new Date().getTime();
+      while(new Date().getTime() < now + sleepDuration){ 
+          /* Do nothing */ 
+      }
+      sendCommandChangeModeRoutine("doom_loaded")
+
+    }
+
+
   });
+
+  function sendCommandChangeModeRoutine(hash_routine_change){
+    let url = "http://localhost:8000/control/index_change/";
+    let params = "&hash_routine_change=" + hash_routine_change;
+    console.log('send command hash routine');
+
+    // var params = "lorem=ipsum&name=alpha";
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST", url, true);
+
+    //Send the proper header information along with the request
+    xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+
+    xhr.send(params);
+  }
 
 
   socket.onmessage = function (event) {

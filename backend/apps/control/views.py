@@ -19,7 +19,7 @@ from django.shortcuts import redirect
 
 
 from apps.ws.utils.functions import send_front_message
-from apps.ws.utils.variables import frontState,WEBSOCKET
+from apps.ws.utils.variables import frontState,WEBSOCKET,WEBSOCKET_front
 from apps.service.api.protocols import OPCProtocol
 
 
@@ -832,6 +832,11 @@ def cmd_disable_okuma(request):
 #MANDA MENSAJE AL CAMBIAR DE MODO DE OPERACION AL CAMBIAR EN EL INDEX
 @csrf_exempt
 def index_change(request):
+    from apps.ws.utils import variables as ws_vars
+
+    ws_vars.WEBSOCKET_front = False
+
+    print("manda la posti")
 
     post_req = request.POST
     print("la post",post_req)
@@ -856,10 +861,14 @@ def index_change(request):
         bool_value_1 = True
         OPCProtocol().write_value_bool(f'ns=3;s="{name[0]}"',bool_value_1)
         # send_message_semi("M_PRG_AUT_SEM", True)
+    
+    elif hash_routine_change == "doom_loaded":
+        ws_vars.WEBSOCKET_front = True
 
     # send_message_semi(hash_routine_change, true)
 
     # print(request)
     # print('dentro de  index_change')
+    
     return JsonResponse({})
 

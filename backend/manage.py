@@ -26,7 +26,7 @@ def main():
 if __name__ == '__main__':
     def signal_handler(signal, frame):
         ws_vars.WEBSOCKET = False
-        OPC_variables.CLIENT.disconnect()
+        # OPC_variables.CLIENT.disconnect()
         print("\nprogram exiting gracefully")
         sys.exit(0)
         

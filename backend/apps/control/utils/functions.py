@@ -131,9 +131,9 @@ class FrontWs(threading.Thread):
     
     def run(self):
         while True:
-            print("while plc")
+            # print("while plc")
             inicio = time.time()
-            if ws_vars.WEBSOCKET == True: #PROBAR. en caso de querer que no pare de pedir al tocar un boton reemplazar if por while y comentar en donde se baje este flag(neumatica) para que siempre se quede en el while
+            if ws_vars.WEBSOCKET == True: #PROBAR PARA QUE NO QUEDE TRABADO EN WHILE. en caso de querer que no pare de pedir al tocar un boton reemplazar if por while y comentar en donde se baje este flag(neumatica) para que siempre se quede en el while
 
                 # update_state_routine()
 
