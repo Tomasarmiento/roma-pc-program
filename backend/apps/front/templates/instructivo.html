@@ -1,0 +1,23 @@
+{% extends 'index.html'%}
+{% load static %}
+{% block content %}
+
+<!-- <div>
+    <video src="../videos/Instructivo automatico robot.mp4" autoplay="true" muted="true" loop="true" type="video/mp4"></video>
+</div> -->
+<div class="text-align center py-3" style="text-align: center;">
+    <!-- <h1>holas</h1> -->
+    <video width="640px" height="800" controls>
+        <source src="{% static 'videos/Instructivo automatico robot.mp4' %}" type="video/mp4">
+    </video>
+    <iframe src="{% static 'videos/MANUAL-DE-USO-rev01.pdf' %}" height="800px" width="40%">
+</div>
+<!-- <div class="text-align center" style="text-align: center;">
+</div> -->
+
+
+
+
+
+
+{% endblock %}
