@@ -16,4 +16,5 @@ urlpatterns = [
     path('automatico/', views.automatico, name="automatico"),
     path('error/', views.error, name="error"),
     path('desactivar_okuma/', views.desactivar_okuma, name="desactivar_okuma"),
+    path('instructivo/', views.instructivo, name="instructivo"),
 ]

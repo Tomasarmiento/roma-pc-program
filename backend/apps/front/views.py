@@ -47,3 +47,6 @@ def error(request):
 
 def desactivar_okuma(request):
     return render(request, "desactivar_okuma.html")
+
+def instructivo(request):
+    return render(request, "instructivo.html")

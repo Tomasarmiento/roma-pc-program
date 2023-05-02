@@ -38,6 +38,9 @@
               <li class="nav-item">
                 <a id="errores_hash" class="nav-link" href="{% url 'error' %}">Errores</a>
               </li>
+              <li class="nav-item">
+                <a id="instructivo" class="nav-link" href="{% url 'instructivo' %}">Instructivo</a>
+              </li>
               {% if user.is_authenticated %}
               <li class="nav-item">
                 <a class="nav-link" id="logout" href="{% url 'logout' %}">Logout</a>
