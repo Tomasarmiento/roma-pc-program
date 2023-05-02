@@ -421,7 +421,7 @@ class ManualPneumatic(View):
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
             
-        if menu == 'okuma1':
+        elif menu == 'okuma1':
 
             if name == 'inflador':
                 name_routine = ['Man_CH1_NFA','Man_CH1_NFR']
@@ -503,6 +503,96 @@ class ManualPneumatic(View):
 
             elif name == 'desclampeo40':
                 name_routine = ['Man_CH1_INF40']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+
+        elif menu == 'okuma2':
+
+            if name == 'inflador':
+                name_routine = ['Man_CH2_NFA','Man_CH2_NFR']
+                if btn == 'On':
+                    bool_value_1  = True
+                    bool_value_2  = False
+                
+                else:
+                    bool_value_1  = False
+                    bool_value_2  = True
+
+                for n in range(0,len(name_routine)):
+                    OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[n]}"',locals()[f"bool_value_{n+1}"])
+                    
+
+            elif name == 'garra':
+                name_routine = ['Man_CH2_NC']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+
+                inicio = time.time()
+                # OPCProtocol().read_input_value('ns=3;s="Man_CH1_NC"')
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+                delta = time.time() - inicio
+                print(delta)
+
+            elif name == 'booster':
+                name_routine = ['Man_CH2_BOO']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+            
+            elif name == 'venturi_up':
+                name_routine = ['Man_CH2_BLWUP']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+
+            elif name == 'venturi_down':
+                name_routine = ['Man_CH2_BLWDN']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+
+            elif name == 'soplador':
+                name_routine = ['Man_CH2_BLW']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+            
+            elif name == 'desclampeo30':
+                name_routine = ['Man_CH2_INF30']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+
+            elif name == 'desclampeo40':
+                name_routine = ['Man_CH2_INF40']
                 if btn == 'On':
                     bool_value_1  = True
                 

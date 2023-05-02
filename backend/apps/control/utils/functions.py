@@ -127,8 +127,8 @@ class FrontWs(threading.Thread):
             inicio = time.time()
             if ws_vars.WEBSOCKET == True:
 
-                OPCProtocol().read_input_value('ns=3;s="tags"."data"', True)
-                update_step_routine()
+                # OPCProtocol().read_input_value('ns=3;s="tags"."data"', True)
+                # update_step_routine()
                 
                 data = {
                     # 'mesa_armado_1' : int(param_vars.PARAMS['mesa_armado_1']),
