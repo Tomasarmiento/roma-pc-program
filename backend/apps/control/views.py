@@ -601,6 +601,96 @@ class ManualPneumatic(View):
                 
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
         
+        elif menu == 'okuma3':
+
+            if name == 'inflador':
+                name_routine = ['Man_CH3_NFA','Man_CH3_NFR']
+                if btn == 'On':
+                    bool_value_1  = True
+                    bool_value_2  = False
+                
+                else:
+                    bool_value_1  = False
+                    bool_value_2  = True
+
+                for n in range(0,len(name_routine)):
+                    OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[n]}"',locals()[f"bool_value_{n+1}"])
+                    
+
+            elif name == 'garra':
+                name_routine = ['Man_CH3_NC']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+
+                inicio = time.time()
+                # OPCProtocol().read_input_value('ns=3;s="Man_CH1_NC"')
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+                delta = time.time() - inicio
+                print(delta)
+
+            elif name == 'booster':
+                name_routine = ['Man_CH2_BOO']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+            
+            elif name == 'venturi_up':
+                name_routine = ['Man_CH2_BLWUP']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+
+            elif name == 'venturi_down':
+                name_routine = ['Man_CH3_BLWDN']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+
+            elif name == 'soplador':
+                name_routine = ['Man_CH3_BLW']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+            
+            elif name == 'desclampeo30':
+                name_routine = ['Man_CH3_INF30']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+
+            elif name == 'desclampeo40':
+                name_routine = ['Man_CH3_INF40']
+                if btn == 'On':
+                    bool_value_1  = True
+                
+                else:
+                    bool_value_1  = False
+                
+                OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
+        
         ws_vars.WEBSOCKET = True
 
         
@@ -946,6 +1036,12 @@ def index_change(request):
         bool_value_1 = True
         OPCProtocol().write_value_bool(f'ns=3;s="{name[0]}"',bool_value_1)
         # send_message_semi("M_PRG_AUT_SEM", True)
+        
+    elif hash_routine_change == "manual_routine_change":
+        name = ["reset_auto"]
+        bool_value_1 = True
+        OPCProtocol().write_value_bool(f'ns=3;s="tags"."{name[0]}"',bool_value_1)
+     
 
     # send_message_semi(hash_routine_change, true)
 

@@ -90,6 +90,9 @@ const socket = new WebSocket("ws://127.0.0.1:8000/ws/front/");//"ws://127.0.0.1:
       case "/okuma_1_neumatic/":
         sensores(datosWs)
         break
+      case "/okuma_2_neumatic/":
+        sensores(datosWs)
+        break
       case "/mesa_1_neumatic/":
         sensores(datosWs)
         break
