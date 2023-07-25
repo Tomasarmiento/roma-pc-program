@@ -18,7 +18,7 @@ window.addEventListener("DOMContentLoaded", () => {
     hash_manual.addEventListener('click', (e) => {
         if (confirm(`Al pasar al modo manual el modo automatico volvera al paso 0, DESEA CONTINUAR?`)) {
             sendCommandChangeModeRoutine("manual_routine_change")
-            window.location.href="http://localhost:8000/okuma_1_neumatic/";
+            window.location.href="http://localhost:8000/neumatic_index/";
         }
         else {
             console.log("Cancelled");

@@ -632,7 +632,7 @@ class ManualPneumatic(View):
                 print(delta)
 
             elif name == 'booster':
-                name_routine = ['Man_CH2_BOO']
+                name_routine = ['Man_CH3_BOO']
                 if btn == 'On':
                     bool_value_1  = True
                 
@@ -642,7 +642,7 @@ class ManualPneumatic(View):
                 OPCProtocol().write_value_bool(f'ns=3;s="{name_routine[0]}"',bool_value_1)
             
             elif name == 'venturi_up':
-                name_routine = ['Man_CH2_BLWUP']
+                name_routine = ['Man_CH3_BLWUP']
                 if btn == 'On':
                     bool_value_1  = True
                 
